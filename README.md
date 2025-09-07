@@ -1,4 +1,4 @@
-# PortfoliYOU Website 🚀
+# PortfoliYOU Website 
 
 > **A Portfolio for you, by you.**
 
@@ -9,23 +9,23 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.x-38B2AC)
 
-## 📋 About
+## About
 
 This repository contains the **marketing website** for PortfoliYOU - a landing page that introduces users to the platform and provides information about the upcoming portfolio creation tool.
 
-### 🔗 Related Repositories
+### Related Repositories
 - **[PortfoliYOU App](https://github.com/snxethan/PortfoliYOU-APP)** - The main application for creating portfolios
 - **PortfoliYOU Website** (this repo) - Marketing/landing page
 
-## ✨ Features
+## Features
 
-- 🎨 **Modern Design** - Clean, responsive interface with smooth animations
-- ⚡ **Fast Performance** - Built with Next.js 15 and Turbopack for optimal speed
-- 📱 **Mobile-First** - Fully responsive design that works on all devices
-- 🔒 **Privacy-Focused** - Built with user privacy and security in mind
-- 🎯 **Coming Soon Page** - Engaging landing page with development updates
+- **Modern Design** - Clean, responsive interface with smooth animations
+- **Fast Performance** - Built with Next.js 15 and Turbopack for optimal speed
+- **Mobile-First** - Fully responsive design that works on all devices
+- **Privacy-Focused** - Built with user privacy and security in mind
+- **Coming Soon Page** - Engaging landing page with development updates
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with Turbopack
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -34,7 +34,7 @@ This repository contains the **marketing website** for PortfoliYOU - a landing p
 - **Analytics**: [Vercel Analytics](https://vercel.com/analytics) & [Speed Insights](https://vercel.com/docs/speed-insights)
 - **Notifications**: [React Hot Toast](https://react-hot-toast.com/)
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -84,7 +84,7 @@ npm run start   # Start production server
 npm run lint    # Run ESLint for code quality
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -102,32 +102,13 @@ public/
 └── ...                   # Favicons and other assets
 ```
 
-## 🌐 Deployment
+## Deployment
 
 The easiest way to deploy this website is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
 For other deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
-## 🤝 Contributing
 
-We welcome contributions! This project is currently in active development. Please feel free to:
+## Author(s)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is private and proprietary. All rights reserved.
-
-## 📞 Contact
-
-**snxethan** - Project Maintainer
-
-- GitHub: [@snxethan](https://github.com/snxethan)
-
----
-
-⭐ **Star this repository if you find it helpful!**
+- [**Ethan Townsend (snxethan)**](https://www.ethantownsend.dev)

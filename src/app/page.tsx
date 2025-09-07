@@ -36,9 +36,10 @@ export default function PortfoliYouPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] lg:min-h-screen overflow-hidden pt-16 lg:pt-0">
+    <div className="flex flex-col  lg:min-h-screen overflow-hidden pt-11 lg:pt-5">
           <Navbar />
-          {/* Disclaimer: compact → expands in place */}
+          {/* Spacer for Navbar height */}
+          <div className="w-full"></div>
           {/* Disclaimer: compact → expands in place, sticky/fixed */}
           <div
             className="fixed z-50"

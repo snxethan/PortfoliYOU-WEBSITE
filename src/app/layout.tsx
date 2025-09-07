@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   openGraph: {
     title: "Portfoli-YOU",
-    description: "A portfolio for you, by you. Design, customize, and share in minutes.",
-    url: "https://portfoli-you.snxethan.dev",
+    description: "A portfolio for you, by you..",
+    url: "https://portfoliyou.snxethan.dev",
     siteName: "Portfoli-YOU",
     images: [
       {
         // replace if you host the OG elsewhere
-        url: "https://www.snxethan.dev/images/portfoliyou/portfoliyou.png",
+        url: "https://portfoliyou.snxethan.dev/images/icon/portfoliyou.png",
         width: 1200,
         height: 630,
         alt: "Portfoli-YOU preview",
