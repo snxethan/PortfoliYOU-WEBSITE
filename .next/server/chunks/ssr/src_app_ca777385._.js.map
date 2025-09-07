@@ -1,1 +1,6 @@
-{"version":3,"sources":["turbopack:///[project]/src/app/favicon.ico.mjs (structured image object)"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 48, height: 48 }\n"],"names":[],"mappings":"+HACe,CAAE,IADjB,AACiB,EADjB,CAAA,CAAA,OACiB,OAAG,CAAE,MAAO,GAAI,OAAQ,EAAG"}
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/runner/work/PortfoliYOU-WEBSITE/PortfoliYOU-WEBSITE/src/app/favicon.ico.mjs%20%28structured%20image%20object%29"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 48, height: 48 }\n"],"names":[],"mappings":";;;;AAAA;;uCACe;IAAE,KAAA,yHAAG;IAAE,OAAO;IAAI,QAAQ;AAAG","debugId":null}}]
+}
