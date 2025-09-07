@@ -15,7 +15,7 @@ export default function Navbar() {
             Portfoli-YOU
           </Link>
           <span
-            className={`text-base font-semibold select-none transition ${pathname === "/installer" ? "text-red-500" : "text-gray-400 opacity-50 cursor-not-allowed"}`}
+            className={`text-base font-semibold select-none transition ${pathname === "/download" ? "text-red-500" : "text-gray-400 opacity-50 cursor-not-allowed"}`}
           >
             Installer
           </span>
