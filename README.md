@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PortfoliYOU Website 🚀
 
-## Getting Started
+> **A Portfolio for you, by you.**
 
-First, run the development server:
+**PortfoliYOU** is a modern portfolio creation platform that empowers users to build stunning, personalized digital portfolios showcasing their unique talents and achievements - no coding experience required.
+
+![Development Status](https://img.shields.io/badge/Status-In%20Development-orange)
+![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.x-38B2AC)
+
+## 📋 About
+
+This repository contains the **marketing website** for PortfoliYOU - a landing page that introduces users to the platform and provides information about the upcoming portfolio creation tool.
+
+### 🔗 Related Repositories
+- **[PortfoliYOU App](https://github.com/snxethan/PortfoliYOU-APP)** - The main application for creating portfolios
+- **PortfoliYOU Website** (this repo) - Marketing/landing page
+
+## ✨ Features
+
+- 🎨 **Modern Design** - Clean, responsive interface with smooth animations
+- ⚡ **Fast Performance** - Built with Next.js 15 and Turbopack for optimal speed
+- 📱 **Mobile-First** - Fully responsive design that works on all devices
+- 🔒 **Privacy-Focused** - Built with user privacy and security in mind
+- 🎯 **Coming Soon Page** - Engaging landing page with development updates
+
+## 🛠️ Technology Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) with Turbopack
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) & [Lucide React](https://lucide.dev/)
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics) & [Speed Insights](https://vercel.com/docs/speed-insights)
+- **Notifications**: [React Hot Toast](https://react-hot-toast.com/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/snxethan/PortfoliYOU-WEBSITE.git
+   cd PortfoliYOU-WEBSITE
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
+
+### 🔧 Available Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # Start development server with Turbopack
+npm run build   # Build for production with Turbopack
+npm run start   # Start production server
+npm run lint    # Run ESLint for code quality
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── components/        # Reusable UI components
+│   │   ├── pages/        # Page-specific components
+│   │   ├── ContactFormModal.tsx
+│   │   ├── PDFModalViewer.tsx
+│   │   └── ...
+│   ├── download/         # Download page
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Homepage
+public/
+├── images/               # Static images
+└── ...                   # Favicons and other assets
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌐 Deployment
 
-## Learn More
+The easiest way to deploy this website is using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-To learn more about Next.js, take a look at the following resources:
+For other deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We welcome contributions! This project is currently in active development. Please feel free to:
 
-## Deploy on Vercel
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is private and proprietary. All rights reserved.
+
+## 📞 Contact
+
+**snxethan** - Project Maintainer
+
+- GitHub: [@snxethan](https://github.com/snxethan)
+
+---
+
+⭐ **Star this repository if you find it helpful!**
