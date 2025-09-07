@@ -153,7 +153,7 @@ export default function PortfoliYouPage() {
             </TooltipWrapper>
              <TooltipWrapper label="https://github.com/snxethan/PortfoliYOU-WEBSITE">
               <button
-                onClick={() => handleExternalClick("https://github.com/snxethan/Portfoli", true)}
+                onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-WEBSITE", true)}
                 className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm lg:text-base"
               >
                 <FaGithub />
