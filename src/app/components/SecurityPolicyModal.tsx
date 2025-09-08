@@ -81,19 +81,24 @@ return (
             <div className="flex items-center gap-3 mb-4">
               <FaUserShield className="text-red-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
-                Data Protection
+                Data Protection & Portfolio Privacy
               </h2>
             </div>
             <div className="text-gray-300 space-y-2">
               <p>
-                This website prioritizes your privacy and data protection:
+                Portfoli-YOU is designed to respect your privacy and empower you to control your own data:
               </p>
               <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>No personal information is collected or stored</li>
-                <li>Analytics are anonymized for performance monitoring only</li>
-                <li>No tracking cookies are used without explicit consent</li>
-                <li>Data is transmitted securely using HTTPS</li>
+                <li>No personal information is collected or stored by default</li>
+                <li>Your portfolio data is only visible to others if you choose to publish or share it</li>
+                <li>All analytics are anonymized and used solely to improve performance and reliability</li>
+                <li>No tracking cookies or third-party trackers are used without explicit consent</li>
+                <li>All data transmission is encrypted using HTTPS</li>
+                <li>Portfoli-YOU is open-source: you can review, audit, and contribute to the codebase</li>
               </ul>
+              <p className="mt-2 text-sm text-gray-400">
+                For more details, see the <a href="https://portfoliyou.snxethan.dev/about" target="_blank" rel="noopener noreferrer" className="underline text-red-400">About page</a>.
+              </p>
             </div>
           </section>
 
@@ -117,7 +122,7 @@ return (
             </div>
           </section>
 
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+          {/* <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
             <div className="flex items-center gap-3 mb-4">
               <FaCookie className="text-red-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
@@ -135,7 +140,7 @@ return (
                 <li>You can disable cookies in your browser settings</li>
               </ul>
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
       {showContact && <ContactFormModal onClose={() => setShowContact(false)} />}
