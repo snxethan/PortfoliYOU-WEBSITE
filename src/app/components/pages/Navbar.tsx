@@ -10,9 +10,9 @@ export default function Navbar() {
         <div className="flex items-center justify-center w-full text-center">
           <div className="flex-1 max-w-xs flex justify-end">
             <button
+              onClick={() => window.location.href = '/download'}
               disabled
-              className={`text-2xl font-bold select-none transition cursor-not-allowed text-gray-400 bg-transparent border-none p-0 m-0 ${pathname === "/download" ? "text-red-500" : ""}`}
-              tabIndex={-1}
+              className={`text-2xl font-bold select-none cursor-not-allowed transition text-gray-400 bg-transparent border-none p-0 m-0 ${pathname === "/download" ? "text-red-500" : "" }`} //"hover:text-red-500
             >
               Install
             </button>
@@ -20,19 +20,18 @@ export default function Navbar() {
           <div className="flex-1 max-w-xs flex justify-center">
             <Link
               href="/"
-              className={`text-2xl font-bold transition ${pathname === "/" ? "text-red-500" : "text-gray-400 hover:text-red-400"}`}
+              className={`text-2xl font-bold transition ${pathname === "/" ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
             >
               Portfoli-YOU
             </Link>
           </div>
           <div className="flex-1 max-w-xs flex justify-start">
-            <button
-              disabled
-              className={`text-2xl font-bold select-none transition cursor-not-allowed text-gray-400 bg-transparent border-none p-0 m-0 ${pathname === "/about" ? "text-red-500" : ""}`}
-              tabIndex={-1}
+            <Link
+              href="/about"
+              className={`text-2xl font-bold transition ${pathname === "/about" ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
             >
-              About
-            </button>
+              FAQs
+            </Link>
           </div>
         </div>
       </div>

@@ -9,45 +9,43 @@ import { Toaster } from "react-hot-toast"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Portfoli-YOU | Official Site",
-  description: "A portfolio for you, by you.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
+  title: "Portfoli-YOU",
+  description: "A Portfolio for you, by you.",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", type: "image/x-icon" },
+        { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      ],
+      apple: "/apple-touch-icon.png",
+    },
   manifest: "/site.webmanifest",
   openGraph: {
     title: "Portfoli-YOU",
-    description: "A portfolio for you, by you..",
+    description: "A Portfolio for you, by you.",
     url: "https://portfoliyou.snxethan.dev",
     siteName: "Portfoli-YOU",
     images: [
-      {
-        // replace if you host the OG elsewhere
-        url: "https://portfoliyou.snxethan.dev/images/icon/portfoliyou.png",
-        width: 1200,
-        height: 630,
-        alt: "Portfoli-YOU preview",
-      },
+        {
+          url: "/images/icon/portfoliyou.png",
+          width: 612,
+          height: 612,
+          alt: "Portfoli-YOU preview",
+        },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Portfoli-YOU",
-    description: "A portfolio for you, by you.",
-    images: ["https://www.snxethan.dev/images/portfoliyou/portfoliyou.png"],
+    description: "A Portfolio for you, by you.",
+    images: ["/images/icon/portfoliyou.png"],
   },
   other: {
     "X-Frame-Options": "SAMEORIGIN",
     "X-Content-Type-Options": "nosniff",
     "X-Robots-Tag": "index, follow, noimageai, noimageindex",
     "Permissions-Policy": "browsing-topics=(), interest-cohort=()",
-    // CSP tuned for external image + vercel analytics; adjust if you add more origins
     "Content-Security-Policy":
       [
         "default-src 'self'",
@@ -62,7 +60,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1a1a1a", // page background
+  themeColor: "#1a1a1a",
 }
 
 const jsonLd = {
@@ -72,7 +70,7 @@ const jsonLd = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Windows, macOS, Linux",
   url: "https://portfoli-you.snxethan.dev",
-  image: "https://www.snxethan.dev/images/portfoliyou/portfoliyou.png",
+  image: "/icon/portfoliyou.png",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   creator: {
     "@type": "Person",
@@ -81,6 +79,8 @@ const jsonLd = {
   },
   sameAs: [
     "https://github.com/snxethan/PortfoliYOU-APP",
+    "https://github.com/snxethan/PortfoliYOU-WEBSITE",
+    "https://www.snxethan.dev",
     "https://www.linkedin.com/in/ethantownsend",
     "https://www.instagram.com/snxethan",
   ],

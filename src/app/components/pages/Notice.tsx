@@ -43,16 +43,19 @@ export default function Notice() {
         >
           <div className="overflow-hidden">
             <p className="text-sm leading-relaxed text-orange-100/90">
-              <strong className="text-orange-200">Notice:</strong>{" "} <br />
-              Portfoli-YOU is currently under development.
+              <strong className="text-orange-200">Notice:</strong>{" "}
+               <br />
+               <i> <b>Portfoli-YOU</b> is currently in development: </i>
               <br />
-              Check back soon for updates!
+              <br />
+              <li>Information may be inaccurate & is subject to change. </li>
+              <li><u>The Installer is not yet available.</u></li>
             </p>
             <div className="mt-2 flex items-center gap-3 text-[11px] text-orange-200/70">
               <span className="inline-flex items-center rounded-md border border-orange-300/30 bg-orange-400/10 px-2 py-0.5">
                 snxethan  
               </span>
-              <span>(September 7th, 2025)</span>
+              <span>(September 9th, 2025)</span>
             </div>
           </div>
         </div>

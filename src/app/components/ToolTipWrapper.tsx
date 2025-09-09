@@ -65,7 +65,7 @@ const TooltipWrapper = ({ label, children, url, fullWidth = false }: PdfThumbnai
             <div
               role="tooltip"
               aria-label={label}
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1a1a1a] border border-[#333] rounded-md shadow-xl z-50 p-2 w-[220px] max-w-[90vw] transition-all duration-200 ease-out opacity-100 scale-100 animate-elastic-in"
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] border border-[#333] rounded-md shadow-xl z-50 p-2 w-[220px] max-w-[90vw] transition-all duration-200 ease-out opacity-100 scale-100 animate-elastic-in"
             >
               <div className="flex flex-col items-center">
                 <div className="text-xs text-white mb-1 font-medium">{label}</div>

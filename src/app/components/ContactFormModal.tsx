@@ -86,7 +86,7 @@ export default function ContactFormModal({ onClose }: Props) {
           &times; {/* This is the close button. It is an "X" icon that closes the modal when clicked. */}
         </button>
 
-        <h3 className="text-xl font-semibold mb-4">Contact Me</h3>
+        <h3 className="text-xl font-semibold mb-4">Send an email</h3>
       
         <form onSubmit={handleSubmit} className="space-y-4"> {/* This is the form element. It contains the input fields and the submit button. */}
           <input
