@@ -59,7 +59,7 @@ export default function PortfoliYouPage() {
           </div>
 
           {/* Drop the negative margin; use normal spacing */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent mt-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent">
             Portfoli-YOU
           </h1>
 
