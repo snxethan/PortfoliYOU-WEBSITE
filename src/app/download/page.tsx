@@ -35,7 +35,7 @@ export default function DownloadPage() {
             <Navbar />
             <Notice />
             <main className="flex-grow w-full flex flex-col items-center justify-center p-6 pt-20">
-                <div className="text-center mb-12">
+                <div className="text-center mb-12 max-w-4xl mx-auto">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent">
                     Download Portfoli-YOU
                     </h1>

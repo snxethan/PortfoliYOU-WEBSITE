@@ -133,7 +133,7 @@ export default function AboutPage() {
 
             {/* Content column */}
             <div className="flex-1 min-w-0">
-                <div className="mx-auto max-w-7xl px-4 md:px-25 pt-24 pb-16 ">
+                <div className="mx-auto max-w-4xl px-4 md:px-25 pt-24 pb-16 ">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent">
                         About Portfoli-YOU
