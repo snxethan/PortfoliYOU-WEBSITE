@@ -24,15 +24,20 @@ This repository contains the **marketing website** for PortfoliYOU - a landing p
 - **Mobile-First** - Fully responsive design that works on all devices
 - **Privacy-Focused** - Built with user privacy and security in mind
 - **Coming Soon Page** - Engaging landing page with development updates
+- **About Page** - Detailed information about the project and development roadmap
+- **Contact Integration** - Built-in contact form with email integration
+- **Security Policy** - Dedicated security policy and external link handling
 
 ##  Technology Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with Turbopack
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Runtime**: [React 19](https://react.dev/)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/) & [Lucide React](https://lucide.dev/)
 - **Analytics**: [Vercel Analytics](https://vercel.com/analytics) & [Speed Insights](https://vercel.com/docs/speed-insights)
 - **Notifications**: [React Hot Toast](https://react-hot-toast.com/)
+- **Email**: [Nodemailer](https://nodemailer.com/) for contact form functionality
 
 ##  Getting Started
 
@@ -89,16 +94,31 @@ npm run lint    # Run ESLint for code quality
 ```
 src/
 ├── app/
-│   ├── components/        # Reusable UI components
+│   ├── about/            # About page
+│   │   ├── page.tsx
+│   │   └── SkeletonLoader.tsx
+│   ├── api/              # API routes
+│   │   └── contact/      # Contact form endpoint
+│   │       └── route.ts
+│   ├── components/       # Reusable UI components
 │   │   ├── pages/        # Page-specific components
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── Notice.tsx
 │   │   ├── ContactFormModal.tsx
-│   │   ├── PDFModalViewer.tsx
-│   │   └── ...
+│   │   ├── ExternalLinkHandler.tsx
+│   │   ├── SecurityPolicyModal.tsx
+│   │   └── ToolTipWrapper.tsx
 │   ├── download/         # Download page
+│   │   └── page.tsx
+│   ├── globals.css       # Global styles
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Homepage
 public/
 ├── images/               # Static images
+│   ├── author/          # Author images
+│   └── icon/            # App icons
+├── proposal/            # Project proposal documents
 └── ...                   # Favicons and other assets
 ```
 
