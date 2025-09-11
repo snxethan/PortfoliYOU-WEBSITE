@@ -77,7 +77,7 @@ export default function PortfoliYouPage() {
               <p className="text-xl lg:text-2xl font-semibold text-red-500 mb-1 lg:mb-2">Coming Soon</p>
               <p className="text-gray-400 text-sm lg:text-base">
                 View the progress anytime in the GitHub Repositories!<br />
-                <i>Check out the FAQs for more information</i>
+                <i>Check out the <a href="/about" className="text-red-500 hover:underline">FAQs</a> for more information</i>
               </p>
             </div>
           </div>
