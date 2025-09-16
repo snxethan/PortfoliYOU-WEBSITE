@@ -41,7 +41,7 @@ return (
       >
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl transition-colors"
+          className="absolute top-4 right-4 text-gray-400 hover:text-orange-500 text-2xl transition-colors"
           aria-label="Close"
         >
           &times;
@@ -50,13 +50,13 @@ return (
 
         <h1 className="text-3xl font-bold text-white mb-8 relative text-center">
           Security Policy
-          <span className="absolute bottom-[-8px] left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-500"></span>
+          <span className="absolute bottom-[-8px] left-0 w-full h-1 bg-gradient-to-r from-orange-600 to-orange-500"></span>
         </h1>
 
         <div className="space-y-8">
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-orange-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
             <div className="flex items-center gap-3 mb-4">
-              <FaShieldAlt className="text-red-500 text-xl" />
+              <FaShieldAlt className="text-orange-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
                 Reporting Security Issues
               </h2>
@@ -69,7 +69,7 @@ return (
               <div className="flex justify-center">
                 <button
                   onClick={() => setShowContact(true)}
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105"
                 >
                   Contact
                 </button>
@@ -77,9 +77,9 @@ return (
             </div>
           </section>
 
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-cyan-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
             <div className="flex items-center gap-3 mb-4">
-              <FaUserShield className="text-red-500 text-xl" />
+              <FaUserShield className="text-cyan-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
                 Data Protection & Portfolio Privacy
               </h2>
@@ -97,14 +97,14 @@ return (
                 <li>Portfoli-YOU is open-source: you can review, audit, and contribute to the codebase</li>
               </ul>
               <p className="mt-2 text-sm text-gray-400">
-                For more details, see the <a href="https://portfoliyou.snxethan.dev/about" target="_blank" rel="noopener noreferrer" className="underline text-red-400">About page</a>.
+                For more details, see the <a href="https://portfoliyou.snxethan.dev/about" target="_blank" rel="noopener noreferrer" className="underline text-cyan-400">About page</a>.
               </p>
             </div>
           </section>
 
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-cyan-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
             <div className="flex items-center gap-3 mb-4">
-              <FaLink className="text-red-500 text-xl" />
+              <FaLink className="text-cyan-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
                 External Links
               </h2>
@@ -122,9 +122,9 @@ return (
             </div>
           </section>
 
-          {/* <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          {/* <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-orange-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
             <div className="flex items-center gap-3 mb-4">
-              <FaCookie className="text-red-500 text-xl" />
+              <FaCookie className="text-orange-500 text-xl" />
               <h2 className="text-xl font-semibold text-white">
                 Cookie Policy
               </h2>

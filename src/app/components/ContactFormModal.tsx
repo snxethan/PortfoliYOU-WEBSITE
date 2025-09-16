@@ -81,7 +81,7 @@ export default function ContactFormModal({ onClose }: Props) {
         <button
           onClick={close} // This is the close button. It is an "X" icon that closes the modal when clicked.
           // It has a hover effect to make it more interactive.
-          className="absolute top-1 right-3 text-3xl text-gray-400 hover:text-red-500"
+          className="absolute top-1 right-3 text-3xl text-gray-400 hover:text-orange-500"
         >
           &times; {/* This is the close button. It is an "X" icon that closes the modal when clicked. */}
         </button>
@@ -114,7 +114,7 @@ export default function ContactFormModal({ onClose }: Props) {
           />
           <button
             type="submit"
-            className="w-full py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 rounded"
+            className="w-full py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 rounded"
           >
             Send Message
           </button>

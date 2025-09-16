@@ -80,7 +80,7 @@ export const ExternalLinkHandler = ({ children }: { children: ReactNode }) => {
             <button
               onClick={closeWarning}
               aria-label="Close"
-              className="absolute top-1 right-3 text-gray-400 hover:text-red-500 text-4xl"
+              className="absolute top-1 right-3 text-gray-400 hover:text-orange-500 text-4xl"
             >
               &times;
             </button>
@@ -124,7 +124,7 @@ export const ExternalLinkHandler = ({ children }: { children: ReactNode }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeWarning}
-                className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg transition-all"
+                className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-lg transition-all"
               >
                 Continue
               </a>

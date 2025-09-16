@@ -114,14 +114,14 @@ export default function AboutPage() {
                     <button
                         key={s.id}
                         onClick={() => handleNavClick(s.id)}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-red-500/60 ${
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-orange-500/60 ${
                         isActive
-                            ? "bg-red-700/40 text-red-500"
-                            : "text-gray-400 hover:text-red-500 hover:bg-red-700/30"
+                            ? "bg-orange-700/40 text-orange-500"
+                            : "text-gray-400 hover:text-orange-500 hover:bg-orange-700/30"
                         }`}
                         aria-current={isActive ? "true" : undefined}
                     >
-                        <Icon className="text-red-500 shrink-0" />
+                        <Icon className="text-orange-500 shrink-0" />
                         <span className="truncate">{s.title}</span>
                     </button>
                     );
@@ -164,12 +164,12 @@ export default function AboutPage() {
                             {(() => {
                                 const Icon = sectionIcons[section.id];
                                 return (
-                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-500">
+                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-orange-600 to-orange-500">
                                     <Icon className="text-white" />
                                 </span>
                                 );
                             })()}
-                            <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+                            <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent">
                                 {section.title}
                             </h2>
                             </div>
@@ -223,7 +223,7 @@ export default function AboutPage() {
                                   href="/proposal/portfoliyou_capstone_proposal.pdf"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-transform duration-200 ease-out hover:scale-105 active:scale-95"
+                                  className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-transform duration-200 ease-out hover:scale-105 active:scale-95"
                                 >
                                   <FaFile /> View Project Proposal
                                 </a>
@@ -245,8 +245,8 @@ export default function AboutPage() {
 
                            {section.id === "why" && (
                             <>
-                                <blockquote className="bg-[#202020] border-l-4 border-red-500 p-4 md:p-6 rounded-xl text-gray-200 italic flex items-start gap-3">
-                                <FaQuoteLeft className="text-red-400 mt-1 shrink-0" />
+                                <blockquote className="bg-[#202020] border-l-4 border-cyan-500 p-4 md:p-6 rounded-xl text-gray-200 italic flex items-start gap-3">
+                                <FaQuoteLeft className="text-cyan-400 mt-1 shrink-0" />
                                 <span>
                                     &quot;On average, recruiters spend only 6–8 seconds scanning a resume, but that
                                     jumps to roughly 3 minutes when reviewing a portfolio website.&quot;
@@ -305,43 +305,43 @@ export default function AboutPage() {
 
                             {section.id === "features" && (
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pl-2 pr-2 pb-2">
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaPalette className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Customizable Designs</h3>
                                 <p className="text-gray-400 text-sm">Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaBolt className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Easy to Use</h3>
                                 <p className="text-gray-400 text-sm">Design digital pages with no experience required. Drag and drop your way to stunning layouts, all while maintaining full control over your design.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaRocket className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Share Anywhere</h3>
                                 <p className="text-gray-400 text-sm">One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaStar className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Your pages, your rules.</h3>
                                 <p className="text-gray-400 text-sm">No limitations on design or functionality, use the editor and explore your pages visually, or export and modify the code directly.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaCloud className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Cloud Sync</h3>
                                 <p className="text-gray-400 text-sm">Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
                                 </div>
-                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaLock className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Privacy</h3>
@@ -360,7 +360,7 @@ export default function AboutPage() {
                                     that anyone can use. I encourage you to try it out and provide feedback or contribute on GitHub if you&apos;re so willing.
                                     <br />
                                     <br />
-                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> at: <a href="mailto:snxethan@gmail.com" className="text-red-500">snxethan@gmail.com</a>
+                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> at: <a href="mailto:snxethan@gmail.com" className="text-cyan-500">snxethan@gmail.com</a>
                                 </p>
                                 </div>
 
@@ -369,7 +369,7 @@ export default function AboutPage() {
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
                                     <div className="flex items-center gap-3 text-white-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
+                                    <span className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
@@ -429,7 +429,7 @@ export default function AboutPage() {
                                     <TooltipWrapper label="GitHub App Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                     >
                                         <FaGithub /> App Repository
                                     </button>
@@ -437,7 +437,7 @@ export default function AboutPage() {
                                     <TooltipWrapper label="GitHub Website Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-WEBSITE", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                     >
                                         <FaGithub /> Website Repository
                                     </button>
@@ -462,10 +462,10 @@ export default function AboutPage() {
                                         alt="snxethan avatar"
                                         width={96}
                                         height={96}
-                                        className="rounded-full border-2 border-red-500 shadow"
+                                        className="rounded-full border-2 border-cyan-500 shadow"
                                     />
                                     </TooltipWrapper>
-                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-red-500">Ethan Townsend (snxethan)</a></span>
+                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-orange-500">Ethan Townsend (snxethan)</a></span>
                                 </div>
                                 </div>
                             </div>
