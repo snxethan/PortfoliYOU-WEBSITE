@@ -61,9 +61,9 @@ export default function DownloadPage() {
                 </div> */}
 
                 <div className="mb-6 lg:mb-8">
-                    <div className="inline-block bg-[#222222] rounded-xl border border-orange-600/50 hover:border-orange-600/70 px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                    <div className="inline-block bg-[#222222] rounded-xl border border-orange-600/50 hover:border-orange-600/70 px-4 lg:px-8 py-3 lg:py-4 shadow-lg shadow-cyan-500/10 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
                         <p className="text-xl lg:text-2xl font-semibold text-center text-orange-500 mb-1 lg:mb-2">Coming Soon</p>
-                        <p className="text-gray-400 text-sm lg:text-base">View the progress anytime in the GitHub Repositories! <br/> <i>Check out the <a href="/about" className="text-orange-500 hover:underline">FAQs</a> for more information</i></p>
+                        <p className="text-gray-400 text-sm lg:text-base">View the progress anytime in the GitHub Repositories! <br/> <i>Check out the <a href="/about" className="text-cyan-400 hover:underline">FAQs</a> for more information</i></p>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@ export default function DownloadPage() {
                         </li>
                     </ul>
                     <br />
-                    Learn more at <a href="/about" className="text-orange-500 hover:underline">FAQs</a>.
+                    Learn more at <a href="/about" className="text-cyan-400 hover:underline">FAQs</a>.
                 </div>
             </main>
             <Footer />

@@ -312,8 +312,8 @@ export default function AboutPage() {
                                 <h3 className="text-base font-semibold text-white mb-2">Customizable Designs</h3>
                                 <p className="text-gray-400 text-sm">Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-cyan-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-cyan-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaBolt className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Easy to Use</h3>
@@ -326,8 +326,8 @@ export default function AboutPage() {
                                 <h3 className="text-base font-semibold text-white mb-2">Share Anywhere</h3>
                                 <p className="text-gray-400 text-sm">One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-cyan-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-cyan-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaStar className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Your pages, your rules.</h3>
@@ -340,8 +340,8 @@ export default function AboutPage() {
                                 <h3 className="text-base font-semibold text-white mb-2">Cloud Sync</h3>
                                 <p className="text-gray-400 text-sm">Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
                                 </div>
-                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-orange-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-orange-600 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-cyan-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-600 to-cyan-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaLock className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Privacy</h3>
@@ -380,7 +380,7 @@ export default function AboutPage() {
                                     <li>Cloud saving & syncing (opt-in)</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">2</span>
+                                    <span className="w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold animate-pulse">2</span>
                                     <span className="font-semibold">Full Release</span>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
@@ -389,7 +389,7 @@ export default function AboutPage() {
                                     <li>Optimized codebase</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">3</span>
+                                    <span className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold animate-pulse">3</span>
                                     <span className="font-semibold">Enhanced Cloud Support</span>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
@@ -400,7 +400,7 @@ export default function AboutPage() {
                                     <li>Mobile app companion</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">4</span>
+                                    <span className="w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold animate-pulse">4</span>
                                     <span className="font-semibold">AI Assistant</span>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
