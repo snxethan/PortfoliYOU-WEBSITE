@@ -46,7 +46,7 @@ const Footer = () => {
     )
   }
   return (
-    <footer className="bg-[#121212] text-gray-400 w-full py-6 px-6">
+    <footer className="bg-slate-100/80 dark:bg-[#121212] backdrop-blur-sm text-slate-600 dark:text-gray-400 w-full py-6 px-6 border-t border-slate-200 dark:border-slate-800 transition-all duration-300">
       <div className="max-w-8xl mx-auto flex flex-col items-center gap-6">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4 text-sm">
           {/* Left: Security Policy */}
@@ -54,7 +54,7 @@ const Footer = () => {
             <TooltipWrapper label="View Security Policy">
               <button 
                 onClick={() => setShowSecurityPolicy(true)}
-                className="text-sm text-gray-400 hover:text-cyan-500 transition-colors duration-200"
+                className="text-sm text-slate-600 dark:text-gray-400 hover:text-cyan-500 transition-all duration-200 transform hover:scale-105 p-2 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-700/50"
               >
                 Security Policy
               </button>
@@ -62,16 +62,19 @@ const Footer = () => {
           </div>
 
           {/* Center: Logo & Name */}
-          <div className="order-1 lg:order-2 flex items-center gap-2">
-            <Image
-              src="https://www.snxethan.dev/images/avatar/snex.png"
-              alt="Ethan Townsend"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
+          <div className="order-1 lg:order-2 flex items-center gap-3 group">
+            <div className="relative overflow-hidden rounded-full">
+              <Image
+                src="https://www.snxethan.dev/images/avatar/snex.png"
+                alt="Ethan Townsend"
+                width={32}
+                height={32}
+                className="rounded-full transition-all duration-300 group-hover:scale-110 group-hover:rotate-12"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-cyan-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
             <TooltipWrapper label="Social Page">
-              <a href="https://ethantownsend.dev" className="text-sm text-gray-400 hover:text-orange-500 transition-colors duration-200">
+              <a href="https://ethantownsend.dev" className="text-sm text-slate-600 dark:text-gray-400 hover:text-orange-500 transition-all duration-200 transform hover:scale-105">
                 Ethan Townsend &copy; {new Date().getFullYear()}
               </a>
             </TooltipWrapper>
@@ -82,17 +85,17 @@ const Footer = () => {
             <div className="footer-links flex flex-col sm:flex-row items-center gap-2">
               <TooltipWrapper label="Portfolio">
                 <div className="flex gap-4">
-                  <Link href="https://snex.dev" className="hover:text-cyan-400 transition-colors duration-200">
+                  <Link href="https://snex.dev" className="hover:text-cyan-400 transition-all duration-200 transform hover:scale-105 p-1 rounded hover:bg-slate-200/50 dark:hover:bg-slate-700/50">
                     snex.dev    
                   </Link>
-                  <Link href="https://snxethan.dev" className="hover:text-cyan-400 transition-colors duration-200">
+                  <Link href="https://snxethan.dev" className="hover:text-cyan-400 transition-all duration-200 transform hover:scale-105 p-1 rounded hover:bg-slate-200/50 dark:hover:bg-slate-700/50">
                     snxethan.dev
                   </Link>
                 </div>
               </TooltipWrapper>
-              <span className="hidden sm:block text-gray-600">|</span>
+              <span className="hidden sm:block text-slate-400 dark:text-gray-600">|</span>
               <TooltipWrapper label="Social Page">
-                <Link href="https://ethantownsend.dev" className="hover:text-cyan-400 transition-colors duration-200">
+                <Link href="https://ethantownsend.dev" className="hover:text-cyan-400 transition-all duration-200 transform hover:scale-105 p-1 rounded hover:bg-slate-200/50 dark:hover:bg-slate-700/50">
                   ethantownsend.dev
                 </Link>
               </TooltipWrapper>

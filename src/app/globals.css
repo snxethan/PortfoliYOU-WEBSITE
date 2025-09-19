@@ -14,6 +14,12 @@
 
 :root { --nav-h: 3.25rem; } /* ~52px, matches Navbar */
 
+/* Light mode colors */
+.light {
+  --background: #ffffff;
+  --foreground: #1f2937;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #222222;
@@ -27,6 +33,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: auto;    /* Allow horizontal scroll when needed */
   min-width: 360px;    /* Prevent UI from condensing below 360px */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-links {
@@ -43,10 +50,31 @@ body {
   }
 }
 
+/* Enhanced Animation for links */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.6), 0 0 30px rgba(6, 182, 212, 0.3);
+  }
+}
 
-
-/* Animation for links */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
 
 @keyframes zoom-rotate {
   from {
@@ -61,7 +89,6 @@ body {
 .animate-zoom-rotate {
   animation: zoom-rotate 0.3s ease-out forwards;
 }
-
 
 @keyframes elastic-in {
   0% {
@@ -97,7 +124,6 @@ body {
   animation: elastic-out 0.3s ease-in forwards;
 }
 
-
 @keyframes elastic-light {
   0% {
     opacity: 0;
@@ -110,4 +136,43 @@ body {
 }
 .animate-elastic-light {
   animation: elastic-light 0.3s ease-out forwards;
+}
+
+/* New expressive animations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Hover effects for interactive elements */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-text {
+  background: linear-gradient(-45deg, #f97316, #06b6d4, #8b5cf6, #f59e0b);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

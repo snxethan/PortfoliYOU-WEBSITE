@@ -5,6 +5,7 @@ import { ExternalLinkHandler } from "./components/ExternalLinkHandler"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast"
+import { ThemeProvider } from "./contexts/ThemeContext"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -96,11 +97,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.className} bg-[#1a1a1a] text-white`}>
-        <Toaster position="top-center" />
-        <ExternalLinkHandler>
-          {children}
-        </ExternalLinkHandler>
+      <body suppressHydrationWarning className={`${inter.className} transition-colors duration-300`}>
+        <ThemeProvider>
+          <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 dark:from-[#1a1a1a] dark:via-[#121212] dark:to-[#0d0d0d] light:from-orange-50 light:via-cyan-50 light:to-white text-slate-900 dark:text-white transition-all duration-300">
+            <Toaster position="top-center" />
+            <ExternalLinkHandler>
+              {children}
+            </ExternalLinkHandler>
+          </div>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
