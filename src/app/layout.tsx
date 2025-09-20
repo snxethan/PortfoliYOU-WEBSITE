@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { ExternalLinkHandler } from "./components/ExternalLinkHandler"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast"
 import { ThemeProvider } from "./components/ThemeProvider"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Portfoli-YOU",
@@ -97,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={inter.className}>
+      <body suppressHydrationWarning className="font-sans">
         <ThemeProvider>
           <Toaster position="top-center" />
           <ExternalLinkHandler>
