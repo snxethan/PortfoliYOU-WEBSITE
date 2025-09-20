@@ -85,11 +85,11 @@ export default function AboutPage() {
     if (loading) {
         return (
             <div className="flex flex-col min-h-screen">
-            <main className="flex-grow w-full flex items-center justify-center p-6 bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
+            <main className="flex-grow w-full flex items-center justify-center p-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 text-gray-900 dark:text-white font-sans">
                 <div className="w-full max-w-2xl mx-auto text-center animate-pulse">
-                <div className="h-12 w-80 bg-[#333333] mx-auto rounded mb-6" />
-                <div className="h-6 w-96 bg-[#333333] mx-auto rounded mb-4" />
-                <div className="h-6 w-72 bg-[#333333] mx-auto rounded" />
+                <div className="h-12 w-80 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-6" />
+                <div className="h-6 w-96 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-4" />
+                <div className="h-6 w-72 bg-gray-300 dark:bg-gray-700 mx-auto rounded" />
                 </div>
             </main>
             <Footer />
@@ -99,13 +99,13 @@ export default function AboutPage() {
 
     return (
         <div>
-        <div className="flex min-h-screen bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
+        <div className="flex min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:via-black dark:to-gray-900 text-gray-900 dark:text-white font-sans">
             <Navbar />
             
             <main className="flex-grow w-full flex">
             {/* Left-side Navigator (centered vertically) */}
             
-            <aside className="hidden lg:flex sticky top-[64px] h-[calc(100vh-64px)] min-w-[260px] max-w-[300px] border-r border-[#333] bg-[#181818]/70 pl-2">
+            <aside className="hidden lg:flex sticky top-[64px] h-[calc(100vh-64px)] min-w-[260px] max-w-[300px] border-r border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-900/70 backdrop-blur-sm pl-2">
                 <nav className="m-auto flex w-full max-w-[260px] flex-col items-stretch gap-3 px-4 py-4">
                 {sections.map((s) => {
                     const Icon = sectionIcons[s.id];
@@ -114,14 +114,14 @@ export default function AboutPage() {
                     <button
                         key={s.id}
                         onClick={() => handleNavClick(s.id)}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-red-500/60 ${
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2 hover:scale-105 ${
                         isActive
-                            ? "bg-red-700/40 text-red-500"
-                            : "text-gray-400 hover:text-red-500 hover:bg-red-700/30"
+                            ? "bg-gradient-to-r from-cyan-500/20 to-orange-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-300 dark:border-cyan-500/50 focus-visible:ring-cyan-500/60"
+                            : "text-gray-600 dark:text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-orange-500/10 dark:hover:bg-orange-500/20 focus-visible:ring-orange-500/60"
                         }`}
                         aria-current={isActive ? "true" : undefined}
                     >
-                        <Icon className="text-red-500 shrink-0" />
+                        <Icon className="text-cyan-500 dark:text-cyan-400 shrink-0 transition-colors duration-200" />
                         <span className="truncate">{s.title}</span>
                     </button>
                     );
@@ -135,8 +135,8 @@ export default function AboutPage() {
             <div className="flex-1 min-w-0">
                 <div className="mx-auto max-w-4xl px-4 md:px-25 pt-24 pb-16 ">
                     <div className="text-center mb-12">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent">
-                        About Portfoli-YOU
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white animate-fade-up">
+                        About <span className="text-transparent bg-gradient-to-r from-cyan-500 via-orange-500 to-cyan-500 bg-clip-text animate-gradient-shift">Portfoli-YOU</span>
                         </h1>
                     </div>
                 <Notice />
@@ -164,12 +164,12 @@ export default function AboutPage() {
                             {(() => {
                                 const Icon = sectionIcons[section.id];
                                 return (
-                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-500">
+                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-orange-500 shadow-lg">
                                     <Icon className="text-white" />
                                 </span>
                                 );
                             })()}
-                            <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+                            <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-600 to-orange-600 bg-clip-text text-transparent">
                                 {section.title}
                             </h2>
                             </div>
@@ -182,8 +182,8 @@ export default function AboutPage() {
                         </button>
 
                         {/* Always-visible preview line under header */}
-                        <p className="mt-2 text-sm md:text-base text-gray-400">
-                            {section.id === "what" && <>A Portfolio for you, by you.</>}
+                        <p className="mt-2 text-sm md:text-base text-gray-600 dark:text-gray-600 dark:text-gray-400">
+                            {section.id === "what" && <>A Portfolio for <span className="text-cyan-600 dark:text-cyan-400 font-medium">you</span>, by <span className="text-orange-600 dark:text-orange-400 font-medium">you</span>.</>}
                             {section.id === "how" && <>Download → Design → Deploy</>}
                             {section.id === "why" && <>Resumes earn seconds; portfolios earn minutes.</>}
                             {section.id === "features" && <>Themes, privacy-first data, easy sharing, and more.</>}
@@ -203,7 +203,7 @@ export default function AboutPage() {
                         <div className="pt-4">
                             {section.id === "what" && (
                             <>
-                            <p className="text-gray-300 leading-relaxed">
+                            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                               <b>Portfoli-YOU</b> is a cutting-edge digital portfolio builder tailored for individuals of all skill levels. Whether you are a student, job seeker, freelancer, or seasoned professional, <b>Portfoli-YOU</b> empowers you to create a stunning, personalized website that authentically represents your unique identity.
                               <br />
                               <br />
@@ -223,7 +223,7 @@ export default function AboutPage() {
                                   href="/proposal/portfoliyou_capstone_proposal.pdf"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-transform duration-200 ease-out hover:scale-105 active:scale-95"
+                                  className="bg-gradient-to-r from-cyan-600 to-orange-600 hover:from-cyan-500 hover:to-orange-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
                                 >
                                   <FaFile /> View Project Proposal
                                 </a>
@@ -233,7 +233,7 @@ export default function AboutPage() {
                             )}
 
                             {section.id === "how" && (
-                            <ol className="list-decimal list-inside text-gray-300 space-y-2">
+                            <ol className="list-decimal list-inside text-gray-700 dark:text-gray-700 dark:text-gray-300 space-y-2">
                                 <li>Download and run the installer.</li>
                                 <li>Log in for cloud services or build fully offline.</li>
                                 <li>Explore and create pages through the editor.</li>
@@ -245,8 +245,8 @@ export default function AboutPage() {
 
                            {section.id === "why" && (
                             <>
-                                <blockquote className="bg-[#202020] border-l-4 border-red-500 p-4 md:p-6 rounded-xl text-gray-200 italic flex items-start gap-3">
-                                <FaQuoteLeft className="text-red-400 mt-1 shrink-0" />
+                                <blockquote className="bg-gray-100 dark:bg-gray-800 border-l-4 border-cyan-500 dark:border-cyan-400 p-4 md:p-6 rounded-xl text-gray-700 dark:text-gray-200 italic flex items-start gap-3 shadow-lg">
+                                <FaQuoteLeft className="text-cyan-600 dark:text-cyan-400 mt-1 shrink-0" />
                                 <span>
                                     &quot;On average, recruiters spend only 6–8 seconds scanning a resume, but that
                                     jumps to roughly 3 minutes when reviewing a portfolio website.&quot;
@@ -254,12 +254,12 @@ export default function AboutPage() {
                                 </span>
                                 </blockquote>
 
-                                <p className="mt-3 text-gray-300">
+                                <p className="mt-3 text-gray-700 dark:text-gray-300">
                                 The aim is simple: make portfolio building fast, easy, and intuitive for everyone.
                                 <b> Portfoli-YOU</b> lowers the barrier so anyone can create a site that truly represents them.
                                 </p>
 
-                                <section aria-labelledby="why-local-first" className="mt-4 space-y-4 text-gray-300 leading-relaxed">
+                                <section aria-labelledby="why-local-first" className="mt-4 space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                                 <p>
                                     <b>Portfoli-YOU</b> adopts a local-first approach to portfolio creation, prioritizing user
                                     privacy and control. Unlike many competitors that rely heavily on cloud-based systems,
@@ -305,47 +305,47 @@ export default function AboutPage() {
 
                             {section.id === "features" && (
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pl-2 pr-2 pb-2">
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaPalette className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Customizable Designs</h3>
-                                <p className="text-gray-400 text-sm">Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaBolt className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Easy to Use</h3>
-                                <p className="text-gray-400 text-sm">Design digital pages with no experience required. Drag and drop your way to stunning layouts, all while maintaining full control over your design.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">Design digital pages with no experience required. Drag and drop your way to stunning layouts, all while maintaining full control over your design.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaRocket className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Share Anywhere</h3>
-                                <p className="text-gray-400 text-sm">One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaStar className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Your pages, your rules.</h3>
-                                <p className="text-gray-400 text-sm">No limitations on design or functionality, use the editor and explore your pages visually, or export and modify the code directly.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">No limitations on design or functionality, use the editor and explore your pages visually, or export and modify the code directly.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaCloud className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Cloud Sync</h3>
-                                <p className="text-gray-400 text-sm">Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
                                 </div>
-                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                 <div className="bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-orange-500/70 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
+                                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-orange-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
                                     <FaLock className="text-white text-2xl" />
                                 </div>
                                 <h3 className="text-base font-semibold text-white mb-2">Privacy</h3>
-                                <p className="text-gray-400 text-sm">Local-first. Your data, your choice. Even when using the cloud services, your data remains private and secure. Your projects are backed up, but nothing is shared.</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm">Local-first. Your data, your choice. Even when using the cloud services, your data remains private and secure. Your projects are backed up, but nothing is shared.</p>
                                 </div>
                             </div>
                             )}
@@ -355,12 +355,12 @@ export default function AboutPage() {
                                 {/* Philosophy & Vision */}
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Project Development:</h3>
-                                <p className="text-gray-300 text-sm md:text-base">
+                                <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
                                     <b>Portfoli-YOU</b> is designed to be as intuitive and user-friendly as possible. The goal is to make an open-source, privacy-first portfolio builder
                                     that anyone can use. I encourage you to try it out and provide feedback or contribute on GitHub if you&apos;re so willing.
                                     <br />
                                     <br />
-                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> at: <a href="mailto:snxethan@gmail.com" className="text-red-500">snxethan@gmail.com</a>
+                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> at: <a href="mailto:snxethan@gmail.com" className="text-cyan-600 dark:text-cyan-400">snxethan@gmail.com</a>
                                 </p>
                                 </div>
 
@@ -369,41 +369,41 @@ export default function AboutPage() {
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
                                     <div className="flex items-center gap-3 text-white-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
+                                    <span className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 ml-8 text-sm">
                                     <li>Core UI Builder</li>
                                     <li>Widget drag-and-drop System</li>
                                     <li>Local-first data storage</li>
                                     <li>Basic export & deploy options</li>
                                     <li>Cloud saving & syncing (opt-in)</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
+                                    <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
                                     <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">2</span>
                                     <span className="font-semibold">Full Release</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 ml-8 text-sm">
                                     <li>Builder & Widget Optimization</li>
                                     <li>Expanded export & deploy options</li>
                                     <li>Optimized codebase</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
+                                    <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
                                     <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">3</span>
                                     <span className="font-semibold">Enhanced Cloud Support</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 ml-8 text-sm">
                                     <li>Optimized Cloud storage, saving & syncing</li>
                                     <li>Online UI Builder</li>
                                     <li>Community Sharing (Themes & Widgets)</li>
                                     <li>Real-time Team collaboration (Teams & Shared Projects)</li>
                                     <li>Mobile app companion</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
+                                    <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300 text-sm md:text-base">
                                     <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">4</span>
                                     <span className="font-semibold">AI Assistant</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 ml-8 text-sm">
                                     <li>Smart content suggestions</li>
                                     <li>Automated resume-to-portfolio conversion</li>
                                     <li>Design and accessibility tips</li>
@@ -415,7 +415,7 @@ export default function AboutPage() {
                                 {/* Tech Stack */}
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Tech Stack:</h3>
-                                <ul className="list-disc list-inside text-gray-400 ml-4 text-sm">
+                                <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 ml-4 text-sm">
                                     {/* <li></li> */}
                                     <FaExclamationTriangle className="text-orange-300" />
                                 </ul>
@@ -429,7 +429,7 @@ export default function AboutPage() {
                                     <TooltipWrapper label="GitHub App Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-orange-500 hover:from-cyan-500 hover:to-orange-500 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                     >
                                         <FaGithub /> App Repository
                                     </button>
@@ -437,7 +437,7 @@ export default function AboutPage() {
                                     <TooltipWrapper label="GitHub Website Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-WEBSITE", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-500 to-orange-500 hover:from-cyan-500 hover:to-orange-500 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                     >
                                         <FaGithub /> Website Repository
                                     </button>
@@ -449,7 +449,7 @@ export default function AboutPage() {
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold text-white mb-3">Author:</h3>
                                 <div className="flex flex-col items-start gap-2">
-                                <p className="text-gray-300 text-sm md:text-base">
+                                <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
                                         <b>Portfoli-YOU</b> was created & developed as a College Capstone Project for the Neumont College of Computer Science 
                                         course.
                                         <br />
@@ -462,10 +462,10 @@ export default function AboutPage() {
                                         alt="snxethan avatar"
                                         width={96}
                                         height={96}
-                                        className="rounded-full border-2 border-red-500 shadow"
+                                        className="rounded-full border-2 border-orange-500 shadow"
                                     />
                                     </TooltipWrapper>
-                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-red-500">Ethan Townsend (snxethan)</a></span>
+                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-cyan-600 dark:text-cyan-400">Ethan Townsend (snxethan)</a></span>
                                 </div>
                                 </div>
                             </div>

@@ -5,6 +5,7 @@ import { ExternalLinkHandler } from "./components/ExternalLinkHandler"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast"
+import { ThemeProvider } from "./components/ThemeProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -88,7 +89,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Structured data */}
         <script
@@ -96,13 +97,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.className} bg-[#1a1a1a] text-white`}>
-        <Toaster position="top-center" />
-        <ExternalLinkHandler>
-          {children}
-        </ExternalLinkHandler>
-        <Analytics />
-        <SpeedInsights />
+      <body suppressHydrationWarning className={inter.className}>
+        <ThemeProvider>
+          <Toaster position="top-center" />
+          <ExternalLinkHandler>
+            {children}
+          </ExternalLinkHandler>
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )
