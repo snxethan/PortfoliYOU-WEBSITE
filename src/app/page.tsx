@@ -1,19 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import Footer from "./components/pages/Footer"
 import Navbar from "./components/pages/Navbar"
 import Notice from "./components/pages/Notice"
 import SkeletonLoader from "./components/SkeletonLoader"
+import { useLoadingDelay } from "./components/hooks/useLoadingDelay"
 
 export default function PortfoliYouPage() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500)
-    return () => clearTimeout(timer)
-  }, [])
+  const loading = useLoadingDelay()
 
   if (loading) {
     return <SkeletonLoader />

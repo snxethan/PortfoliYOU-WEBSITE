@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import toast from 'react-hot-toast'
+import { ANIMATION_DURATION } from './constants'
 
 interface Props {
   onClose: () => void
@@ -47,7 +48,7 @@ export default function ContactFormModal({ onClose }: Props) {
 
   const close = () => {
     setIsAnimatingOut(true)
-    setTimeout(onClose, 300)
+    setTimeout(onClose, ANIMATION_DURATION.MODAL_CLOSE)
   }
 
   const modalContent = (

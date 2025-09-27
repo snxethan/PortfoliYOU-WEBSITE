@@ -4,17 +4,11 @@ import Navbar from "../components/pages/Navbar";
 import Footer from "../components/pages/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import Notice from "../components/pages/Notice";
-import { useEffect, useState } from "react";
 import SkeletonLoader from "../components/SkeletonLoader";
+import { useLoadingDelay } from "../components/hooks/useLoadingDelay";
 
 export default function DownloadPage() {
-
-        const [loading, setLoading] = useState(true);
-    
-        useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 500);
-        return () => clearTimeout(timer);
-        }, []);
+        const loading = useLoadingDelay();
         
         if (loading) {
             return <SkeletonLoader />;

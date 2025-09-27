@@ -5,6 +5,7 @@ import Notice from "../components/pages/Notice";
 import TooltipWrapper from "../components/ToolTipWrapper";
 import ContactFormModal from "../components/ContactFormModal";
 import SkeletonLoader from "../components/SkeletonLoader";
+import { useLoadingDelay } from "../components/hooks/useLoadingDelay";
 import {
   FaGithub,
   FaPalette,
@@ -19,7 +20,7 @@ import {
   FaExclamationTriangle,
 } from "react-icons/fa";
 import Image from "next/image";
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 import Footer from "../components/pages/Footer";
 import { useExternalLink } from "../components/ExternalLinkHandler";
 
@@ -80,13 +81,8 @@ export default function AboutPage() {
 
     const handleNavClick = (id: string) => handleExpand(id);
 
-    const [loading, setLoading] = useState(true);
+    const loading = useLoadingDelay();
 
-    useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500);
-    return () => clearTimeout(timer);
-    }, []);
-    
     if (loading) {
         return <SkeletonLoader />;
     }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaExclamationTriangle } from "react-icons/fa";
+import { SAFE_AREA } from "../constants";
 
 export default function Notice() {
   const [disclaimerOpen, setDisclaimerOpen] = useState(false);
@@ -9,8 +10,8 @@ export default function Notice() {
     <div
       className="fixed z-50"
       style={{
-        top: "calc(env(safe-area-inset-top, 0px) + 3.5rem)",
-        left: "calc(env(safe-area-inset-left, 0px) + 1rem)",
+        top: SAFE_AREA.TOP_OFFSET,
+        left: SAFE_AREA.LEFT_OFFSET,
       }}
     >
       <button

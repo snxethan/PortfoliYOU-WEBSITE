@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import ContactFormModal from "./ContactFormModal"
 import { FaShieldAlt, FaUserShield, FaLink } from "react-icons/fa"
+import { ANIMATION_DURATION } from "./constants"
 
 interface SecurityPolicyModalProps {
   onClose: () => void
@@ -23,7 +24,7 @@ export default function SecurityPolicyModal({ onClose }: SecurityPolicyModalProp
     setIsAnimatingOut(true)
     setTimeout(() => {
       onClose()
-    }, 300) // match animation duration
+    }, ANIMATION_DURATION.MODAL_CLOSE)
   }
 
 return (
@@ -121,26 +122,6 @@ return (
               </ul>
             </div>
           </section>
-
-          {/* <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
-            <div className="flex items-center gap-3 mb-4">
-              <FaCookie className="text-red-500 text-xl" />
-              <h2 className="text-xl font-semibold text-white">
-                Cookie Policy
-              </h2>
-            </div>
-            <div className="text-gray-300 space-y-2">
-              <p>
-                This website uses cookies responsibly:
-              </p>
-              <ul className="list-disc list-inside space-y-1 ml-4">
-                <li>Essential cookies for basic functionality only</li>
-                <li>No tracking or analytics cookies without consent</li>
-                <li>Session cookies are removed when you close your browser</li>
-                <li>You can disable cookies in your browser settings</li>
-              </ul>
-            </div>
-          </section> */}
         </div>
       </div>
       {showContact && <ContactFormModal onClose={() => setShowContact(false)} />}
