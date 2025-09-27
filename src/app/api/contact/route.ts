@@ -1,15 +1,51 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { RATE_LIMIT } from '../../components/constants'
 
 const rateLimitMap = new Map<string, number>()
 
+// Validate required environment variables
+const validateEnvVars = () => {
+  const required = ['GMAIL_USER', 'GMAIL_PASS', 'RECEIVER_EMAIL']
+  const missing = required.filter(key => !process.env[key])
+  
+  if (missing.length > 0) {
+    throw new Error(`Missing required environment variables: ${missing.join(', ')}`)
+  }
+}
+
+// Clean up old entries periodically to prevent memory leaks
+const cleanupRateLimit = () => {
+  const now = Date.now()
+  
+  for (const [ip, timestamp] of rateLimitMap.entries()) {
+    if (now - timestamp > RATE_LIMIT.CLEANUP_THRESHOLD) {
+      rateLimitMap.delete(ip)
+    }
+  }
+}
+
 export async function POST(req: Request) {
+  try {
+    validateEnvVars()
+  } catch (error) {
+    console.error('Environment validation failed:', error)
+    return NextResponse.json(
+      { message: 'Server configuration error' },
+      { status: 500 }
+    )
+  }
+
+  // Periodic cleanup
+  if (Math.random() < 0.1) { // 10% chance to run cleanup
+    cleanupRateLimit()
+  }
+
   const ip = req.headers.get('x-forwarded-for') || 'local'
   const now = Date.now()
   const lastSent = rateLimitMap.get(ip) || 0
 
-  const RATE_LIMIT_MS = 60 * 1000
-  if (now - lastSent < RATE_LIMIT_MS) {
+  if (now - lastSent < RATE_LIMIT.REQUEST_TIMEOUT) {
     return NextResponse.json(
       { message: 'You are sending messages too quickly. Please wait.' },
       { status: 429 }

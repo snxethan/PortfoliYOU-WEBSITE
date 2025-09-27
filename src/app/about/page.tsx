@@ -4,6 +4,8 @@ import Navbar from "../components/pages/Navbar";
 import Notice from "../components/pages/Notice";
 import TooltipWrapper from "../components/ToolTipWrapper";
 import ContactFormModal from "../components/ContactFormModal";
+import SkeletonLoader from "../components/SkeletonLoader";
+import { useLoadingDelay } from "../components/hooks/useLoadingDelay";
 import {
   FaGithub,
   FaPalette,
@@ -18,7 +20,7 @@ import {
   FaExclamationTriangle,
 } from "react-icons/fa";
 import Image from "next/image";
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 import Footer from "../components/pages/Footer";
 import { useExternalLink } from "../components/ExternalLinkHandler";
 
@@ -79,27 +81,11 @@ export default function AboutPage() {
 
     const handleNavClick = (id: string) => handleExpand(id);
 
-    const [loading, setLoading] = useState(true);
+    const loading = useLoadingDelay();
 
-    useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500);
-    return () => clearTimeout(timer);
-    }, []);
-    
     if (loading) {
-        return (
-            <div className="flex flex-col min-h-screen">
-            <main className="flex-grow w-full flex items-center justify-center p-6 bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
-                <div className="w-full max-w-2xl mx-auto text-center animate-pulse">
-                <div className="h-12 w-80 bg-[#333333] mx-auto rounded mb-6" />
-                <div className="h-6 w-96 bg-[#333333] mx-auto rounded mb-4" />
-                <div className="h-6 w-72 bg-[#333333] mx-auto rounded" />
-                </div>
-            </main>
-            <Footer />
-            </div>
-        );
-        }
+        return <SkeletonLoader />;
+    }
 
     return (
         <div>
@@ -378,7 +364,7 @@ export default function AboutPage() {
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
-                                    <div className="flex items-center gap-3 text-white-300 text-sm md:text-base">
+                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
                                     <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
