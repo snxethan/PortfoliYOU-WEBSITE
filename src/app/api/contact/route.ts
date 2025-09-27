@@ -3,7 +3,24 @@ import nodemailer from 'nodemailer'
 
 const rateLimitMap = new Map<string, number>()
 
+// Clean up old entries periodically to prevent memory leaks
+const cleanupRateLimit = () => {
+  const now = Date.now()
+  const CLEANUP_THRESHOLD = 10 * 60 * 1000 // 10 minutes
+  
+  for (const [ip, timestamp] of rateLimitMap.entries()) {
+    if (now - timestamp > CLEANUP_THRESHOLD) {
+      rateLimitMap.delete(ip)
+    }
+  }
+}
+
 export async function POST(req: Request) {
+  // Periodic cleanup
+  if (Math.random() < 0.1) { // 10% chance to run cleanup
+    cleanupRateLimit()
+  }
+
   const ip = req.headers.get('x-forwarded-for') || 'local'
   const now = Date.now()
   const lastSent = rateLimitMap.get(ip) || 0

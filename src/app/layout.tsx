@@ -69,7 +69,7 @@ const jsonLd = {
   name: "Portfoli-YOU",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Windows, macOS, Linux",
-  url: "https://portfoli-you.snxethan.dev",
+  url: "https://portfoliyou.snxethan.dev",
   image: "/icon/portfoliyou.png",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   creator: {

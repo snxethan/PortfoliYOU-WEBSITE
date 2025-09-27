@@ -378,7 +378,7 @@ export default function AboutPage() {
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
-                                    <div className="flex items-center gap-3 text-white-300 text-sm md:text-base">
+                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
                                     <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
