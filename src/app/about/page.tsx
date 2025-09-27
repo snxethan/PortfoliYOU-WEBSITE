@@ -69,8 +69,10 @@ export default function AboutPage() {
     const handleExpand = useCallback(
         (id: string) => {
         setExpanded(id);
-        // keep most info visible; expand just increases content density
-        scrollToSection(id);
+        // Delay scrolling to allow expansion animation to complete (300ms duration + small buffer)
+        setTimeout(() => {
+            scrollToSection(id);
+        }, 350);
         },
         [scrollToSection]
     );
