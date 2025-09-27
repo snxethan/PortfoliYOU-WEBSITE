@@ -3,6 +3,7 @@
 import Navbar from "../components/pages/Navbar";
 import Notice from "../components/pages/Notice";
 import TooltipWrapper from "../components/ToolTipWrapper";
+import ContactFormModal from "../components/ContactFormModal";
 import {
   FaGithub,
   FaPalette,
@@ -45,6 +46,7 @@ export default function AboutPage() {
 
     // Default expand the first section
     const [expanded, setExpanded] = useState<string | null>(sections[0].id);
+    const [showContactModal, setShowContactModal] = useState(false);
     const { handleExternalClick } = useExternalLink();
 
     // map of refs for precise scroll w/ offset
@@ -360,7 +362,13 @@ export default function AboutPage() {
                                     that anyone can use. I encourage you to try it out and provide feedback or contribute on GitHub if you&apos;re so willing.
                                     <br />
                                     <br />
-                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> at: <a href="mailto:snxethan@gmail.com" className="text-red-500">snxethan@gmail.com</a>
+                                    You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> by{" "}
+                                    <button 
+                                        onClick={() => setShowContactModal(true)}
+                                        className="text-red-500 hover:text-red-400 underline bg-transparent border-none p-0 cursor-pointer"
+                                    >
+                                        contacting me
+                                    </button>.
                                 </p>
                                 </div>
 
@@ -478,6 +486,7 @@ export default function AboutPage() {
             </main>
         </div>
     <Footer />
+    {showContactModal && <ContactFormModal onClose={() => setShowContactModal(false)} />}
     </div>
     );
 }
