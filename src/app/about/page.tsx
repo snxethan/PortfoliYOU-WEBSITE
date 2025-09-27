@@ -456,7 +456,6 @@ export default function AboutPage() {
                                         <br />
                                         The project was created, developed, and is maintained solely by:
                                     </p>
-                                    <TooltipWrapper label="snxethan (GitHub)">
                                     <Image
                                         src="/images/author/snxethan.png"
                                         alt="snxethan avatar"
@@ -464,8 +463,7 @@ export default function AboutPage() {
                                         height={96}
                                         className="rounded-full border-2 border-red-500 shadow"
                                     />
-                                    </TooltipWrapper>
-                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-red-500">Ethan Townsend (snxethan)</a></span>
+                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-red-500 hover:underline">Ethan Townsend (snxethan)</a></span>
                                 </div>
                                 </div>
                             </div>
