@@ -365,7 +365,7 @@ export default function AboutPage() {
                                     You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> by{" "}
                                     <button 
                                         onClick={() => setShowContactModal(true)}
-                                        className="text-red-500 hover:text-red-400 underline bg-transparent border-none p-0 cursor-pointer"
+                                        className="text-red-500 hover:text-red-400 hover:underline bg-transparent border-none p-0 cursor-pointer"
                                     >
                                         contacting me
                                     </button>.
