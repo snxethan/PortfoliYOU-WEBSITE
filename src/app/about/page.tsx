@@ -4,6 +4,7 @@ import Navbar from "../components/pages/Navbar";
 import Notice from "../components/pages/Notice";
 import TooltipWrapper from "../components/ToolTipWrapper";
 import ContactFormModal from "../components/ContactFormModal";
+import SkeletonLoader from "../components/SkeletonLoader";
 import {
   FaGithub,
   FaPalette,
@@ -87,19 +88,8 @@ export default function AboutPage() {
     }, []);
     
     if (loading) {
-        return (
-            <div className="flex flex-col min-h-screen">
-            <main className="flex-grow w-full flex items-center justify-center p-6 bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
-                <div className="w-full max-w-2xl mx-auto text-center animate-pulse">
-                <div className="h-12 w-80 bg-[#333333] mx-auto rounded mb-6" />
-                <div className="h-6 w-96 bg-[#333333] mx-auto rounded mb-4" />
-                <div className="h-6 w-72 bg-[#333333] mx-auto rounded" />
-                </div>
-            </main>
-            <Footer />
-            </div>
-        );
-        }
+        return <SkeletonLoader />;
+    }
 
     return (
         <div>

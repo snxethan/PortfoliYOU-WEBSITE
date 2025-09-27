@@ -5,9 +5,9 @@ import Footer from "../components/pages/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import Notice from "../components/pages/Notice";
 import { useEffect, useState } from "react";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 export default function DownloadPage() {
-
 
         const [loading, setLoading] = useState(true);
     
@@ -17,19 +17,8 @@ export default function DownloadPage() {
         }, []);
         
         if (loading) {
-            return (
-                <div className="flex flex-col min-h-screen">
-                <main className="flex-grow w-full flex flex-col items-center justify-center p-6 pt-24">
-                    <div className="w-full max-w-2xl mx-auto text-center animate-pulse">
-                    <div className="h-12 w-80 bg-[#333333] mx-auto rounded mb-6" />
-                    <div className="h-6 w-96 bg-[#333333] mx-auto rounded mb-4" />
-                    <div className="h-6 w-72 bg-[#333333] mx-auto rounded" />
-                    </div>
-                </main>
-                <Footer />
-                </div>
-            );
-            }
+            return <SkeletonLoader />;
+        }
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
             <Navbar />
