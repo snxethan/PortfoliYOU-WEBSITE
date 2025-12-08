@@ -18,13 +18,23 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true)
-    // Check localStorage first
-    const stored = localStorage.getItem('theme') as Theme | null
-    if (stored) {
-      setThemeState(stored)
-      document.documentElement.setAttribute('data-theme', stored)
-    } else {
-      // Check system preference
+    try {
+      // Check localStorage first
+      const stored = localStorage.getItem('theme')
+      // Validate the stored value
+      if (stored === 'dark' || stored === 'light') {
+        setThemeState(stored)
+        document.documentElement.setAttribute('data-theme', stored)
+      } else {
+        // Check system preference if no valid stored value
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        const systemTheme = prefersDark ? 'dark' : 'light'
+        setThemeState(systemTheme)
+        document.documentElement.setAttribute('data-theme', systemTheme)
+      }
+    } catch (error) {
+      // Fallback to system preference if localStorage is unavailable
+      console.warn('localStorage unavailable, using system preference:', error)
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       const systemTheme = prefersDark ? 'dark' : 'light'
       setThemeState(systemTheme)
@@ -35,7 +45,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme)
     document.documentElement.setAttribute('data-theme', newTheme)
-    localStorage.setItem('theme', newTheme)
+    try {
+      localStorage.setItem('theme', newTheme)
+    } catch (error) {
+      console.warn('Failed to save theme to localStorage:', error)
+    }
   }
 
   const toggleTheme = () => {
