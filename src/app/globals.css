@@ -61,9 +61,9 @@
     --muted: #eef2f7;
     --border: #e2e8f0;
 
-    --fg: #0b1220;
-    --fg-muted: #4a5568;
-    --fg-strong: #050505;
+    --fg: #1a202c;
+    --fg-muted: #2d3748;
+    --fg-strong: #000000;
 
     /* Use cyan as the accent in light mode */
     --primary: #06b6d4;

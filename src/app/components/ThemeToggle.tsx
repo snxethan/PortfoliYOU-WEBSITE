@@ -17,18 +17,17 @@ export default function ThemeToggle() {
     // Return a placeholder that matches the initial state to prevent layout shift
     return (
       <button
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-300"
+        className="inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all duration-300"
         style={{
           backgroundColor: 'var(--surface)',
           borderColor: 'var(--accent)',
-          color: 'var(--fg)',
+          color: 'var(--accent)',
           opacity: 0,
         }}
         aria-label="Theme toggle"
         disabled
       >
-        <FaSun className="text-sm" style={{ color: 'var(--accent)' }} />
-        <span className="text-sm font-medium">Light</span>
+        <FaSun className="text-base" />
       </button>
     )
   }
@@ -36,24 +35,18 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-300 hover:scale-105 active:scale-95"
+      className="inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all duration-300 hover:scale-105 active:scale-95"
       style={{
         backgroundColor: 'var(--surface)',
         borderColor: 'var(--accent)',
-        color: 'var(--fg)',
+        color: 'var(--accent)',
       }}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       {theme === 'dark' ? (
-        <>
-          <FaSun className="text-sm" style={{ color: 'var(--accent)' }} />
-          <span className="text-sm font-medium">Light</span>
-        </>
+        <FaSun className="text-base" />
       ) : (
-        <>
-          <FaMoon className="text-sm" style={{ color: 'var(--accent)' }} />
-          <span className="text-sm font-medium">Dark</span>
-        </>
+        <FaMoon className="text-base" />
       )}
     </button>
   )

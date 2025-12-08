@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
         
         {/* Right: FAQs and Theme Toggle */}
-        <div className="flex-1 flex justify-end items-center gap-4">
+        <div className="flex-1 flex justify-end items-center gap-2">
           <Link
             href="/about"
             className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
