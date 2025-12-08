@@ -693,7 +693,7 @@ export default function AboutPage() {
 
                                     {/* Application Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -701,12 +701,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
@@ -733,7 +731,7 @@ export default function AboutPage() {
 
                                     {/* Data Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -741,12 +739,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
@@ -773,7 +769,7 @@ export default function AboutPage() {
 
                                     {/* Widget Architecture */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -781,12 +777,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
@@ -805,7 +799,7 @@ export default function AboutPage() {
 
                                     {/* Compilation Pipeline */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -813,12 +807,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
@@ -837,7 +829,7 @@ export default function AboutPage() {
 
                                     {/* Live Preview */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -845,12 +837,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
