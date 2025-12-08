@@ -22,6 +22,7 @@ import {
   FaFire,
   FaCode,
   FaCog,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { SiElectron, SiVite, SiTypescript, SiTailwindcss, SiFirebase } from "react-icons/si";
 import Image from "next/image";
@@ -661,7 +662,7 @@ export default function AboutPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Platform Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -669,12 +670,10 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
-                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
@@ -861,13 +860,29 @@ export default function AboutPage() {
 
                                 {/* Testing & Quality */}
                                 <div 
-                                  className="rounded-xl border p-5"
+                                  className="rounded-xl border p-5 transition-all duration-300 ease-out"
                                   style={{
                                     backgroundColor: 'var(--surface)',
                                     borderColor: 'var(--border)',
                                   }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
                                 >
-                                  <h4 className="text-base font-bold mb-3" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Testing & Quality:</h4>
+                                  <div className="flex items-center gap-3 mb-3">
+                                    <div 
+                                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                                      style={{ backgroundColor: 'var(--accent)' }}
+                                    >
+                                      <FaCheckCircle className="text-white text-lg" />
+                                    </div>
+                                    <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Testing & Quality</h4>
+                                  </div>
                                   <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                     Vitest unit suites for providers/widgets, Playwright/Vite smoke tests for editor flows, ESLint + TypeScript strictness across renderer and Electron code.
                                   </p>
