@@ -29,7 +29,7 @@ export default function PortfoliYouPage() {
 
         <div className="w-full max-w-4xl mx-auto text-center animate-fade-in-up">
           <div className="mb-4">
-            <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-lg animate-logo-glow transition-transform duration-300 hover:scale-110 hover:rotate-3">
+            <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-3">
               <Image
                 src="/images/icon/portfoliyou.png"
                 alt="Portfoli-YOU Logo"
@@ -44,10 +44,7 @@ export default function PortfoliYouPage() {
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             style={{
-              background: `linear-gradient(135deg, var(--primary), var(--accent))`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: 'var(--fg)',
               fontFamily: 'var(--heading-font)',
             }}
           >

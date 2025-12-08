@@ -153,10 +153,7 @@ export default function AboutPage() {
                         <h1 
                           className="text-4xl md:text-5xl lg:text-6xl font-bold"
                           style={{
-                            background: `linear-gradient(135deg, var(--primary), var(--accent))`,
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text',
+                            color: 'var(--fg)',
                             fontFamily: 'var(--heading-font)',
                           }}
                         >
@@ -191,7 +188,7 @@ export default function AboutPage() {
                                 <span 
                                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg transition-transform duration-200 hover:scale-110"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <Icon className="text-white" />
@@ -201,10 +198,7 @@ export default function AboutPage() {
                             <h2 
                               className="text-xl md:text-2xl font-bold"
                               style={{
-                                background: `linear-gradient(135deg, var(--primary), var(--accent))`,
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                backgroundClip: 'text',
+                                color: 'var(--fg)',
                                 fontFamily: 'var(--heading-font)',
                               }}
                             >
@@ -264,7 +258,7 @@ export default function AboutPage() {
                                   rel="noopener noreferrer"
                                   className="px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-white"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                   <FaFile /> View Project Proposal
@@ -372,7 +366,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaPalette className="text-white text-2xl" />
@@ -398,7 +392,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaBolt className="text-white text-2xl" />
@@ -424,7 +418,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaRocket className="text-white text-2xl" />
@@ -450,7 +444,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaStar className="text-white text-2xl" />
@@ -476,7 +470,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaCloud className="text-white text-2xl" />
@@ -502,7 +496,7 @@ export default function AboutPage() {
                                 <div 
                                   className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
                                   style={{
-                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                    backgroundColor: 'var(--accent)',
                                   }}
                                 >
                                     <FaLock className="text-white text-2xl" />
@@ -600,7 +594,7 @@ export default function AboutPage() {
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP", true)}
                                         className="inline-flex items-center px-4 py-2 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                         style={{
-                                          background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                          backgroundColor: 'var(--accent)',
                                         }}
                                     >
                                         <FaGithub /> App Repository
@@ -611,7 +605,7 @@ export default function AboutPage() {
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-WEBSITE", true)}
                                         className="inline-flex items-center px-4 py-2 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
                                         style={{
-                                          background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                          backgroundColor: 'var(--accent)',
                                         }}
                                     >
                                         <FaGithub /> Website Repository

@@ -126,7 +126,7 @@
   }
 
   .link-accent {
-    color: color-mix(in oklab, var(--fg) 90%, var(--accent) 10%);
+    color: var(--accent);
   }
 
   .link-accent:hover {

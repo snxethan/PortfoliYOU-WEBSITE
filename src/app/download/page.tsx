@@ -29,10 +29,7 @@ export default function DownloadPage() {
           <h1 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             style={{
-              background: `linear-gradient(135deg, var(--primary), var(--accent))`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: 'var(--fg)',
               fontFamily: 'var(--heading-font)',
             }}
           >
