@@ -89,13 +89,25 @@ export default function AboutPage() {
 
     return (
         <div>
-        <div className="flex min-h-screen bg-gradient-to-b from-[#1a1a1a] via-[#121212] to-[#0d0d0d] text-white font-sans">
+        <div 
+          className="flex min-h-screen font-sans transition-all duration-300"
+          style={{
+            background: 'linear-gradient(to bottom, var(--bg), var(--muted), var(--surface))',
+            color: 'var(--fg)',
+          }}
+        >
             <Navbar />
             
             <main className="flex-grow w-full flex">
             {/* Left-side Navigator (centered vertically) */}
             
-            <aside className="hidden lg:flex sticky top-[64px] h-[calc(100vh-64px)] min-w-[260px] max-w-[300px] border-r border-[#333] bg-[#181818]/70 pl-2">
+            <aside 
+              className="hidden lg:flex sticky top-[64px] h-[calc(100vh-64px)] min-w-[260px] max-w-[300px] border-r pl-2"
+              style={{
+                borderColor: 'var(--border)',
+                backgroundColor: 'color-mix(in oklab, var(--surface) 70%, transparent)',
+              }}
+            >
                 <nav className="m-auto flex w-full max-w-[260px] flex-col items-stretch gap-3 px-4 py-4">
                 {sections.map((s) => {
                     const Icon = sectionIcons[s.id];
@@ -104,14 +116,27 @@ export default function AboutPage() {
                     <button
                         key={s.id}
                         onClick={() => handleNavClick(s.id)}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2 focus-visible:ring-red-500/60 ${
-                        isActive
-                            ? "bg-red-700/40 text-red-500"
-                            : "text-gray-400 hover:text-red-500 hover:bg-red-700/30"
-                        }`}
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg text-left font-semibold transition-all duration-200 outline-none ring-0 focus-visible:ring-2`}
+                        style={{
+                          backgroundColor: isActive ? 'color-mix(in oklab, var(--accent) 20%, transparent)' : 'transparent',
+                          color: isActive ? 'var(--accent)' : 'var(--fg-muted)',
+                          boxShadow: isActive ? '0 0 0 2px var(--accent)' : 'none',
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.backgroundColor = 'color-mix(in oklab, var(--accent) 15%, transparent)'
+                            e.currentTarget.style.color = 'var(--accent)'
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isActive) {
+                            e.currentTarget.style.backgroundColor = 'transparent'
+                            e.currentTarget.style.color = 'var(--fg-muted)'
+                          }
+                        }}
                         aria-current={isActive ? "true" : undefined}
                     >
-                        <Icon className="text-red-500 shrink-0" />
+                        <Icon style={{ color: 'var(--accent)' }} className="shrink-0" />
                         <span className="truncate">{s.title}</span>
                     </button>
                     );
@@ -124,9 +149,18 @@ export default function AboutPage() {
             {/* Content column */}
             <div className="flex-1 min-w-0">
                 <div className="mx-auto max-w-4xl px-4 md:px-25 pt-24 pb-16 ">
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-clip-text text-transparent">
-                        About Portfoli-YOU
+                    <div className="text-center mb-12 animate-fade-in-up">
+                        <h1 
+                          className="text-4xl md:text-5xl lg:text-6xl font-bold"
+                          style={{
+                            background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            backgroundClip: 'text',
+                            fontFamily: 'var(--heading-font)',
+                          }}
+                        >
+                        About Portfoli-<span style={{ color: 'var(--accent)' }}>YOU</span>
                         </h1>
                     </div>
                 <Notice />
@@ -145,7 +179,7 @@ export default function AboutPage() {
                         {/* Section Header (click anywhere to expand) */}
                         <header>
                         <button
-                            className="group w-full flex items-center justify-between gap-3 text-left"
+                            className="group w-full flex items-center justify-between gap-3 text-left transition-all duration-200"
                             onClick={() => handleExpand(section.id)}
                             aria-expanded={expanded === section.id}
                             aria-controls={`${section.id}-panel`}
@@ -154,12 +188,26 @@ export default function AboutPage() {
                             {(() => {
                                 const Icon = sectionIcons[section.id];
                                 return (
-                                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-500">
+                                <span 
+                                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg transition-transform duration-200 hover:scale-110"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <Icon className="text-white" />
                                 </span>
                                 );
                             })()}
-                            <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+                            <h2 
+                              className="text-xl md:text-2xl font-bold"
+                              style={{
+                                background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text',
+                                fontFamily: 'var(--heading-font)',
+                              }}
+                            >
                                 {section.title}
                             </h2>
                             </div>
@@ -167,12 +215,13 @@ export default function AboutPage() {
                             className={`transition-transform duration-200 ${
                                 expanded === section.id ? "rotate-180" : "rotate-0"
                             }`}
+                            style={{ color: 'var(--accent)' }}
                             aria-hidden
                             />
                         </button>
 
                         {/* Always-visible preview line under header */}
-                        <p className="mt-2 text-sm md:text-base text-gray-400">
+                        <p className="mt-2 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
                             {section.id === "what" && <>A Portfolio for you, by you.</>}
                             {section.id === "how" && <>Download → Design → Deploy</>}
                             {section.id === "why" && <>Resumes earn seconds; portfolios earn minutes.</>}
@@ -193,7 +242,7 @@ export default function AboutPage() {
                         <div className="pt-4">
                             {section.id === "what" && (
                             <>
-                            <p className="text-gray-300 leading-relaxed">
+                            <p className="leading-relaxed" style={{ color: 'var(--fg)' }}>
                               <b>Portfoli-YOU</b> is a cutting-edge digital portfolio builder tailored for individuals of all skill levels. Whether you are a student, job seeker, freelancer, or seasoned professional, <b>Portfoli-YOU</b> empowers you to create a stunning, personalized website that authentically represents your unique identity.
                               <br />
                               <br />
@@ -213,7 +262,10 @@ export default function AboutPage() {
                                   href="/proposal/portfoliyou_capstone_proposal.pdf"
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-transform duration-200 ease-out hover:scale-105 active:scale-95"
+                                  className="px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-white"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
                                 >
                                   <FaFile /> View Project Proposal
                                 </a>
@@ -223,7 +275,7 @@ export default function AboutPage() {
                             )}
 
                             {section.id === "how" && (
-                            <ol className="list-decimal list-inside text-gray-300 space-y-2">
+                            <ol className="list-decimal list-inside space-y-2" style={{ color: 'var(--fg)' }}>
                                 <li>Download and run the installer.</li>
                                 <li>Log in for cloud services or build fully offline.</li>
                                 <li>Explore and create pages through the editor.</li>
@@ -235,8 +287,15 @@ export default function AboutPage() {
 
                            {section.id === "why" && (
                             <>
-                                <blockquote className="bg-[#202020] border-l-4 border-red-500 p-4 md:p-6 rounded-xl text-gray-200 italic flex items-start gap-3">
-                                <FaQuoteLeft className="text-red-400 mt-1 shrink-0" />
+                                <blockquote 
+                                  className="border-l-4 p-4 md:p-6 rounded-xl italic flex items-start gap-3"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--accent)',
+                                    color: 'var(--fg)',
+                                  }}
+                                >
+                                <FaQuoteLeft className="mt-1 shrink-0" style={{ color: 'var(--accent)' }} />
                                 <span>
                                     &quot;On average, recruiters spend only 6–8 seconds scanning a resume, but that
                                     jumps to roughly 3 minutes when reviewing a portfolio website.&quot;
@@ -244,12 +303,12 @@ export default function AboutPage() {
                                 </span>
                                 </blockquote>
 
-                                <p className="mt-3 text-gray-300">
+                                <p className="mt-3" style={{ color: 'var(--fg)' }}>
                                 The aim is simple: make portfolio building fast, easy, and intuitive for everyone.
                                 <b> Portfoli-YOU</b> lowers the barrier so anyone can create a site that truly represents them.
                                 </p>
 
-                                <section aria-labelledby="why-local-first" className="mt-4 space-y-4 text-gray-300 leading-relaxed">
+                                <section aria-labelledby="why-local-first" className="mt-4 space-y-4 leading-relaxed" style={{ color: 'var(--fg)' }}>
                                 <p>
                                     <b>Portfoli-YOU</b> adopts a local-first approach to portfolio creation, prioritizing user
                                     privacy and control. Unlike many competitors that rely heavily on cloud-based systems,
@@ -263,20 +322,20 @@ export default function AboutPage() {
                                     </i>
                                 </p>
 
-                                <h5 className="text-white font-bold">Pros of Local-First:</h5>
+                                <h5 className="font-bold" style={{ color: 'var(--fg-strong)' }}>Pros of Local-First:</h5>
                                 <ul className="list-disc list-inside ml-4 space-y-2">
                                     <li><b>Privacy:</b> Your data stays on your machine, reducing exposure to potential breaches.</li>
                                     <li><b>Offline Access:</b> Build and edit your portfolio without needing an internet connection.</li>
                                     <li><b>Performance:</b> Local processing ensures faster load times and smoother interactions.</li>
                                 </ul>
 
-                                <h5 className="text-white font-bold">Cons of Local-First:</h5>
+                                <h5 className="font-bold" style={{ color: 'var(--fg-strong)' }}>Cons of Local-First:</h5>
                                 <ul className="list-disc list-inside ml-4 space-y-2">
                                     <li><b>Limited Collaboration:</b> Real-time team collaboration is not available without cloud integration.</li>
                                     <li><b>Manual Backups:</b> Users need to manage their own backups unless opting for cloud services.</li>
                                 </ul>
 
-                                <h5 className="text-white font-bold">Competitor Comparison:</h5>
+                                <h5 className="font-bold" style={{ color: 'var(--fg-strong)' }}>Competitor Comparison:</h5>
                                 <p>
                                     Many cloud-based portfolio builders offer features like real-time collaboration and automatic
                                     backups. However, these often come at the cost of user privacy and data ownership, or the requirements of templates & themes.
@@ -295,47 +354,161 @@ export default function AboutPage() {
 
                             {section.id === "features" && (
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pl-2 pr-2 pb-2">
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaPalette className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Customizable Designs</h3>
-                                <p className="text-gray-400 text-sm">Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Customizable Designs</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>Carefully crafted & specialized widgets and modules. Tailor your portfolio to reflect your unique style.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaBolt className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Easy to Use</h3>
-                                <p className="text-gray-400 text-sm">Design digital pages with no experience required. Drag and drop your way to stunning layouts, all while maintaining full control over your design.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Easy to Use</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>Design digital pages with no experience required. Drag and drop your way to stunning layouts, all while maintaining full control over your design.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaRocket className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Share Anywhere</h3>
-                                <p className="text-gray-400 text-sm">One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Share Anywhere</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>One-click deployment to our provided deployment methods, or statically export to modify and take your project anywhere, on your own terms.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaStar className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Your pages, your rules.</h3>
-                                <p className="text-gray-400 text-sm">No limitations on design or functionality, use the editor and explore your pages visually, or export and modify the code directly.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Your pages, your rules.</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>No limitations on design or functionality, use the editor and explore your pages visually, or export and modify the code directly.</p>
                                 </div>
-                                <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaCloud className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Cloud Sync</h3>
-                                <p className="text-gray-400 text-sm">Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Cloud Sync</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>Sync across devices when you want. Optional sign in for cloud services, or stay offline and explore the same features for the same price: for free.</p>
                                 </div>
-                                 <div className="bg-[#222222] rounded-xl border border-[#333333] hover:border-red-600/50 p-6 transition-transform duration-300 ease-out hover:scale-[1.03] active:scale-95">
-                                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                                 <div 
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                  style={{
+                                    backgroundColor: 'var(--surface)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                    e.currentTarget.style.boxShadow = 'none'
+                                  }}
+                                >
+                                <div 
+                                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                  style={{
+                                    background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                  }}
+                                >
                                     <FaLock className="text-white text-2xl" />
                                 </div>
-                                <h3 className="text-base font-semibold text-white mb-2">Privacy</h3>
-                                <p className="text-gray-400 text-sm">Local-first. Your data, your choice. Even when using the cloud services, your data remains private and secure. Your projects are backed up, but nothing is shared.</p>
+                                <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Privacy</h3>
+                                <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>Local-first. Your data, your choice. Even when using the cloud services, your data remains private and secure. Your projects are backed up, but nothing is shared.</p>
                                 </div>
                             </div>
                             )}
@@ -344,8 +517,8 @@ export default function AboutPage() {
                             <div className="space-y-8">
                                 {/* Philosophy & Vision */}
                                 <div>
-                                <h3 className="text-base md:text-lg font-bold text-white mb-2">Project Development:</h3>
-                                <p className="text-gray-300 text-sm md:text-base">
+                                <h3 className="text-base md:text-lg font-bold mb-2" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Project Development:</h3>
+                                <p className="text-sm md:text-base" style={{ color: 'var(--fg)' }}>
                                     <b>Portfoli-YOU</b> is designed to be as intuitive and user-friendly as possible. The goal is to make an open-source, privacy-first portfolio builder
                                     that anyone can use. I encourage you to try it out and provide feedback or contribute on GitHub if you&apos;re so willing.
                                     <br />
@@ -420,12 +593,15 @@ export default function AboutPage() {
 
                                 {/* Repos */}
                                 <div>
-                                <h3 className="text-base md:text-lg font-bold text-white mb-3">Repositories:</h3>
+                                <h3 className="text-base md:text-lg font-bold mb-3" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Repositories:</h3>
                                 <div className="flex flex-wrap gap-4 ml-5">
                                     <TooltipWrapper label="GitHub App Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        style={{
+                                          background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                        }}
                                     >
                                         <FaGithub /> App Repository
                                     </button>
@@ -433,7 +609,10 @@ export default function AboutPage() {
                                     <TooltipWrapper label="GitHub Website Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-WEBSITE", true)}
-                                        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        className="inline-flex items-center px-4 py-2 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 active:scale-95 text-sm md:text-base font-semibold"
+                                        style={{
+                                          background: `linear-gradient(135deg, var(--primary), var(--accent))`,
+                                        }}
                                     >
                                         <FaGithub /> Website Repository
                                     </button>
@@ -443,9 +622,9 @@ export default function AboutPage() {
 
                                 {/* Author */}
                                 <div>
-                                <h3 className="text-base md:text-lg font-bold text-white mb-3">Author:</h3>
+                                <h3 className="text-base md:text-lg font-bold mb-3" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Author:</h3>
                                 <div className="flex flex-col items-start gap-2">
-                                <p className="text-gray-300 text-sm md:text-base">
+                                <p className="text-sm md:text-base" style={{ color: 'var(--fg)' }}>
                                         <b>Portfoli-YOU</b> was created & developed as a College Capstone Project for the Neumont College of Computer Science 
                                         course.
                                         <br />
@@ -457,9 +636,16 @@ export default function AboutPage() {
                                         alt="snxethan avatar"
                                         width={96}
                                         height={96}
-                                        className="rounded-full border-2 border-red-500 shadow"
+                                        className="rounded-full border-2 shadow transition-all duration-300 hover:scale-110 hover:rotate-12"
+                                        style={{
+                                          borderColor: 'var(--accent)',
+                                        }}
                                     />
-                                    <span className="text-sm md:text-base font-semibold text-white"><a href="https://www.ethantownsend.dev" className="text-red-500 hover:underline">Ethan Townsend (snxethan)</a></span>
+                                    <span className="text-sm md:text-base font-semibold" style={{ color: 'var(--fg-strong)' }}>
+                                      <a href="https://www.ethantownsend.dev" className="link-accent hover:underline">
+                                        Ethan Townsend (snxethan)
+                                      </a>
+                                    </span>
                                 </div>
                                 </div>
                             </div>
