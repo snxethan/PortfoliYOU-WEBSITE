@@ -103,7 +103,10 @@ const TooltipWrapper = ({ label, children, url, fullWidth = false }: PdfThumbnai
             <div
               role="tooltip"
               aria-label={label}
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-red-600 text-white rounded-md shadow-md z-50 whitespace-nowrap transition-all duration-200 ease-out opacity-100 scale-100 animate-elastic-in"
+              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white rounded-md shadow-md z-50 whitespace-nowrap transition-all duration-200 ease-out opacity-100 scale-100 animate-elastic-in"
+              style={{
+                backgroundColor: 'var(--accent)',
+              }}
             >
               {label}
             </div>

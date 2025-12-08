@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -11,34 +12,54 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full z-40 bg-[#181818] border-b border-red-600/30 shadow-sm">
-  <div className="max-w-4xl mx-auto py-2 flex items-center justify-center">
-        <div className="flex items-center justify-center w-full text-center">
-          <div className="flex-1 max-w-xs flex justify-end">
-            <button
-              onClick={handleInstallClick}
-              disabled
-              className={`text-2xl font-bold select-none cursor-not-allowed transition text-gray-400 bg-transparent border-none p-0 m-0 ${pathname === "/download" ? "text-red-500" : "" }`} //"hover:text-red-500
-            >
-              Install
-            </button>
-          </div>
-          <div className="flex-1 max-w-xs flex justify-center">
-            <Link
-              href="/"
-              className={`text-2xl font-bold transition ${pathname === "/" ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
-            >
-              Portfoli-YOU
-            </Link>
-          </div>
-          <div className="flex-1 max-w-xs flex justify-start">
-            <Link
-              href="/about"
-              className={`text-2xl font-bold transition ${pathname === "/about" ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
-            >
-              FAQs
-            </Link>
-          </div>
+    <nav 
+      className="fixed top-0 left-0 right-0 w-full z-40 border-b shadow-sm transition-all duration-300"
+      style={{
+        backgroundColor: 'var(--surface)',
+        borderColor: 'var(--border)',
+      }}
+    >
+      <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-center gap-6">
+        {/* Install */}
+        <button
+          onClick={handleInstallClick}
+          disabled
+          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
+            pathname === "/download" ? "" : ""
+          }`}
+          style={{
+            color: pathname === "/download" ? 'var(--accent)' : 'var(--fg-muted)',
+          }}
+        >
+          Install
+        </button>
+        
+        {/* Logo/Brand */}
+        <Link
+          href="/"
+          className={`text-2xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
+          style={{
+            color: pathname === "/" ? 'var(--accent)' : 'var(--fg-muted)',
+            fontFamily: 'var(--heading-font)',
+          }}
+        >
+          Portfoli-<span style={{ color: 'var(--accent)' }}>YOU</span>
+        </Link>
+        
+        {/* FAQs */}
+        <Link
+          href="/about"
+          className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
+          style={{
+            color: pathname === "/about" ? 'var(--accent)' : 'var(--fg-muted)',
+          }}
+        >
+          FAQs
+        </Link>
+
+        {/* Theme Toggle - positioned absolutely on the right */}
+        <div className="absolute right-4">
+          <ThemeToggle />
         </div>
       </div>
     </nav>
