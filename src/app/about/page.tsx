@@ -661,7 +661,7 @@ export default function AboutPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Platform Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -669,18 +669,20 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
                                         <div 
-                                          className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                                           style={{ backgroundColor: 'var(--accent)' }}
                                         >
-                                          <SiElectron className="text-white text-xl" />
+                                          <SiElectron className="text-white text-lg" />
                                         </div>
                                         <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Core Platform</h4>
                                       </div>
@@ -691,7 +693,7 @@ export default function AboutPage() {
 
                                     {/* Application Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -699,25 +701,27 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
-                                        <div className="flex -space-x-2">
+                                        <div className="flex -space-x-2 flex-shrink-0">
                                           <div 
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
                                             style={{ backgroundColor: 'var(--accent)' }}
                                           >
-                                            <FaReact className="text-white text-xl" />
+                                            <FaReact className="text-white text-lg" />
                                           </div>
                                           <div 
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
                                             style={{ backgroundColor: 'var(--accent)' }}
                                           >
-                                            <SiTypescript className="text-white text-xl" />
+                                            <SiTypescript className="text-white text-lg" />
                                           </div>
                                         </div>
                                         <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Renderer UI</h4>
@@ -729,7 +733,7 @@ export default function AboutPage() {
 
                                     {/* Data Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -737,22 +741,24 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
-                                        <div className="flex -space-x-2">
+                                        <div className="flex -space-x-2 flex-shrink-0">
                                           <div 
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
                                             style={{ backgroundColor: 'var(--accent)' }}
                                           >
-                                            <SiFirebase className="text-white text-xl" />
+                                            <SiFirebase className="text-white text-lg" />
                                           </div>
                                           <div 
-                                            className="w-10 h-10 rounded-lg flex items-center justify-center text-lg font-bold text-white"
+                                            className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white"
                                             style={{ backgroundColor: 'var(--accent)' }}
                                           >
                                             JSON
@@ -767,7 +773,7 @@ export default function AboutPage() {
 
                                     {/* Widget Architecture */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -775,18 +781,20 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
                                         <div 
-                                          className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                                           style={{ backgroundColor: 'var(--accent)' }}
                                         >
-                                          <FaCog className="text-white text-xl" />
+                                          <FaCog className="text-white text-lg" />
                                         </div>
                                         <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Widget Architecture</h4>
                                       </div>
@@ -797,7 +805,7 @@ export default function AboutPage() {
 
                                     {/* Compilation Pipeline */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -805,15 +813,17 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
                                         <div 
-                                          className="w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold text-white"
+                                          className="w-9 h-9 rounded-lg flex items-center justify-center text-lg flex-shrink-0"
                                           style={{ backgroundColor: 'var(--accent)' }}
                                         >
                                           🟢
@@ -827,7 +837,7 @@ export default function AboutPage() {
 
                                     {/* Live Preview */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105"
+                                      className="rounded-xl border p-5 transition-all duration-300 ease-out hover:scale-105 relative z-0"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -835,18 +845,20 @@ export default function AboutPage() {
                                       onMouseEnter={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--accent)'
                                         e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                        e.currentTarget.style.zIndex = '10'
                                       }}
                                       onMouseLeave={(e) => {
                                         e.currentTarget.style.borderColor = 'var(--border)'
                                         e.currentTarget.style.boxShadow = 'none'
+                                        e.currentTarget.style.zIndex = '0'
                                       }}
                                     >
                                       <div className="flex items-center gap-3 mb-3">
                                         <div 
-                                          className="w-10 h-10 rounded-lg flex items-center justify-center"
+                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                                           style={{ backgroundColor: 'var(--accent)' }}
                                         >
-                                          <SiVite className="text-white text-xl" />
+                                          <SiVite className="text-white text-lg" />
                                         </div>
                                         <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Live Preview</h4>
                                       </div>

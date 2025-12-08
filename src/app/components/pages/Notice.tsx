@@ -61,7 +61,7 @@ export default function Notice() {
               <br />
               <br />
               <li>Information may be inaccurate & is subject to change. </li>
-              <li><u>The Installer is not yet available.</u></li>
+              <li><u>The Installer is coming soon...</u></li>
             </p>
             <div className="mt-2 flex items-center gap-3 text-[11px]" style={{ color: 'var(--fg-muted)' }}>
               <span 
@@ -73,7 +73,7 @@ export default function Notice() {
               >
                 snxethan  
               </span>
-              <span>(September 9th, 2025)</span>
+              <span>(December 8th, 2025)</span>
             </div>
           </div>
         </div>
