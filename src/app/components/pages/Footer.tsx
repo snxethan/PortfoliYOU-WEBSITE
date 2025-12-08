@@ -9,7 +9,13 @@ const Footer = () => {
   const [showSecurityPolicy, setShowSecurityPolicy] = useState(false)
 
   return (
-    <footer className="bg-[#121212] text-gray-400 w-full py-6 px-6">
+    <footer 
+      className="w-full py-6 px-6 transition-all duration-300"
+      style={{
+        backgroundColor: 'var(--surface)',
+        color: 'var(--fg-muted)',
+      }}
+    >
       <div className="max-w-8xl mx-auto flex flex-col items-center gap-6">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4 text-sm">
           {/* Left: Security Policy */}
@@ -17,7 +23,16 @@ const Footer = () => {
             <TooltipWrapper label="View Security Policy">
               <button 
                 onClick={() => setShowSecurityPolicy(true)}
-                className="text-sm text-gray-400 hover:text-red-600 transition-colors duration-200"
+                className="text-sm transition-all duration-200 hover:scale-105"
+                style={{
+                  color: 'var(--fg-muted)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--fg-muted)'
+                }}
               >
                 Security Policy
               </button>
@@ -26,36 +41,89 @@ const Footer = () => {
 
           {/* Center: Logo & Name */}
           <div className="order-1 lg:order-2 flex items-center gap-2">
-            <Image
-              src="https://www.snxethan.dev/images/avatar/snex.png"
-              alt="Ethan Townsend"
-              width={32}
-              height={32}
-              className="rounded-full"
-            />
+            <div className="transition-all duration-300 hover:rotate-12 hover:scale-110">
+              <Image
+                src="https://www.snxethan.dev/images/avatar/snex.png"
+                alt="Ethan Townsend"
+                width={32}
+                height={32}
+                className="rounded-full"
+                style={{
+                  filter: 'drop-shadow(0 0 8px var(--accent))',
+                }}
+              />
+            </div>
             <TooltipWrapper label="Social Page">
-              <a href="https://ethantownsend.dev" className="text-sm text-gray-400 hover:text-red-600 transition-colors duration-200">
+              <a 
+                href="https://ethantownsend.dev" 
+                className="text-sm transition-all duration-200 hover:scale-105"
+                style={{
+                  color: 'var(--fg-muted)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = 'var(--accent)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = 'var(--fg-muted)'
+                }}
+              >
                 Ethan Townsend &copy; {new Date().getFullYear()}
               </a>
             </TooltipWrapper>
           </div>
 
-{/* Right: Domain Links */}
+          {/* Right: Domain Links */}
           <div className="order-2 lg:order-3">
             <div className="footer-links flex flex-col sm:flex-row items-center gap-2">
               <TooltipWrapper label="Portfolio">
                 <div className="flex gap-4">
-                  <Link href="https://snex.dev" className="hover:text-red-600 transition-colors duration-200">
+                  <Link 
+                    href="https://snex.dev" 
+                    className="transition-all duration-200 hover:scale-105"
+                    style={{
+                      color: 'var(--fg-muted)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = 'var(--accent)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'var(--fg-muted)'
+                    }}
+                  >
                     snex.dev    
                   </Link>
-                  <Link href="https://snxethan.dev" className="hover:text-red-600 transition-colors duration-200">
+                  <Link 
+                    href="https://snxethan.dev" 
+                    className="transition-all duration-200 hover:scale-105"
+                    style={{
+                      color: 'var(--fg-muted)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = 'var(--accent)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = 'var(--fg-muted)'
+                    }}
+                  >
                     snxethan.dev
                   </Link>
                 </div>
               </TooltipWrapper>
-              <span className="hidden sm:block text-gray-600">|</span>
+              <span style={{ color: 'var(--border)' }} className="hidden sm:block">|</span>
               <TooltipWrapper label="Social Page">
-                <Link href="https://ethantownsend.dev" className="hover:text-red-600 transition-colors duration-200">
+                <Link 
+                  href="https://ethantownsend.dev" 
+                  className="transition-all duration-200 hover:scale-105"
+                  style={{
+                    color: 'var(--fg-muted)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
                   ethantownsend.dev
                 </Link>
               </TooltipWrapper>

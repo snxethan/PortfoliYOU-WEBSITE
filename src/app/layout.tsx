@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ExternalLinkHandler } from "./components/ExternalLinkHandler"
+import { ThemeProvider } from "./components/ThemeProvider"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "react-hot-toast"
@@ -96,13 +97,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className={`${inter.className} bg-[#1a1a1a] text-white`}>
-        <Toaster position="top-center" />
-        <ExternalLinkHandler>
-          {children}
-        </ExternalLinkHandler>
-        <Analytics />
-        <SpeedInsights />
+      <body suppressHydrationWarning className={inter.className}>
+        <ThemeProvider>
+          <Toaster position="top-center" />
+          <ExternalLinkHandler>
+            {children}
+          </ExternalLinkHandler>
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )
