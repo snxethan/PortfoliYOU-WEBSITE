@@ -48,9 +48,6 @@ const Footer = () => {
                 width={32}
                 height={32}
                 className="rounded-full"
-                style={{
-                  filter: 'drop-shadow(0 0 8px var(--accent))',
-                }}
               />
             </div>
             <TooltipWrapper label="Social Page">

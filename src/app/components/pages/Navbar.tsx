@@ -19,48 +19,46 @@ export default function Navbar() {
         borderColor: 'var(--border)',
       }}
     >
-      <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-between">
-        {/* Left: Install */}
-        <div className="flex-1 flex justify-start">
-          <button
-            onClick={handleInstallClick}
-            disabled
-            className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
-              pathname === "/download" ? "" : ""
-            }`}
-            style={{
-              color: pathname === "/download" ? 'var(--accent)' : 'var(--fg-muted)',
-            }}
-          >
-            Install
-          </button>
-        </div>
+      <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-center gap-6">
+        {/* Install */}
+        <button
+          onClick={handleInstallClick}
+          disabled
+          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
+            pathname === "/download" ? "" : ""
+          }`}
+          style={{
+            color: pathname === "/download" ? 'var(--accent)' : 'var(--fg-muted)',
+          }}
+        >
+          Install
+        </button>
         
-        {/* Center: Logo/Brand */}
-        <div className="flex-1 flex justify-center">
-          <Link
-            href="/"
-            className={`text-2xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
-            style={{
-              color: pathname === "/" ? 'var(--accent)' : 'var(--fg-muted)',
-              fontFamily: 'var(--heading-font)',
-            }}
-          >
-            Portfoli-<span style={{ color: 'var(--accent)' }}>YOU</span>
-          </Link>
-        </div>
+        {/* Logo/Brand */}
+        <Link
+          href="/"
+          className={`text-2xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
+          style={{
+            color: pathname === "/" ? 'var(--accent)' : 'var(--fg-muted)',
+            fontFamily: 'var(--heading-font)',
+          }}
+        >
+          Portfoli-<span style={{ color: 'var(--accent)' }}>YOU</span>
+        </Link>
         
-        {/* Right: FAQs and Theme Toggle */}
-        <div className="flex-1 flex justify-end items-center gap-2">
-          <Link
-            href="/about"
-            className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
-            style={{
-              color: pathname === "/about" ? 'var(--accent)' : 'var(--fg-muted)',
-            }}
-          >
-            FAQs
-          </Link>
+        {/* FAQs */}
+        <Link
+          href="/about"
+          className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
+          style={{
+            color: pathname === "/about" ? 'var(--accent)' : 'var(--fg-muted)',
+          }}
+        >
+          FAQs
+        </Link>
+
+        {/* Theme Toggle - positioned absolutely on the right */}
+        <div className="absolute right-4">
           <ThemeToggle />
         </div>
       </div>
