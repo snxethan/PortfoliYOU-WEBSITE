@@ -520,7 +520,14 @@ export default function AboutPage() {
                                     You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> by{" "}
                                     <button 
                                         onClick={() => setShowContactModal(true)}
-                                        className="text-red-500 hover:text-red-400 hover:underline bg-transparent border-none p-0 cursor-pointer"
+                                        className="hover:underline bg-transparent border-none p-0 cursor-pointer"
+                                        style={{ color: 'var(--accent)' }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.opacity = '0.8'
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.opacity = '1'
+                                        }}
                                     >
                                         contacting me
                                     </button>.
@@ -532,7 +539,7 @@ export default function AboutPage() {
                                 <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
                                     <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white font-bold animate-pulse">1</span>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse" style={{ backgroundColor: 'var(--accent)' }}>1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
                                     <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
