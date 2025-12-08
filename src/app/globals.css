@@ -389,25 +389,6 @@
   }
 }
 
-.footer-links {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-height: 124px) {
-  .footer-links {
-    flex-direction: column;
-  }
-}
-
-
-
-
-/* Animation for links */
-
 @keyframes zoom-rotate {
   from {
     opacity: 0;
