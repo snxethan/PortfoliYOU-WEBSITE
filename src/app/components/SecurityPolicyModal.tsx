@@ -35,34 +35,61 @@ return (
       }}
     >
       <div 
-        className={`bg-[#222222] rounded-xl border border-[#333333] shadow-lg p-8 relative max-w-4xl w-full max-h-[90vh] overflow-y-auto ${
+        className={`rounded-xl border shadow-lg p-8 relative max-w-4xl w-full max-h-[90vh] overflow-y-auto ${
           isAnimatingOut ? "animate-elastic-out" : "animate-elastic-in"
         }`}
+        style={{
+          backgroundColor: 'var(--surface)',
+          borderColor: 'var(--border)',
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl transition-colors"
+          className="absolute top-4 right-4 text-2xl transition-colors"
+          style={{
+            color: 'var(--fg-muted)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--accent)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--fg-muted)'
+          }}
           aria-label="Close"
         >
           &times;
         </button>
 
 
-        <h1 className="text-3xl font-bold text-white mb-8 relative text-center">
+        <h1 className="text-3xl font-bold mb-8 relative text-center" style={{ color: 'var(--fg)' }}>
           Security Policy
-          <span className="absolute bottom-[-8px] left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-500"></span>
+          <span className="absolute bottom-[-8px] left-0 w-full h-1" style={{ backgroundColor: 'var(--accent)' }}></span>
         </h1>
 
         <div className="space-y-8">
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section 
+            className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.03]"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.opacity = '0.8'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+              e.currentTarget.style.opacity = '1'
+            }}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <FaShieldAlt className="text-red-500 text-xl" />
-              <h2 className="text-xl font-semibold text-white">
+              <FaShieldAlt className="text-xl" style={{ color: 'var(--accent)' }} />
+              <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
                 Reporting Security Issues
               </h2>
             </div>
-            <div className="text-gray-300">
+            <div style={{ color: 'var(--fg-muted)' }}>
               <p className="mb-4">
                 If you discover a security vulnerability or have concerns about the website&apos;s security,
                 please get in touch immediately. All reports will be investigated promptly.
@@ -70,7 +97,16 @@ return (
               <div className="flex justify-center">
                 <button
                   onClick={() => setShowContact(true)}
-                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105"
+                  className="inline-flex items-center px-4 py-2 rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 text-black"
+                  style={{
+                    backgroundColor: 'var(--accent)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '0.9'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = '1'
+                  }}
                 >
                   Contact
                 </button>
@@ -78,14 +114,28 @@ return (
             </div>
           </section>
 
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section 
+            className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.03]"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.opacity = '0.8'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+              e.currentTarget.style.opacity = '1'
+            }}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <FaUserShield className="text-red-500 text-xl" />
-              <h2 className="text-xl font-semibold text-white">
+              <FaUserShield className="text-xl" style={{ color: 'var(--accent)' }} />
+              <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
                 Data Protection & Portfolio Privacy
               </h2>
             </div>
-            <div className="text-gray-300 space-y-2">
+            <div className="space-y-2" style={{ color: 'var(--fg-muted)' }}>
               <p>
                 Portfoli-YOU is designed to respect your privacy and empower you to control your own data:
               </p>
@@ -97,20 +147,34 @@ return (
                 <li>All data transmission is encrypted using HTTPS</li>
                 <li>Portfoli-YOU is open-source: you can review, audit, and contribute to the codebase</li>
               </ul>
-              <p className="mt-2 text-sm text-gray-400">
-                For more details, see the <a href="https://portfoliyou.snxethan.dev/about" target="_blank" rel="noopener noreferrer" className="underline text-red-400">About page</a>.
+              <p className="mt-2 text-sm">
+                For more details, see the <a href="https://portfoliyou.snxethan.dev/about" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: 'var(--accent)' }}>About page</a>.
               </p>
             </div>
           </section>
 
-          <section className="bg-[#1e1e1e] p-6 rounded-xl border border-[#333333] hover:border-red-600/50 transition-transform duration-300 ease-out hover:scale-[1.03]">
+          <section 
+            className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.03]"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.opacity = '0.8'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+              e.currentTarget.style.opacity = '1'
+            }}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <FaLink className="text-red-500 text-xl" />
-              <h2 className="text-xl font-semibold text-white">
+              <FaLink className="text-xl" style={{ color: 'var(--accent)' }} />
+              <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
                 External Links
               </h2>
             </div>
-            <div className="text-gray-300 space-y-2">
+            <div className="space-y-2" style={{ color: 'var(--fg-muted)' }}>
               <p>
                 This website includes links to external websites and resources:
               </p>

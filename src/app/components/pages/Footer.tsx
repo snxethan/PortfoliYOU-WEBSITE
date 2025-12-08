@@ -10,10 +10,11 @@ const Footer = () => {
 
   return (
     <footer 
-      className="w-full py-6 px-6 transition-all duration-300"
+      className="w-full py-6 px-6 transition-all duration-300 border-t"
       style={{
-        backgroundColor: 'var(--surface)',
+        backgroundColor: 'var(--muted)',
         color: 'var(--fg-muted)',
+        borderColor: 'var(--border)',
       }}
     >
       <div className="max-w-8xl mx-auto flex flex-col items-center gap-6">
