@@ -89,6 +89,12 @@
     height: 100%;
   }
 
+  /* Instant theme color changes */
+  .theme-transitioning,
+  .theme-transitioning * {
+    transition: none !important;
+  }
+
   body {
     background-color: var(--bg);
     color: var(--fg);
@@ -96,7 +102,6 @@
     font-size: calc(16px * var(--font-scale));
     overflow-x: auto;
     min-width: 360px;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
