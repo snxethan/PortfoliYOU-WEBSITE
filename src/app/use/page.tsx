@@ -214,9 +214,9 @@ export default function UsePage() {
                       <div className="pt-4">
                         {section.id === "online" && (
                           <>
-                            <div className="mb-6">
+                            <div className="mb-6 flex justify-center">
                               <div
-                                className="inline-block rounded-xl px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:rotate-1 active:scale-95 animate-pulse-glow border"
+                                className="block max-w-fit rounded-xl px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-all duration-300 ease-out hover:scale-105 active:scale-95 animate-pulse-glow border"
                                 style={{
                                   backgroundColor: 'var(--surface)',
                                   borderColor: 'var(--accent)',
@@ -345,9 +345,9 @@ export default function UsePage() {
 
                         {section.id === "changelog" && (
                           <>
-                            <div className="mb-6">
+                            <div className="mb-6 flex justify-center">
                               <div
-                                className="inline-block rounded-xl px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-all duration-300 ease-out hover:scale-105 hover:rotate-1 active:scale-95 animate-pulse-glow border"
+                                className="block max-w-fit rounded-xl px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-all duration-300 ease-out hover:scale-105 active:scale-95 animate-pulse-glow border"
                                 style={{
                                   backgroundColor: 'var(--surface)',
                                   borderColor: 'var(--accent)',
