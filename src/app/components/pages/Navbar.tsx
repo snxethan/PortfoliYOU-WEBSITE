@@ -1,14 +1,9 @@
 "use client"
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-
-  const handleInstallClick = () => {
-    router.push('/install');
-  };
 
   return (
     <nav 
@@ -19,19 +14,16 @@ export default function Navbar() {
       }}
     >
       <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-center gap-6">
-        {/* Install */}
-        <button
-          onClick={handleInstallClick}
-          disabled
-          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
-            pathname === "/install" ? "" : ""
-          }`}
+        {/* Use */}
+        <Link
+          href="/use"
+          className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
           style={{
-            color: pathname === "/install" ? 'var(--accent)' : 'var(--fg-muted)',
+            color: pathname === "/use" ? 'var(--accent)' : 'var(--fg-muted)',
           }}
         >
-          Install
-        </button>
+          Use
+        </Link>
         
         {/* Logo/Brand */}
         <Link
