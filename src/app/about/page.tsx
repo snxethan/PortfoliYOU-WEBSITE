@@ -634,16 +634,18 @@ export default function AboutPage() {
                                         <br />
                                         The project was created, developed, and is maintained solely by:
                                     </p>
-                                    <Image
+                                    <div className="p-2">
+                                      <Image
                                         src="/images/author/snxethan.png"
                                         alt="snxethan avatar"
                                         width={96}
                                         height={96}
-                                        className="rounded-full border-2 shadow transition-all duration-300 hover:scale-110 hover:rotate-12"
+                                        className="rounded-full border-2 shadow transition-all duration-300 hover:scale-105 hover:rotate-3"
                                         style={{
                                           borderColor: 'var(--accent)',
                                         }}
-                                    />
+                                      />
+                                    </div>
                                     <span className="text-sm md:text-base font-semibold" style={{ color: 'var(--fg-strong)' }}>
                                       <a href="https://www.ethantownsend.dev" className="link-accent hover:underline">
                                         Ethan Townsend (snxethan)
@@ -659,10 +661,10 @@ export default function AboutPage() {
                                 {/* Tech Stack Overview */}
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold mb-4" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Architecture Overview:</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pl-2 pr-2 pb-2">
                                     {/* Platform Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -676,15 +678,15 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div 
-                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                                          style={{ backgroundColor: 'var(--accent)' }}
-                                        >
-                                          <SiElectron className="text-white text-lg" />
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Core Platform</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                        style={{
+                                          backgroundColor: 'var(--accent)',
+                                        }}
+                                      >
+                                        <SiElectron className="text-white text-2xl" />
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Core Platform</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         <span className="font-semibold" style={{ color: 'var(--fg)' }}>Electron shell + Vite-powered React renderer.</span> Electron handles native dialogs, filesystem access, and IPC bridges so the editor can save/export locally while staying sandboxed.
                                       </p>
@@ -692,7 +694,7 @@ export default function AboutPage() {
 
                                     {/* Application Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -706,23 +708,13 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div className="flex -space-x-2 flex-shrink-0">
-                                          <div 
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
-                                            style={{ backgroundColor: 'var(--accent)' }}
-                                          >
-                                            <FaReact className="text-white text-lg" />
-                                          </div>
-                                          <div 
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
-                                            style={{ backgroundColor: 'var(--accent)' }}
-                                          >
-                                            <SiTypescript className="text-white text-lg" />
-                                          </div>
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Renderer UI</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        <FaReact className="text-white text-2xl" />
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Renderer UI</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         <span className="font-semibold" style={{ color: 'var(--fg)' }}>React 18 with TypeScript,</span> Zustand-style ProjectsProvider, and <span className="font-semibold" style={{ color: 'var(--fg)' }}>Tailwind</span> utility tokens. The canvas, preview, and widget settings all run from the same component library for consistency.
                                       </p>
@@ -730,7 +722,7 @@ export default function AboutPage() {
 
                                     {/* Data Layer */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -744,23 +736,13 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div className="flex -space-x-2 flex-shrink-0">
-                                          <div 
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center"
-                                            style={{ backgroundColor: 'var(--accent)' }}
-                                          >
-                                            <SiFirebase className="text-white text-lg" />
-                                          </div>
-                                          <div 
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white"
-                                            style={{ backgroundColor: 'var(--accent)' }}
-                                          >
-                                            JSON
-                                          </div>
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>State & Data</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        <SiFirebase className="text-white text-2xl" />
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>State & Data</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         Projects are stored as normalized <span className="font-semibold" style={{ color: 'var(--fg)' }}>JSON snapshots</span> (pages → sections → widget trees). Autosave syncs snapshots to <span className="font-semibold" style={{ color: 'var(--fg)' }}>Firebase Firestore</span> plus a local cache; assets live in Firebase Storage with per-user security rules.
                                       </p>
@@ -768,7 +750,7 @@ export default function AboutPage() {
 
                                     {/* Widget Architecture */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -782,15 +764,13 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div 
-                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                                          style={{ backgroundColor: 'var(--accent)' }}
-                                        >
-                                          <FaCog className="text-white text-lg" />
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Widget Architecture</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        <FaCog className="text-white text-2xl" />
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Widget Architecture</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         Each widget registers a manifest (props schema, defaults, static renderers). Widgets expose <span className="font-semibold" style={{ color: 'var(--fg)' }}>getStatic*</span> helpers so the compiler can transform saved props into pure HTML/CSS/JS, while advanced widgets (GitHub Repos, Contact forms) cache API data during editing for static playback.
                                       </p>
@@ -798,7 +778,7 @@ export default function AboutPage() {
 
                                     {/* Compilation Pipeline */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -812,15 +792,13 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div 
-                                          className="w-9 h-9 rounded-lg flex items-center justify-center text-lg flex-shrink-0"
-                                          style={{ backgroundColor: 'var(--accent)' }}
-                                        >
-                                          🟢
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Compilation Pipeline</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center text-2xl"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        🟢
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Compilation Pipeline</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         <span className="font-semibold" style={{ color: 'var(--fg)' }}>Static compiler</span> (Node + DOMPurify + JSDOM) walks project JSON, sanitizes user content, emits minified HTML/CSS bundles, and packages assets. Vite builds the editor/preview bundles; Electron main/preload scripts are compiled separately.
                                       </p>
@@ -828,7 +806,7 @@ export default function AboutPage() {
 
                                     {/* Live Preview */}
                                     <div 
-                                      className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                      className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                       style={{
                                         backgroundColor: 'var(--surface)',
                                         borderColor: 'var(--border)',
@@ -842,15 +820,13 @@ export default function AboutPage() {
                                         e.currentTarget.style.boxShadow = 'none'
                                       }}
                                     >
-                                      <div className="flex items-center gap-3 mb-3">
-                                        <div 
-                                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                                          style={{ backgroundColor: 'var(--accent)' }}
-                                        >
-                                          <SiVite className="text-white text-lg" />
-                                        </div>
-                                        <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Live Preview</h4>
+                                      <div 
+                                        className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        <SiVite className="text-white text-2xl" />
                                       </div>
+                                      <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Live Preview</h4>
                                       <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                         Dev-mode iframe served by the same <span className="font-semibold" style={{ color: 'var(--fg)' }}>Vite server</span> as the editor. ProjectsProvider streams changes; the preview subscribes and re-renders instantly with HMR. LAN sharing simply exposes that dev server on 0.0.0.0, so other devices see live edits.
                                       </p>
@@ -860,7 +836,7 @@ export default function AboutPage() {
 
                                 {/* Testing & Quality */}
                                 <div 
-                                  className="rounded-xl border p-5 transition-all duration-300 ease-out"
+                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
                                   style={{
                                     backgroundColor: 'var(--surface)',
                                     borderColor: 'var(--border)',
@@ -874,15 +850,13 @@ export default function AboutPage() {
                                     e.currentTarget.style.boxShadow = 'none'
                                   }}
                                 >
-                                  <div className="flex items-center gap-3 mb-3">
-                                    <div 
-                                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                                      style={{ backgroundColor: 'var(--accent)' }}
-                                    >
-                                      <FaCheckCircle className="text-white text-lg" />
-                                    </div>
-                                    <h4 className="text-base font-bold" style={{ color: 'var(--fg-strong)' }}>Testing & Quality</h4>
+                                  <div 
+                                    className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                    style={{ backgroundColor: 'var(--accent)' }}
+                                  >
+                                    <FaCheckCircle className="text-white text-2xl" />
                                   </div>
+                                  <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Testing & Quality</h4>
                                   <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
                                     Vitest unit suites for providers/widgets, Playwright/Vite smoke tests for editor flows, ESLint + TypeScript strictness across renderer and Electron code.
                                   </p>
