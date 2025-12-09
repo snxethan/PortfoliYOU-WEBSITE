@@ -237,108 +237,33 @@ export default function UsePage() {
                                 </p>
                               </div>
                             </div>
-
-                            <div className="mt-8">
-                              <h3
-                                className="text-lg md:text-xl font-semibold mb-4"
-                                style={{
-                                  color: 'var(--fg)',
-                                  fontFamily: 'var(--heading-font)',
-                                }}
-                              >
-                                Online Features
-                              </h3>
-                              <ul className="space-y-4 text-sm md:text-base ml-4 md:ml-8" style={{ color: 'var(--fg-muted)' }}>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Create and edit your portfolio directly in your browser
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Sync across all your devices automatically
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Access your portfolio from anywhere with an internet connection
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Share your portfolio with a simple link
-                                </li>
-                              </ul>
-                            </div>
                           </>
                         )}
 
                         {section.id === "offline" && (
                           <>
-                            <p className="leading-relaxed mb-6" style={{ color: 'var(--fg)' }}>
-                              Download the <b>Portfoli-YOU</b> installer to use the application offline. Build your portfolio on your device with full privacy and control.
-                            </p>
-
-                            <div className="mt-8">
-                              <h3
-                                className="text-lg md:text-xl font-semibold mb-4"
+                            <div className="mb-6 flex justify-center">
+                              <div
+                                className="block max-w-fit rounded-xl px-4 lg:px-8 py-3 lg:py-4 shadow-lg transition-all duration-300 ease-out hover:scale-105 active:scale-95 animate-pulse-glow border"
                                 style={{
-                                  color: 'var(--fg)',
-                                  fontFamily: 'var(--heading-font)',
+                                  backgroundColor: 'var(--surface)',
+                                  borderColor: 'var(--accent)',
                                 }}
                               >
-                                Why Use Offline?
-                              </h3>
-                              <ul className="space-y-4 text-sm md:text-base ml-4 md:ml-8" style={{ color: 'var(--fg-muted)' }}>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Privacy-first: Your data stays on your device
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  No internet connection required to build and edit
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Full-featured desktop application with drag-and-drop interface
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Optional cloud sync when you need it
-                                </li>
-                              </ul>
-                            </div>
-
-                            <div className="mt-8 p-6 rounded-lg border" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
-                              <h4 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent)' }}>
-                                Download Installer
-                              </h4>
-                              <p className="mb-4" style={{ color: 'var(--fg-muted)' }}>
-                                Get started with <b>Portfoli-YOU</b> by downloading the installer for your platform.
-                              </p>
-                              <div className="flex flex-col gap-3">
-                                <button
-                                  disabled
-                                  className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-not-allowed opacity-50"
-                                  style={{ backgroundColor: 'var(--accent)', color: '#000' }}
+                                <p
+                                  className="text-xl lg:text-2xl font-semibold text-center mb-1 lg:mb-2"
+                                  style={{ color: 'var(--accent)' }}
                                 >
-                                  Download for Windows (Coming Soon)
-                                </button>
-                                <button
-                                  disabled
-                                  className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-not-allowed opacity-50"
-                                  style={{ backgroundColor: 'var(--accent)', color: '#000' }}
+                                  Coming Soon
+                                </p>
+                                <p
+                                  className="text-sm lg:text-base"
+                                  style={{ color: 'var(--fg-muted)' }}
                                 >
-                                  Download for macOS (Coming Soon)
-                                </button>
-                                <button
-                                  disabled
-                                  className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 cursor-not-allowed opacity-50"
-                                  style={{ backgroundColor: 'var(--accent)', color: '#000' }}
-                                >
-                                  Download for Linux (Coming Soon)
-                                </button>
+                                  View the progress anytime in the GitHub Repositories! <br />
+                                  <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information</i>
+                                </p>
                               </div>
-                              <p className="mt-4 text-sm" style={{ color: 'var(--fg-muted)' }}>
-                                <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information about the development progress</i>
-                              </p>
                             </div>
                           </>
                         )}
@@ -367,40 +292,6 @@ export default function UsePage() {
                                   <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information</i>
                                 </p>
                               </div>
-                            </div>
-
-                            <p className="leading-relaxed mb-6" style={{ color: 'var(--fg)' }}>
-                              Stay up to date with the latest features, improvements, and bug fixes for <b>Portfoli-YOU</b>.
-                            </p>
-
-                            <div className="mt-8">
-                              <h3
-                                className="text-lg md:text-xl font-semibold mb-4"
-                                style={{
-                                  color: 'var(--fg)',
-                                  fontFamily: 'var(--heading-font)',
-                                }}
-                              >
-                                What to Expect
-                              </h3>
-                              <ul className="space-y-4 text-sm md:text-base ml-4 md:ml-8" style={{ color: 'var(--fg-muted)' }}>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Detailed release notes for every version
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  New feature announcements and improvements
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Bug fixes and performance enhancements
-                                </li>
-                                <li className="flex items-start gap-3 transition-all duration-200 hover:scale-105">
-                                  <FaCheckCircle style={{ color: 'var(--accent)' }} className="mt-1 shrink-0" /> 
-                                  Breaking changes and migration guides
-                                </li>
-                              </ul>
                             </div>
                           </>
                         )}
