@@ -1,9 +1,14 @@
 "use client"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleUseClick = () => {
+    router.push('/use');
+  };
 
   return (
     <nav 
@@ -15,15 +20,18 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-center gap-6">
         {/* Use */}
-        <Link
-          href="/use"
-          className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
+        <button
+          onClick={handleUseClick}
+          disabled
+          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
+            pathname === "/use" ? "" : ""
+          }`}
           style={{
             color: pathname === "/use" ? 'var(--accent)' : 'var(--fg-muted)',
           }}
         >
           Use
-        </Link>
+        </button>
         
         {/* Logo/Brand */}
         <Link
