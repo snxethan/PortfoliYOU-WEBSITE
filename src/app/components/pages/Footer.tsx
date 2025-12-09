@@ -107,24 +107,6 @@ const Footer = () => {
                   </Link>
                 </div>
               </TooltipWrapper>
-              <span style={{ color: 'var(--border)' }} className="hidden sm:block">|</span>
-              <TooltipWrapper label="Social Page">
-                <Link 
-                  href="https://ethantownsend.dev" 
-                  className="transition-all duration-200 hover:scale-105"
-                  style={{
-                    color: 'var(--fg-muted)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'var(--accent)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'var(--fg-muted)'
-                  }}
-                >
-                  ethantownsend.dev
-                </Link>
-              </TooltipWrapper>
             </div>
           </div>
         </div>

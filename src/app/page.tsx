@@ -85,7 +85,7 @@ export default function PortfoliYouPage() {
                 style={{ color: 'var(--fg-muted)' }}
               >
                 View the progress anytime in the GitHub Repositories!<br />
-                <i>Check out the <a href="/about" className="link-accent hover:underline">FAQs</a> for more information</i>
+                <i>Check out the <a href="/faqs" className="link-accent hover:underline">FAQs</a> for more information</i>
               </p>
             </div>
           </div>

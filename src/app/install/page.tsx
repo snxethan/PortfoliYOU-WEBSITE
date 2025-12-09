@@ -62,7 +62,7 @@ export default function DownloadPage() {
               style={{ color: 'var(--fg-muted)' }}
             >
               View the progress anytime in the GitHub Repositories! <br/> 
-              <i>Check out the <a href="/about" className="link-accent hover:underline">FAQs</a> for more information</i>
+              <i>Check out the <a href="/faqs" className="link-accent hover:underline">FAQs</a> for more information</i>
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function DownloadPage() {
           </ul>
           <br />
           <p style={{ color: 'var(--fg-muted)' }}>
-            Learn more at <a href="/about" className="link-accent hover:underline">FAQs</a>.
+            Learn more at <a href="/faqs" className="link-accent hover:underline">FAQs</a>.
           </p>
         </div>
       </main>

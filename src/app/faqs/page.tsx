@@ -110,7 +110,7 @@ export default function AboutPage() {
             {/* Left-side Navigator (centered vertically) */}
             
             <aside 
-              className="hidden lg:flex sticky top-[64px] h-[calc(100vh-64px)] min-w-[260px] max-w-[300px] border-r pl-2"
+              className="hidden lg:flex sticky top-0 h-screen min-w-[260px] max-w-[300px] border-r pl-2 pt-[64px]"
               style={{
                 borderColor: 'var(--border)',
                 backgroundColor: 'color-mix(in oklab, var(--surface) 70%, transparent)',
@@ -834,32 +834,34 @@ export default function AboutPage() {
                                 </div>
                                 </div>
 
-                                {/* Testing & Quality */}
-                                <div 
-                                  className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
-                                  style={{
-                                    backgroundColor: 'var(--surface)',
-                                    borderColor: 'var(--border)',
-                                  }}
-                                  onMouseEnter={(e) => {
-                                    e.currentTarget.style.borderColor = 'var(--accent)'
-                                    e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
-                                  }}
-                                  onMouseLeave={(e) => {
-                                    e.currentTarget.style.borderColor = 'var(--border)'
-                                    e.currentTarget.style.boxShadow = 'none'
-                                  }}
-                                >
+                                <div className="pl-2 pr-2 pb-2">
+                                  {/* Testing & Quality */}
                                   <div 
-                                    className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
-                                    style={{ backgroundColor: 'var(--accent)' }}
+                                    className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                    style={{
+                                      backgroundColor: 'var(--surface)',
+                                      borderColor: 'var(--border)',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.borderColor = 'var(--accent)'
+                                      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)'
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.borderColor = 'var(--border)'
+                                      e.currentTarget.style.boxShadow = 'none'
+                                    }}
                                   >
-                                    <FaCheckCircle className="text-white text-2xl" />
+                                    <div 
+                                      className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center"
+                                      style={{ backgroundColor: 'var(--accent)' }}
+                                    >
+                                      <FaCheckCircle className="text-white text-2xl" />
+                                    </div>
+                                    <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Testing & Quality</h4>
+                                    <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
+                                      Vitest unit suites for providers/widgets, Playwright/Vite smoke tests for editor flows, ESLint + TypeScript strictness across renderer and Electron code.
+                                    </p>
                                   </div>
-                                  <h4 className="text-base font-semibold mb-2" style={{ color: 'var(--fg-strong)' }}>Testing & Quality</h4>
-                                  <p className="text-sm leading-relaxed" style={{ color: 'var(--fg-muted)' }}>
-                                    Vitest unit suites for providers/widgets, Playwright/Vite smoke tests for editor flows, ESLint + TypeScript strictness across renderer and Electron code.
-                                  </p>
                                 </div>
                             </div>
                             )}
