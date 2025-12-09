@@ -57,26 +57,51 @@ export default function ContactFormModal({ onClose }: Props) {
       onClick={close}
     >
       <div
-        className={`bg-[#1e1e1e] text-white border border-[#333] rounded-xl p-6 max-w-md w-full relative ${
+        className={`rounded-xl border p-6 max-w-md w-full relative ${
           isAnimatingOut ? "animate-elastic-out" : "animate-elastic-in"
         }`}
+        style={{
+          backgroundColor: 'var(--surface)',
+          borderColor: 'var(--border)',
+          color: 'var(--fg)',
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={close}
-          className="absolute top-1 right-3 text-3xl text-gray-400 hover:text-red-500"
+          className="absolute top-1 right-3 text-3xl transition-colors"
+          style={{
+            color: 'var(--fg-muted)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--accent)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--fg-muted)'
+          }}
         >
           &times;
         </button>
 
-        <h3 className="text-xl font-semibold mb-4">Contact Me</h3>
+        <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--fg-strong)' }}>Contact Me</h3>
       
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             required
             placeholder="Your Name"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444]"
+            className="w-full p-2 rounded border focus:outline-none focus:ring-2 transition-all"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+              color: 'var(--fg)',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+            }}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -84,31 +109,71 @@ export default function ContactFormModal({ onClose }: Props) {
             type="email"
             required
             placeholder="Your Email"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444]"
+            className="w-full p-2 rounded border focus:outline-none focus:ring-2 transition-all"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+              color: 'var(--fg)',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+            }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
             required
             placeholder="Your Message"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444] h-32"
+            className="w-full p-2 rounded border h-32 focus:outline-none focus:ring-2 transition-all"
+            style={{
+              backgroundColor: 'var(--muted)',
+              borderColor: 'var(--border)',
+              color: 'var(--fg)',
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border)'
+            }}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
           <button
             type="submit"
-            className="w-full py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 rounded"
+            className="w-full py-2 rounded transition-all duration-200 text-black font-medium"
+            style={{
+              backgroundColor: 'var(--accent)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--accent-600)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--accent)'
+            }}
           >
             Send Message
           </button>
         </form>
         
-        <div className="mt-4 pt-4 border-t border-[#333] text-center">
-          <p className="text-gray-400 text-sm">
+        <div className="mt-4 pt-4 border-t text-center" style={{ borderColor: 'var(--border)' }}>
+          <p className="text-sm" style={{ color: 'var(--fg-muted)' }}>
             Or email me directly:{" "}
             <a 
               href="mailto:snxethan@gmail.com" 
-              className="text-red-500 hover:text-red-400 underline"
+              className="underline transition-colors"
+              style={{
+                color: 'var(--accent)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--accent-600)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--accent)'
+              }}
             >
               snxethan@gmail.com
             </a>
