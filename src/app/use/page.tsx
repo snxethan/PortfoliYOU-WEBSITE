@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import { useRef, useState, useCallback } from "react";
 import Footer from "../components/pages/Footer";
+import Link from "next/link";
 
 const SITE_NAVBAR_OFFSET = 96;
 
@@ -127,7 +128,7 @@ export default function UsePage() {
 
           {/* Content column */}
           <div className="flex-1 min-w-0">
-            <div className="mx-auto max-w-4xl px-4 md:px-25 pt-24 pb-16 ">
+            <div className="mx-auto max-w-4xl px-4 md:px-24 pt-24 pb-16">
               <div className="text-center mb-12 animate-fade-in-up">
                 <h1
                   className="text-4xl md:text-5xl lg:text-6xl font-bold"
@@ -142,7 +143,7 @@ export default function UsePage() {
               <Notice />
 
               {/* Sections */}
-              <div className="space-y-10 space-x">
+              <div className="space-y-10">
                 {sections.map((section) => (
                   <article
                     key={section.id}
@@ -189,7 +190,7 @@ export default function UsePage() {
                             expanded === section.id ? "rotate-180" : "rotate-0"
                           }`}
                           style={{ color: 'var(--accent)' }}
-                          aria-hidden
+                          aria-hidden="true"
                         />
                       </button>
 
@@ -232,7 +233,7 @@ export default function UsePage() {
                                   style={{ color: 'var(--fg-muted)' }}
                                 >
                                   View the progress anytime in the GitHub Repositories! <br />
-                                  <i>Check out the <a href="/faqs" className="link-accent hover:underline">FAQs</a> for more information</i>
+                                  <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information</i>
                                 </p>
                               </div>
                             </div>
@@ -336,7 +337,7 @@ export default function UsePage() {
                                 </button>
                               </div>
                               <p className="mt-4 text-sm" style={{ color: 'var(--fg-muted)' }}>
-                                <i>Check out the <a href="/faqs" className="link-accent hover:underline">FAQs</a> for more information about the development progress</i>
+                                <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information about the development progress</i>
                               </p>
                             </div>
                           </>
@@ -363,7 +364,7 @@ export default function UsePage() {
                                   style={{ color: 'var(--fg-muted)' }}
                                 >
                                   View the progress anytime in the GitHub Repositories! <br />
-                                  <i>Check out the <a href="/faqs" className="link-accent hover:underline">FAQs</a> for more information</i>
+                                  <i>Check out the <Link href="/faqs" className="link-accent hover:underline">FAQs</Link> for more information</i>
                                 </p>
                               </div>
                             </div>
@@ -411,8 +412,8 @@ export default function UsePage() {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }
