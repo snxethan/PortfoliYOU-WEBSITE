@@ -43,13 +43,22 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const setTheme = (newTheme: Theme) => {
+    // Add transition-blocking class
+    document.documentElement.classList.add('theme-transitioning')
+    
     setThemeState(newTheme)
     document.documentElement.setAttribute('data-theme', newTheme)
+    
     try {
       localStorage.setItem('theme', newTheme)
     } catch (error) {
       console.warn('Failed to save theme to localStorage:', error)
     }
+    
+    // Remove transition-blocking class after theme colors have applied
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning')
+    }, 0)
   }
 
   const toggleTheme = () => {

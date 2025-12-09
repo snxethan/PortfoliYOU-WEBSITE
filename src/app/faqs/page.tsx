@@ -543,12 +543,11 @@ export default function AboutPage() {
                                 </p>
                                 </div>
 
-                                {/* Roadmap */}
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold mb-2" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
                                     <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--accent)' }}>1</span>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--accent)', color: '#000' }}>1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
                                     <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
@@ -559,7 +558,7 @@ export default function AboutPage() {
                                     <li>Cloud saving & syncing (opt-in)</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>2</span>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)', color: 'var(--fg)' }}>2</span>
                                     <span className="font-semibold">Full Release</span>
                                     </div>
                                     <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
@@ -568,7 +567,7 @@ export default function AboutPage() {
                                     <li>Optimized codebase</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>3</span>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)', color: 'var(--fg)' }}>3</span>
                                     <span className="font-semibold">Enhanced Cloud Support</span>
                                     </div>
                                     <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
@@ -579,7 +578,7 @@ export default function AboutPage() {
                                     <li>Mobile app companion</li>
                                     </ul>
                                     <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>4</span>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)', color: 'var(--fg)' }}>4</span>
                                     <span className="font-semibold">AI Assistant</span>
                                     </div>
                                     <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>

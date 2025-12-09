@@ -404,6 +404,9 @@ FodyWeavers.xsd
 .next/
 out/
 
+# TypeScript build info
+tsconfig.tsbuildinfo
+
 # Next.js dependencies
 node_modules/
 

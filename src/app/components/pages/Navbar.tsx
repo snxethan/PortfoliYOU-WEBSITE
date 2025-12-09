@@ -6,8 +6,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleInstallClick = () => {
-    router.push('/install');
+  const handleUseClick = () => {
+    router.push('/use');
   };
 
   return (
@@ -19,18 +19,18 @@ export default function Navbar() {
       }}
     >
       <div className="max-w-6xl mx-auto py-3 px-4 flex items-center justify-center gap-6">
-        {/* Install */}
+        {/* Use */}
         <button
-          onClick={handleInstallClick}
+          onClick={handleUseClick}
           disabled
-          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
-            pathname === "/install" ? "" : ""
+          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 opacity-50 ${
+            pathname === "/use" ? "" : ""
           }`}
           style={{
-            color: pathname === "/install" ? 'var(--accent)' : 'var(--fg-muted)',
+            color: pathname === "/use" ? 'var(--accent)' : 'var(--fg-muted)',
           }}
         >
-          Install
+          Use
         </button>
         
         {/* Logo/Brand */}
