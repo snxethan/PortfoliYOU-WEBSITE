@@ -837,7 +837,7 @@ export default function AboutPage() {
                                 <div className="pl-2 pr-2 pb-2">
                                   {/* Testing & Quality */}
                                   <div 
-                                    className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-105 active:scale-95"
+                                    className="rounded-xl border p-6 transition-all duration-300 ease-out hover:scale-102 active:scale-95"
                                     style={{
                                       backgroundColor: 'var(--surface)',
                                       borderColor: 'var(--border)',

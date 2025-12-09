@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -56,11 +55,6 @@ export default function Navbar() {
         >
           FAQs
         </Link>
-
-        {/* Theme Toggle - positioned absolutely on the right */}
-        <div className="absolute right-4">
-          <ThemeToggle />
-        </div>
       </div>
     </nav>
   );

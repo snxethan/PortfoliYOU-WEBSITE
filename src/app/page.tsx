@@ -6,9 +6,11 @@ import Navbar from "./components/pages/Navbar"
 import Notice from "./components/pages/Notice"
 import SkeletonLoader from "./components/SkeletonLoader"
 import { useLoadingDelay } from "./components/hooks/useLoadingDelay"
+import { useTheme } from "./components/ThemeProvider"
 
 export default function PortfoliYouPage() {
   const loading = useLoadingDelay()
+  const { toggleTheme } = useTheme()
 
   if (loading) {
     return <SkeletonLoader />
@@ -29,7 +31,11 @@ export default function PortfoliYouPage() {
 
         <div className="w-full max-w-4xl mx-auto text-center animate-fade-in-up">
           <div className="mb-4">
-            <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-3">
+            <button
+              onClick={toggleTheme}
+              className="w-48 h-48 lg:w-64 lg:h-64 mx-auto rounded-full overflow-hidden shadow-lg transition-transform duration-300 hover:scale-110 hover:rotate-3 cursor-pointer border-0 bg-transparent p-0"
+              aria-label="Toggle theme"
+            >
               <Image
                 src="/images/icon/portfoliyou.png"
                 alt="Portfoli-YOU Logo"
@@ -38,7 +44,7 @@ export default function PortfoliYouPage() {
                 className="w-full h-full object-cover"
                 priority
               />
-            </div>
+            </button>
           </div>
 
           <h1 
