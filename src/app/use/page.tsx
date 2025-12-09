@@ -72,7 +72,7 @@ export default function UsePage() {
   return (
     <div>
       <div
-        className="flex min-h-screen font-sans transition-all duration-300"
+        className="flex flex-col min-h-screen font-sans transition-all duration-300"
         style={{
           background: 'linear-gradient(to bottom, var(--bg), var(--muted), var(--surface))',
           color: 'var(--fg)',
