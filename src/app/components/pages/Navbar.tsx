@@ -23,7 +23,7 @@ export default function Navbar() {
         <button
           onClick={handleUseClick}
           disabled
-          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
+          className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 opacity-50 ${
             pathname === "/use" ? "" : ""
           }`}
           style={{
