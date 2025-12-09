@@ -238,7 +238,7 @@ export default function AboutPage() {
                         id={`${section.id}-panel`}
                         className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
                             expanded === section.id
-                            ? "max-h-[1500px] opacity-100"
+                            ? "max-h-[3000px] opacity-100"
                             : "max-h-0 opacity-70"
                         }`}
                         >
@@ -545,44 +545,44 @@ export default function AboutPage() {
 
                                 {/* Roadmap */}
                                 <div>
-                                <h3 className="text-base md:text-lg font-bold text-white mb-2">Timeline & Roadmap:</h3>
+                                <h3 className="text-base md:text-lg font-bold mb-2" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Timeline & Roadmap:</h3>
                                 <div className="flex flex-col items-start gap-4">
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse" style={{ backgroundColor: 'var(--accent)' }}>1</span>
+                                    <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--accent)' }}>1</span>
                                     <span className="font-semibold">MVP Release</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
                                     <li>Core UI Builder</li>
                                     <li>Widget drag-and-drop System</li>
                                     <li>Local-first data storage</li>
                                     <li>Basic export & deploy options</li>
                                     <li>Cloud saving & syncing (opt-in)</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">2</span>
+                                    <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>2</span>
                                     <span className="font-semibold">Full Release</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
                                     <li>Builder & Widget Optimization</li>
                                     <li>Expanded export & deploy options</li>
                                     <li>Optimized codebase</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">3</span>
+                                    <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>3</span>
                                     <span className="font-semibold">Enhanced Cloud Support</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
                                     <li>Optimized Cloud storage, saving & syncing</li>
                                     <li>Online UI Builder</li>
                                     <li>Community Sharing (Themes & Widgets)</li>
                                     <li>Real-time Team collaboration (Teams & Shared Projects)</li>
                                     <li>Mobile app companion</li>
                                     </ul>
-                                    <div className="flex items-center gap-3 text-gray-300 text-sm md:text-base">
-                                    <span className="w-6 h-6 rounded-full bg-gray-500 flex items-center justify-center text-white font-bold animate-pulse">4</span>
+                                    <div className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'var(--fg-muted)' }}>
+                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-white font-bold animate-pulse shrink-0" style={{ backgroundColor: 'var(--muted)' }}>4</span>
                                     <span className="font-semibold">AI Assistant</span>
                                     </div>
-                                    <ul className="list-disc list-inside text-gray-400 ml-8 text-sm">
+                                    <ul className="list-disc list-inside ml-4 md:ml-8 text-sm" style={{ color: 'var(--fg-muted)' }}>
                                     <li>Smart content suggestions</li>
                                     <li>Automated resume-to-portfolio conversion</li>
                                     <li>Design and accessibility tips</li>
@@ -597,7 +597,7 @@ export default function AboutPage() {
                                 {/* Repos */}
                                 <div>
                                 <h3 className="text-base md:text-lg font-bold mb-3" style={{ color: 'var(--fg-strong)', fontFamily: 'var(--heading-font)' }}>Repositories:</h3>
-                                <div className="flex flex-wrap gap-4 ml-5">
+                                <div className="flex flex-wrap gap-4">
                                     <TooltipWrapper label="GitHub App Repository">
                                     <button
                                         onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP", true)}
