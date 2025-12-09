@@ -1,14 +1,13 @@
 "use client"
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import ThemeToggle from "../ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
   const handleInstallClick = () => {
-    router.push('/download');
+    router.push('/install');
   };
 
   return (
@@ -25,10 +24,10 @@ export default function Navbar() {
           onClick={handleInstallClick}
           disabled
           className={`text-xl font-bold select-none cursor-not-allowed transition-all duration-200 bg-transparent border-none p-0 m-0 ${
-            pathname === "/download" ? "" : ""
+            pathname === "/install" ? "" : ""
           }`}
           style={{
-            color: pathname === "/download" ? 'var(--accent)' : 'var(--fg-muted)',
+            color: pathname === "/install" ? 'var(--accent)' : 'var(--fg-muted)',
           }}
         >
           Install
@@ -48,19 +47,14 @@ export default function Navbar() {
         
         {/* FAQs */}
         <Link
-          href="/about"
+          href="/faqs"
           className={`text-xl font-bold transition-all duration-200 hover:scale-105 active:scale-95`}
           style={{
-            color: pathname === "/about" ? 'var(--accent)' : 'var(--fg-muted)',
+            color: pathname === "/faqs" ? 'var(--accent)' : 'var(--fg-muted)',
           }}
         >
           FAQs
         </Link>
-
-        {/* Theme Toggle - positioned absolutely on the right */}
-        <div className="absolute right-4">
-          <ThemeToggle />
-        </div>
       </div>
     </nav>
   );
