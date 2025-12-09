@@ -238,7 +238,7 @@ export default function AboutPage() {
                         id={`${section.id}-panel`}
                         className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
                             expanded === section.id
-                            ? "max-h-[1500px] opacity-100"
+                            ? "max-h-[3000px] opacity-100"
                             : "max-h-0 opacity-70"
                         }`}
                         >
