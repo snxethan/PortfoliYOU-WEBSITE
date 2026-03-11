@@ -20,23 +20,6 @@ const Footer = () => {
           {/* Left: Social Links */}
           <div className="order-3 lg:order-1 mt-2 lg:mt-0">
             <div className="flex items-center gap-4">
-              <TooltipWrapper label="GitHub">
-                <a
-                  href="https://github.com/snxethan"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xl transition-all duration-200 hover:scale-110"
-                  style={{ color: 'var(--fg-muted)' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'var(--accent)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'var(--fg-muted)'
-                  }}
-                >
-                  <FaGithub />
-                </a>
-              </TooltipWrapper>
               <TooltipWrapper label="LinkedIn">
                 <a
                   href="https://www.linkedin.com/in/ethantownsend"
@@ -52,6 +35,23 @@ const Footer = () => {
                   }}
                 >
                   <FaLinkedin />
+                </a>
+              </TooltipWrapper>
+              <TooltipWrapper label="GitHub">
+                <a
+                  href="https://github.com/snxethan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-all duration-200 hover:scale-110"
+                  style={{ color: 'var(--fg-muted)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
+                  <FaGithub />
                 </a>
               </TooltipWrapper>
             </div>
@@ -90,40 +90,38 @@ const Footer = () => {
           {/* Right: Domain Links */}
           <div className="order-2 lg:order-3">
             <div className="footer-links flex flex-col sm:flex-row items-center gap-2">
-              <TooltipWrapper label="Portfolio">
-                <div className="flex gap-4">
-                  <Link 
-                    href="https://snex.dev" 
-                    className="transition-all duration-200 hover:scale-105"
-                    style={{
-                      color: 'var(--fg-muted)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = 'var(--accent)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'var(--fg-muted)'
-                    }}
-                  >
-                    snex.dev    
-                  </Link>
-                  <Link 
-                    href="https://snxethan.dev" 
-                    className="transition-all duration-200 hover:scale-105"
-                    style={{
-                      color: 'var(--fg-muted)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = 'var(--accent)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = 'var(--fg-muted)'
-                    }}
-                  >
-                    snxethan.dev
-                  </Link>
-                </div>
-              </TooltipWrapper>
+              <div className="flex gap-4">
+                <Link 
+                  href="https://snex.dev" 
+                  className="transition-all duration-200 hover:scale-105"
+                  style={{
+                    color: 'var(--fg-muted)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
+                  snex.dev    
+                </Link>
+                <Link 
+                  href="https://snxethan.dev" 
+                  className="transition-all duration-200 hover:scale-105"
+                  style={{
+                    color: 'var(--fg-muted)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
+                  snxethan.dev
+                </Link>
+              </div>
             </div>
           </div>
         </div>
