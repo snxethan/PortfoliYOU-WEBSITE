@@ -3,7 +3,6 @@
 import Navbar from "../components/pages/Navbar";
 import Notice from "../components/pages/Notice";
 import TooltipWrapper from "../components/ToolTipWrapper";
-import ContactFormModal from "../components/ContactFormModal";
 import SkeletonLoader from "../components/SkeletonLoader";
 import { useLoadingDelay } from "../components/hooks/useLoadingDelay";
 import {
@@ -23,6 +22,9 @@ import {
   FaCode,
   FaCog,
   FaCheckCircle,
+  FaShieldAlt,
+  FaUserShield,
+  FaLink,
 } from "react-icons/fa";
 import { SiElectron, SiVite, SiTypescript, SiTailwindcss, SiFirebase } from "react-icons/si";
 import Image from "next/image";
@@ -39,6 +41,7 @@ const sectionIcons: { [key: string]: typeof FaStar } = {
   features: FaLock,
   techstack: FaCode,
   development: FaGithub,
+  security: FaShieldAlt,
 };
 
 
@@ -50,13 +53,13 @@ const sections = [
         { id: "how", title: "How to Use" },
         { id: "techstack", title: "Tech Stack" },
         { id: "development", title: "Development" },
+        { id: "security", title: "Security Policy" },
 ];
 
 export default function AboutPage() {
 
     // Default expand the first section
     const [expanded, setExpanded] = useState<string | null>(sections[0].id);
-    const [showContactModal, setShowContactModal] = useState(false);
     const { handleExternalClick } = useExternalLink();
 
     // map of refs for precise scroll w/ offset
@@ -527,19 +530,15 @@ export default function AboutPage() {
                                     <br />
                                     <br />
                                     You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> by{" "}
-                                    <button 
-                                        onClick={() => setShowContactModal(true)}
-                                        className="hover:underline bg-transparent border-none p-0 cursor-pointer"
+                                    <a 
+                                        href="https://github.com/snxethan/PortfoliYOU-APP/issues"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
                                         style={{ color: 'var(--accent)' }}
-                                        onMouseEnter={(e) => {
-                                          e.currentTarget.style.opacity = '0.8'
-                                        }}
-                                        onMouseLeave={(e) => {
-                                          e.currentTarget.style.opacity = '1'
-                                        }}
                                     >
-                                        contacting me
-                                    </button>.
+                                        opening a GitHub issue
+                                    </a>.
                                 </p>
                                 </div>
 
@@ -864,6 +863,114 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             )}
+
+                            {section.id === "security" && (
+                            <div className="space-y-6">
+                                <section 
+                                  className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.02]"
+                                  style={{
+                                    backgroundColor: 'var(--muted)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                  }}
+                                >
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <FaShieldAlt className="text-xl" style={{ color: 'var(--accent)' }} />
+                                    <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
+                                      Reporting Security Issues
+                                    </h2>
+                                  </div>
+                                  <div style={{ color: 'var(--fg-muted)' }}>
+                                    <p className="mb-4">
+                                      If you discover a security vulnerability or have concerns about the website&apos;s security,
+                                      please get in touch immediately. All reports will be investigated promptly.
+                                    </p>
+                                    <div className="flex justify-center">
+                                      <a
+                                        href="https://github.com/snxethan/PortfoliYOU-APP/issues"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center px-4 py-2 rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 text-black font-semibold"
+                                        style={{ backgroundColor: 'var(--accent)' }}
+                                      >
+                                        Report on GitHub
+                                      </a>
+                                    </div>
+                                  </div>
+                                </section>
+
+                                <section 
+                                  className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.02]"
+                                  style={{
+                                    backgroundColor: 'var(--muted)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                  }}
+                                >
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <FaUserShield className="text-xl" style={{ color: 'var(--accent)' }} />
+                                    <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
+                                      Data Protection &amp; Portfolio Privacy
+                                    </h2>
+                                  </div>
+                                  <div className="space-y-2" style={{ color: 'var(--fg-muted)' }}>
+                                    <p>
+                                      Portfoli-YOU is designed to respect your privacy and empower you to control your own data:
+                                    </p>
+                                    <ul className="list-disc list-inside space-y-1 ml-4">
+                                      <li>No personal information is collected or stored by default</li>
+                                      <li>Your portfolio data is only visible to others if you choose to publish or share it</li>
+                                      <li>All analytics are anonymized and used solely to improve performance and reliability</li>
+                                      <li>No tracking cookies or third-party trackers are used without explicit consent</li>
+                                      <li>All data transmission is encrypted using HTTPS</li>
+                                      <li>Portfoli-YOU is open-source: you can review, audit, and contribute to the codebase</li>
+                                    </ul>
+                                  </div>
+                                </section>
+
+                                <section 
+                                  className="p-6 rounded-xl border transition-all duration-300 ease-out hover:scale-[1.02]"
+                                  style={{
+                                    backgroundColor: 'var(--muted)',
+                                    borderColor: 'var(--border)',
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--accent)'
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'var(--border)'
+                                  }}
+                                >
+                                  <div className="flex items-center gap-3 mb-4">
+                                    <FaLink className="text-xl" style={{ color: 'var(--accent)' }} />
+                                    <h2 className="text-xl font-semibold" style={{ color: 'var(--fg)' }}>
+                                      External Links
+                                    </h2>
+                                  </div>
+                                  <div className="space-y-2" style={{ color: 'var(--fg-muted)' }}>
+                                    <p>
+                                      This website includes links to external websites and resources:
+                                    </p>
+                                    <ul className="list-disc list-inside space-y-1 ml-4">
+                                      <li>All external links are clearly marked</li>
+                                      <li>Users are notified before leaving the site</li>
+                                      <li>Third-party content is reviewed for safety</li>
+                                      <li>I am not responsible for external website content</li>
+                                    </ul>
+                                  </div>
+                                </section>
+                            </div>
+                            )}
                         </div>
                         </div>
                     </article>
@@ -874,7 +981,6 @@ export default function AboutPage() {
             </main>
         </div>
     <Footer />
-    {showContactModal && <ContactFormModal onClose={() => setShowContactModal(false)} />}
     </div>
     );
 }

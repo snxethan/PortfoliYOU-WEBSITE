@@ -1,13 +1,11 @@
 "use client"
-import React, { useState } from "react"
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import TooltipWrapper from "../ToolTipWrapper"
-import SecurityPolicyModal from "../SecurityPolicyModal"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 const Footer = () => {
-  const [showSecurityPolicy, setShowSecurityPolicy] = useState(false)
-
   return (
     <footer 
       className="w-full py-6 px-6 transition-all duration-300 border-t"
@@ -19,25 +17,44 @@ const Footer = () => {
     >
       <div className="max-w-8xl mx-auto flex flex-col items-center gap-6">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-4 text-sm">
-          {/* Left: Security Policy */}
+          {/* Left: Social Links */}
           <div className="order-3 lg:order-1 mt-2 lg:mt-0">
-            <TooltipWrapper label="View Security Policy">
-              <button 
-                onClick={() => setShowSecurityPolicy(true)}
-                className="text-sm transition-all duration-200 hover:scale-105"
-                style={{
-                  color: 'var(--fg-muted)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--accent)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--fg-muted)'
-                }}
-              >
-                Security Policy
-              </button>
-            </TooltipWrapper>
+            <div className="flex items-center gap-4">
+              <TooltipWrapper label="GitHub">
+                <a
+                  href="https://github.com/snxethan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-all duration-200 hover:scale-110"
+                  style={{ color: 'var(--fg-muted)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
+                  <FaGithub />
+                </a>
+              </TooltipWrapper>
+              <TooltipWrapper label="LinkedIn">
+                <a
+                  href="https://www.linkedin.com/in/ethantownsend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-all duration-200 hover:scale-110"
+                  style={{ color: 'var(--fg-muted)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--fg-muted)'
+                  }}
+                >
+                  <FaLinkedin />
+                </a>
+              </TooltipWrapper>
+            </div>
           </div>
 
           {/* Center: Logo & Name */}
@@ -111,7 +128,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {showSecurityPolicy && <SecurityPolicyModal onClose={() => setShowSecurityPolicy(false)} />}
     </footer>
   )
 }
