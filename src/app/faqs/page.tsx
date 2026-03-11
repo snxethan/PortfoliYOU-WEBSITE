@@ -530,15 +530,13 @@ export default function AboutPage() {
                                     <br />
                                     <br />
                                     You can share any suggestions, feedback or personal portfolios made with <b>Portfoli-YOU</b> by{" "}
-                                    <a 
-                                        href="https://github.com/snxethan/PortfoliYOU-APP/issues"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <button
+                                        onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP/issues")}
                                         className="hover:underline"
                                         style={{ color: 'var(--accent)' }}
                                     >
                                         opening a GitHub issue
-                                    </a>.
+                                    </button>.
                                 </p>
                                 </div>
 
@@ -888,18 +886,17 @@ export default function AboutPage() {
                                   <div style={{ color: 'var(--fg-muted)' }}>
                                     <p className="mb-4">
                                       If you discover a security vulnerability or have concerns about the website&apos;s security,
-                                      please get in touch immediately. All reports will be investigated promptly.
+                                      please get in touch immediately using a private channel. Please do not disclose security
+                                      vulnerabilities via public GitHub issues. All reports will be investigated promptly.
                                     </p>
                                     <div className="flex justify-center">
-                                      <a
-                                        href="https://github.com/snxethan/PortfoliYOU-APP/issues"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                      <button
+                                        onClick={() => handleExternalClick("https://github.com/snxethan/PortfoliYOU-APP/security/advisories/new")}
                                         className="inline-flex items-center px-4 py-2 rounded-lg gap-2 transition-all duration-200 ease-out hover:scale-105 text-black font-semibold"
                                         style={{ backgroundColor: 'var(--accent)' }}
                                       >
-                                        Report on GitHub
-                                      </a>
+                                        Report via GitHub Security Advisory
+                                      </button>
                                     </div>
                                   </div>
                                 </section>
@@ -930,8 +927,20 @@ export default function AboutPage() {
                                     <ul className="list-disc list-inside space-y-1 ml-4">
                                       <li>No personal information is collected or stored by default</li>
                                       <li>Your portfolio data is only visible to others if you choose to publish or share it</li>
-                                      <li>All analytics are anonymized and used solely to improve performance and reliability</li>
-                                      <li>No tracking cookies or third-party trackers are used without explicit consent</li>
+                                      <li>
+                                        Privacy-friendly analytics (including Vercel Analytics and Speed Insights) are used in aggregate
+                                        to understand usage, performance, and reliability; they are not used to identify individual users.
+                                      </li>
+                                      <li>
+                                        These analytics are provided by third parties and may use cookies or similar technologies. For
+                                        details about how this data is processed, see{" "}
+                                        <button
+                                          onClick={() => handleExternalClick("https://vercel.com/legal/privacy-policy")}
+                                          className="underline"
+                                        >
+                                          Vercel&apos;s privacy policy
+                                        </button>.
+                                      </li>
                                       <li>All data transmission is encrypted using HTTPS</li>
                                       <li>Portfoli-YOU is open-source: you can review, audit, and contribute to the codebase</li>
                                     </ul>
@@ -963,7 +972,7 @@ export default function AboutPage() {
                                     </p>
                                     <ul className="list-disc list-inside space-y-1 ml-4">
                                       <li>All external links are clearly marked</li>
-                                      <li>Users are notified before leaving the site</li>
+                                      <li>External links may take you away from this site</li>
                                       <li>Third-party content is reviewed for safety</li>
                                       <li>I am not responsible for external website content</li>
                                     </ul>

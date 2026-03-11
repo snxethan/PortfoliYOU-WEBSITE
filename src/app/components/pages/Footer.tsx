@@ -25,6 +25,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/ethantownsend"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   className="text-xl transition-all duration-200 hover:scale-110"
                   style={{ color: 'var(--fg-muted)' }}
                   onMouseEnter={(e) => {
@@ -42,6 +43,7 @@ const Footer = () => {
                   href="https://github.com/snxethan"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                   className="text-xl transition-all duration-200 hover:scale-110"
                   style={{ color: 'var(--fg-muted)' }}
                   onMouseEnter={(e) => {
