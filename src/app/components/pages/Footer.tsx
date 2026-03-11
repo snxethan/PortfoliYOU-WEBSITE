@@ -68,7 +68,7 @@ const Footer = () => {
                 className="rounded-full"
               />
             </div>
-            <TooltipWrapper label="Social Page">
+            <TooltipWrapper label="My Portfolio">
               <a 
                 href="https://ethantownsend.dev" 
                 className="text-sm transition-all duration-200 hover:scale-105"
