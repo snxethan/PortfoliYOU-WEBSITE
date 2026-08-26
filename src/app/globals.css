@@ -1,34 +1,275 @@
 @import "tailwindcss";
 
-:root {
-  --background: #1a1a1a;
-  --foreground: #ededed;
+/* ===========================================================================
+   Portfoli-YOU — colour system
+
+   Anchored on the Radix Colors dark scales (blue / orange / slate), which are
+   built for dark UI and verified against the APCA contrast model rather than
+   eyeballed. Roles:
+
+     blue   — brand. Links, focus rings, active nav, section marks.
+     orange — action. Primary CTAs only, kept under ~10% of any screen so it
+              keeps its punch.
+     navy   — every surface. Blue-tinted neutrals, not grey, so the accents
+              sit in the same family as the ground they stand on.
+   =========================================================================== */
+
+@theme {
+  /* Surfaces, deepest to lightest */
+  --color-py-bg: #080c14;
+  --color-py-surface: #0d1520;
+  --color-py-raised: #111927;
+  --color-py-card: #16202e;
+  --color-py-line: #22304a;
+
+  /* Brand — Radix blueDark 9/10/11 */
+  --color-py-blue: #0090ff;
+  --color-py-blue-soft: #3b9eff;
+  --color-py-blue-text: #70b8ff;
+  --color-py-blue-deep: #0070d0;
+
+  /* Action — Radix orangeDark 9/10/11 */
+  --color-py-orange: #f76b15;
+  --color-py-orange-soft: #ff801f;
+  --color-py-orange-text: #ffa057;
+  --color-py-orange-deep: #d4550a;
+
+  /* Text */
+  --color-py-text: #edeef0;
+  --color-py-muted: #9aa4b2;
+  --color-py-subtle: #6b7688;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, SFMono-Regular, Consolas,
+    "Liberation Mono", monospace;
+
+  --radius-py: 0.875rem;
+
+  /* Wide container used by the footer. */
+  --container-8xl: 90rem;
 }
 
 :root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #080c14;
+  --foreground: #edeef0;
+
+  /* Height of the fixed navbar — used by scroll offsets and sticky panels. */
+  --nav-h: 4rem;
+
+  /* Hairlines. Cool-tinted so they disappear into the navy rather than
+     reading as grey scratches on it. */
+  --hairline: rgba(112, 184, 255, 0.1);
+  --hairline-strong: rgba(112, 184, 255, 0.2);
+
+  color-scheme: dark;
 }
 
-:root { --nav-h: 3.25rem; } /* ~52px, matches Navbar */
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 768px) {
   :root {
-    --background: #222222;
-    --foreground: #ededed;
+    --nav-h: 4.5rem;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: auto;    /* Allow horizontal scroll when needed */
-  min-width: 360px;    /* Prevent UI from condensing below 360px */
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-width: 320px;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button:not(:disabled):hover,
+a[href]:hover,
+[role="button"]:not([aria-disabled="true"]):hover {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-py-blue-soft);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+::selection {
+  background: rgba(0, 144, 255, 0.35);
+  color: #fff;
+}
+
+/* ===========================================================================
+   Scrollbars
+   =========================================================================== */
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080c14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22304a;
+  border-radius: 999px;
+  border: 3px solid #080c14;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2870bd;
+}
+
+::-webkit-scrollbar-corner {
+  background: #080c14;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #22304a #080c14;
+}
+
+/* ===========================================================================
+   Page shell
+   =========================================================================== */
+
+/* Two glows rather than one: blue high and centred, orange low and offset.
+   The pair is what stops a dark page from reading as a flat rectangle. */
+.py-shell {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      54rem 30rem at 50% -6rem,
+      rgba(0, 144, 255, 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      38rem 26rem at 88% 22%,
+      rgba(247, 107, 21, 0.08),
+      transparent 72%
+    ),
+    linear-gradient(180deg, #0d1520 0%, #0a1018 45%, #080c14 100%);
+}
+
+.py-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(112, 184, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(112, 184, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(64rem 42rem at 50% 0%, #000 15%, transparent 76%);
+  -webkit-mask-image: radial-gradient(
+    64rem 42rem at 50% 0%,
+    #000 15%,
+    transparent 76%
+  );
+}
+
+.py-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .py-container {
+    padding-inline: 2rem;
+  }
+}
+
+/* ===========================================================================
+   Surfaces
+   =========================================================================== */
+
+.py-card {
+  background: linear-gradient(
+    180deg,
+    rgba(22, 32, 46, 0.9),
+    rgba(13, 21, 32, 0.9)
+  );
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-py);
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.py-card-interactive:hover {
+  border-color: rgba(0, 144, 255, 0.42);
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+    0 18px 40px -24px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(0, 144, 255, 0.1);
+}
+
+.py-panel {
+  background: rgba(13, 21, 32, 0.72);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-py);
+  backdrop-filter: blur(10px);
+}
+
+.py-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-py-blue-text);
+}
+
+.py-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--hairline-strong),
+    transparent
+  );
+}
+
+/* Blue → orange wash. Used exactly once per page, on the hero headline. */
+.py-gradient-text {
+  background: linear-gradient(100deg, #70b8ff 0%, #3b9eff 38%, #ff801f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Footer link row — collapses to a column in very short viewports. */
 .footer-links {
   display: flex;
   flex-direction: row;
@@ -43,71 +284,147 @@ body {
   }
 }
 
+/* ===========================================================================
+   Motion
+   =========================================================================== */
 
-
-
-/* Animation for links */
-
-@keyframes zoom-rotate {
+@keyframes py-fade-in {
   from {
     opacity: 0;
-    transform: scale(0.7) rotate(-5deg);
   }
   to {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
   }
 }
-.animate-zoom-rotate {
-  animation: zoom-rotate 0.3s ease-out forwards;
-}
 
-
-@keyframes elastic-in {
-  0% {
+@keyframes py-rise {
+  from {
     opacity: 0;
-    transform: scaleX(0.6) scaleY(1.4);
+    transform: translateY(12px);
   }
-  50% {
-    transform: scaleX(1.1) scaleY(0.9);
-  }
-  100% {
+  to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
+
+@keyframes py-scale-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes py-scale-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(6px) scale(0.985);
+  }
+}
+
+@keyframes py-sheen {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: py-fade-in 200ms ease-out forwards;
+}
+.animate-rise {
+  animation: py-rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Modal enter/exit. The `elastic` names are retained so existing call sites
+   keep working — the motion itself is a restrained scale + fade. */
 .animate-elastic-in {
-  animation: elastic-in 0.4s ease-out forwards;
-}
-
-@keyframes elastic-out {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    transform: scaleX(1.1) scaleY(0.9);
-  }
-  100% {
-    opacity: 0;
-    transform: scaleX(0.6) scaleY(1.4);
-  }
+  animation: py-scale-in 220ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .animate-elastic-out {
-  animation: elastic-out 0.3s ease-in forwards;
+  animation: py-scale-out 180ms ease-in forwards;
 }
 
+.py-delay-1 {
+  animation-delay: 60ms;
+}
+.py-delay-2 {
+  animation-delay: 120ms;
+}
+.py-delay-3 {
+  animation-delay: 180ms;
+}
+.py-delay-4 {
+  animation-delay: 240ms;
+}
+.py-delay-5 {
+  animation-delay: 300ms;
+}
 
-@keyframes elastic-light {
-  0% {
-    opacity: 0;
-    transform: scale(0.97);
+.py-skeleton {
+  background: linear-gradient(90deg, #16202e 25%, #1e2b3d 37%, #16202e 63%);
+  background-size: 400% 100%;
+  animation: py-sheen 1.4s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
-.animate-elastic-light {
-  animation: elastic-light 0.3s ease-out forwards;
+
+/* ===========================================================================
+   Long-form copy
+   =========================================================================== */
+
+.py-prose {
+  color: var(--color-py-muted);
+  line-height: 1.75;
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .py-prose {
+    font-size: 1rem;
+  }
+}
+
+.py-prose strong,
+.py-prose b {
+  color: #fff;
+  font-weight: 600;
+}
+
+.py-prose a {
+  color: var(--color-py-blue-text);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+  text-decoration-color: rgba(112, 184, 255, 0.4);
+  transition: text-decoration-color 150ms ease;
+}
+
+.py-prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.py-prose p + p {
+  margin-top: 1rem;
 }

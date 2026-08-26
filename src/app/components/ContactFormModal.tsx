@@ -1,131 +1,168 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { createPortal } from "react-dom"
-import toast from 'react-hot-toast'
+import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import toast from "react-hot-toast";
+import { Loader2, X } from "lucide-react";
+import { Button, Eyebrow } from "./ui";
 
-// This component is used to display a contact form modal. It allows users to send messages to the developer.
-// The modal can be closed by clicking outside of it or by clicking the close button.
 interface Props {
-  onClose: () => void
+  onClose: () => void;
 }
 
+const fieldClass =
+  "w-full rounded-lg border border-py-blue-text/15 bg-py-blue-text/[0.05] px-3.5 py-2.5 text-sm text-py-text " +
+  "placeholder:text-py-subtle transition-colors focus:border-py-blue/50 focus:bg-py-blue-text/[0.08] focus:outline-none";
+
+const labelClass = "mb-1.5 block text-xs font-medium text-py-muted";
+
+/** Sends a message to the developer through /api/contact. */
 export default function ContactFormModal({ onClose }: Props) {
-  const [isAnimatingOut, setIsAnimatingOut] = useState(false) // State to control the animation of the modal 
-  const [name, setName] = useState("") // State to store the name input
-  const [email, setEmail] = useState("") // State to store the email input
-  const [message, setMessage] = useState("") // State to store the message input
-  const [mounted, setMounted] = useState(false)
+  const [closing, setClosing] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  // This function handles the form submission. It sends the name, email, and message to the server.
-  // If the submission is successful, it shows a success message and closes the modal.
+  const close = useCallback(() => {
+    setClosing(true);
+    setTimeout(onClose, 180);
+  }, [onClose]);
+
+  useEffect(() => {
+    setMounted(true);
+    document.body.classList.add("overflow-hidden");
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [close]);
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault() // Prevent the default form submission behavior
-
+    e.preventDefault();
+    setSending(true);
     try {
-      // Validate the email format
-      // Contact the server to send the email
-      const response = await fetch("/api/contact", { // api endpoint to send the email
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message }),
-      })
-
-      // Parse the response from the server
-      const data = await response.json().catch(() => ({}))
+      });
+      const data = await response.json().catch(() => ({}));
 
       if (response.ok) {
-  
-        toast.success("Message sent successfully!")
-        onClose()
+        toast.success("Message sent.");
+        onClose();
       } else {
-        toast.error(data.message || "Something went wrong.")
+        toast.error(data.message || "Something went wrong.");
       }
     } catch (err) {
-      console.error(err)
-      toast.error("Network error. Please try again later.")
+      console.error(err);
+      toast.error("Network error. Please try again later.");
+    } finally {
+      setSending(false);
     }
-  }
+  };
 
-  useEffect(() => {
-    // Add a class to the body to prevent scrolling when the modal is open
-    // This is done to prevent the background from scrolling when the modal is open
-    setMounted(true)
-    document.body.classList.add("overflow-hidden") // Prevent scrolling
-    return () => document.body.classList.remove("overflow-hidden") // Remove the class when the modal is closed
-  }, [])
+  if (!mounted) return null;
 
-  const close = () => {
-    // Close the modal and remove the class from the body
-    setIsAnimatingOut(true)
-    setTimeout(onClose, 300)
-  }
-
-  const modalContent = (
+  return createPortal(
     <div
-    // This is the modal overlay. It covers the entire screen and has a semi-transparent background.
-      // It also has a blur effect to make the background less distracting.
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm"
-      onClick={close}
+      className="animate-fade-in fixed inset-0 z-[60] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) close();
+      }}
     >
       <div
-      // This is the modal content. It contains the form and the close button.
-        // It has a dark background and a border to make it stand out.
-        className={`bg-[#1e1e1e] text-white border border-[#333] rounded-xl p-6 max-w-md w-full relative ${
-          isAnimatingOut ? "animate-elastic-out" : "animate-elastic-in"
-        }`} // This is the modal content. It contains the form and the close button.
-        // The className is used to apply the animation and styles to the modal.
-        onClick={(e) => e.stopPropagation()} // Prevent the click event from bubbling up to the overlay
-        // This is done to prevent the modal from closing when the user clicks inside it.
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-title"
+        className={`relative w-full max-w-md rounded-2xl border border-py-blue-text/12 bg-py-card p-6 shadow-2xl ${
+          closing ? "animate-elastic-out" : "animate-elastic-in"
+        }`}
       >
         <button
-          onClick={close} // This is the close button. It is an "X" icon that closes the modal when clicked.
-          // It has a hover effect to make it more interactive.
-          className="absolute top-1 right-3 text-3xl text-gray-400 hover:text-red-500"
+          type="button"
+          onClick={close}
+          aria-label="Close"
+          className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-lg text-py-subtle transition-colors hover:bg-py-blue-text/10 hover:text-white"
         >
-          &times; {/* This is the close button. It is an "X" icon that closes the modal when clicked. */}
+          <X size={16} />
         </button>
 
-        <h3 className="text-xl font-semibold mb-4">Send an email</h3>
-      
-        <form onSubmit={handleSubmit} className="space-y-4"> {/* This is the form element. It contains the input fields and the submit button. */}
-          <input
-            type="text"
-            required
-            placeholder="Your Name"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444]"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            required
-            placeholder="Your Email"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444]"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <textarea
-            required
-            placeholder="Your Message"
-            className="w-full p-2 bg-[#2a2a2a] rounded border border-[#444] h-32"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="w-full py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 rounded"
-          >
-            Send Message
-          </button>
+        <Eyebrow>Contact</Eyebrow>
+        <h2
+          id="contact-title"
+          className="mt-3 text-xl font-bold tracking-tight text-white"
+        >
+          Send a message
+        </h2>
+        <p className="mt-2 text-sm text-py-muted">
+          Bug reports, feature requests and security disclosures all land in the
+          same inbox.
+        </p>
+
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <div>
+            <label htmlFor="contact-name" className={labelClass}>
+              Name
+            </label>
+            <input
+              id="contact-name"
+              type="text"
+              required
+              autoComplete="name"
+              placeholder="Your name"
+              className={fieldClass}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-email" className={labelClass}>
+              Email
+            </label>
+            <input
+              id="contact-email"
+              type="email"
+              required
+              autoComplete="email"
+              placeholder="you@example.com"
+              className={fieldClass}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-message" className={labelClass}>
+              Message
+            </label>
+            <textarea
+              id="contact-message"
+              required
+              rows={5}
+              placeholder="What would you like to tell me?"
+              className={`${fieldClass} resize-y`}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </div>
+
+          <Button type="submit" className="w-full" disabled={sending}>
+            {sending ? (
+              <Loader2 aria-hidden size={16} className="animate-spin" />
+            ) : null}
+            Send message
+          </Button>
         </form>
       </div>
-    </div>
-  )
-
-  // Only render if mounted (client-side) to avoid hydration issues
-  if (!mounted) return null
-
-  // Use portal to render the modal at the document root level
-  return createPortal(modalContent, document.body)
+    </div>,
+    document.body,
+  );
 }

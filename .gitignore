@@ -412,3 +412,6 @@ node_modules/
 
 # Vercel
 .vercel
+
+# TypeScript incremental build cache — build artifact, not source.
+tsconfig.tsbuildinfo

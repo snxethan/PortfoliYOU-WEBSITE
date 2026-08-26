@@ -1,145 +1,174 @@
-"use client"
+"use client";
 
 import React, {
   createContext,
+  useCallback,
   useContext,
-  useState,
   useEffect,
-  ReactNode,
-} from "react"
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
+import { ExternalLink, X } from "lucide-react";
+import { Button, Eyebrow } from "./ui";
 
 interface ExternalLinkContextType {
-  showWarning: boolean
-  targetUrl: string
-  isProfessional: boolean
-  handleExternalClick: (url: string, isProfessional?: boolean) => void
-  closeWarning: () => void
+  showWarning: boolean;
+  targetUrl: string;
+  isProfessional: boolean;
+  handleExternalClick: (url: string, isProfessional?: boolean) => void;
+  closeWarning: () => void;
 }
 
 const ExternalLinkContext = createContext<ExternalLinkContextType | undefined>(
-  undefined
-)
+  undefined,
+);
+
+/** Best-effort hostname for display; falls back to the raw string. */
+function hostOf(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
 
 export const ExternalLinkHandler = ({ children }: { children: ReactNode }) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isAnimatingOut, setIsAnimatingOut] = useState(false)
-  const [targetUrl, setTargetUrl] = useState("")
-  const [isProfessional, setIsProfessional] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const [targetUrl, setTargetUrl] = useState("");
+  const [isProfessional, setIsProfessional] = useState(false);
 
-  const handleExternalClick = (url: string, isProfessional: boolean = false) => {
-    setTargetUrl(url)
-    setIsProfessional(isProfessional)
-    setIsVisible(true)
-  }
+  const handleExternalClick = useCallback(
+    (url: string, professional = false) => {
+      setTargetUrl(url);
+      setIsProfessional(professional);
+      setClosing(false);
+      setIsVisible(true);
+    },
+    [],
+  );
 
-  const closeWarning = () => {
-    setIsAnimatingOut(true)
+  const closeWarning = useCallback(() => {
+    setClosing(true);
     setTimeout(() => {
-      setIsAnimatingOut(false)
-      setIsVisible(false)
-      setTargetUrl("")
-      setIsProfessional(false)
-    }, 300) // match elastic-out duration
-  }
+      setClosing(false);
+      setIsVisible(false);
+      setTargetUrl("");
+      setIsProfessional(false);
+    }, 180);
+  }, []);
 
   useEffect(() => {
-    if (isVisible) {
-      document.body.classList.add("overflow-hidden")
-    } else {
-      document.body.classList.remove("overflow-hidden")
-    }
-
+    if (!isVisible) return;
+    document.body.classList.add("overflow-hidden");
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeWarning();
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
-      document.body.classList.remove("overflow-hidden")
-    }
-  }, [isVisible])
+      document.body.classList.remove("overflow-hidden");
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isVisible, closeWarning]);
+
+  const value = useMemo(
+    () => ({
+      showWarning: isVisible,
+      targetUrl,
+      isProfessional,
+      handleExternalClick,
+      closeWarning,
+    }),
+    [isVisible, targetUrl, isProfessional, handleExternalClick, closeWarning],
+  );
 
   return (
-    <ExternalLinkContext.Provider
-      value={{
-        showWarning: isVisible,
-        targetUrl,
-        isProfessional,
-        handleExternalClick,
-        closeWarning,
-      }}
-    >
+    <ExternalLinkContext.Provider value={value}>
       {children}
-        {isVisible && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40 animate-fade-in p-4"
-            onClick={closeWarning}
-          >
-            <div
-              className={`bg-[#1a1a1a] border border-[#333] rounded-xl p-6 max-w-md w-full text-center relative ${
-                isAnimatingOut ? "animate-elastic-out" : "animate-elastic-in"
-              }`}
-              onClick={(e) => e.stopPropagation()}
-            >
 
+      {isVisible && (
+        <div
+          className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeWarning();
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="external-link-title"
+            className={`relative w-full max-w-md rounded-2xl border border-py-blue-text/12 bg-py-card p-6 shadow-2xl ${
+              closing ? "animate-elastic-out" : "animate-elastic-in"
+            }`}
+          >
             <button
+              type="button"
               onClick={closeWarning}
               aria-label="Close"
-              className="absolute top-1 right-3 text-gray-400 hover:text-red-500 text-4xl"
+              className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-lg text-py-subtle transition-colors hover:bg-py-blue-text/10 hover:text-white"
             >
-              &times;
+              <X size={16} />
             </button>
 
-            <h3 className="text-xl font-semibold text-white mb-2">
-              External Link Notice
-            </h3>
+            <Eyebrow>Leaving Portfoli-YOU</Eyebrow>
+            <h2
+              id="external-link-title"
+              className="mt-3 text-xl font-bold tracking-tight text-white"
+            >
+              You&apos;re about to visit an external site
+            </h2>
 
-            {isProfessional ? (
-              <>
-                <p className="text-gray-300 text-sm mb-4">
-                  You are about to visit a <b>professional platform</b> or
-                  external resource.
-                </p>
-                <p className="text-gray-200 text-sm mb-4">
-                  The content on this platform may not reflect my personal views
-                  and is owned by a third party.
-                </p>
-              </>
-            ) : (
-              <>
-                <p className="text-gray-300 text-sm mb-4">
-                  You are about to visit a <b>social platform</b> or external
-                  resource.
-                </p>
-                <p className="text-gray-200 text-sm mb-4">
-                  Please note that the content on this platform does not reflect
-                  my professional identity or represent me in any official
-                  capacity.
-                </p>
-              </>
-            )}
+            <div className="mt-4 flex items-center gap-2.5 rounded-lg border border-py-blue-text/10 bg-py-blue-text/[0.05] px-3.5 py-3">
+              <ExternalLink
+                aria-hidden
+                size={15}
+                className="shrink-0 text-py-blue-text"
+              />
+              <span className="min-w-0 flex-1 truncate font-mono text-sm text-py-text">
+                {hostOf(targetUrl)}
+              </span>
+            </div>
 
-            <p className="text-gray-100 text-sm mb-4">
-              Please proceed with <b>caution</b>.
+            <p className="mt-4 text-sm leading-relaxed text-py-muted">
+              {isProfessional
+                ? "This is a third-party platform hosting Portfoli-YOU content. Its terms, privacy policy and availability are outside our control."
+                : "This destination is not operated by Portfoli-YOU. Its content, terms and privacy policy are outside our control."}
             </p>
 
-            <div className="flex justify-center gap-4">
+            <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row">
+              <Button
+                type="button"
+                variant="secondary"
+                className="flex-1"
+                onClick={closeWarning}
+              >
+                Stay here
+              </Button>
               <a
                 href={targetUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeWarning}
-                className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white rounded-lg transition-all"
+                className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-py-orange px-5 text-sm font-semibold text-[#1a0d02] shadow-[0_1px_0_0_rgba(255,255,255,0.22)_inset] transition-colors hover:bg-py-orange-soft"
               >
                 Continue
+                <ExternalLink aria-hidden size={14} />
               </a>
             </div>
           </div>
         </div>
       )}
     </ExternalLinkContext.Provider>
-  )
-}
+  );
+};
 
 export const useExternalLink = () => {
-  const context = useContext(ExternalLinkContext)
+  const context = useContext(ExternalLinkContext);
   if (!context) {
-    throw new Error("useExternalLink must be used within an ExternalLinkHandler")
+    throw new Error(
+      "useExternalLink must be used within an ExternalLinkHandler",
+    );
   }
-  return context
-}
+  return context;
+};
