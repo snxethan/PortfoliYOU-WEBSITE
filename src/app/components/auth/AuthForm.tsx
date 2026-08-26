@@ -128,15 +128,13 @@ export default function AuthForm({ mode }: { mode: Mode }) {
     <div className="py-container flex min-h-[calc(100dvh-var(--nav-h))] items-center justify-center py-14">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <span className="mx-auto mb-5 block h-12 w-12 overflow-hidden rounded-xl bg-white ring-1 ring-py-blue-text/15">
-            <Image
-              src="/images/icon/portfoliyou.png"
-              alt=""
-              width={96}
-              height={96}
-              className="h-full w-full object-cover"
-            />
-          </span>
+          <Image
+            src="/images/icon/portfoliyou-mark.png"
+            alt=""
+            width={96}
+            height={96}
+            className="mx-auto mb-5 h-12 w-12 object-contain"
+          />
           <h1 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
             {t.heading}
           </h1>

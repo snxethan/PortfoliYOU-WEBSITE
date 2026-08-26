@@ -19,20 +19,19 @@ export default function HomePage() {
           <Notice />
         </div>
 
-        {/* Brand mark. Idles with a slow float, tilts and picks up an orange
-            ring on hover — the treatment carried over from the live site. */}
+        {/* Brand mark, sitting directly on the page — no circle, no plate.
+            Idles with a slow float, tilts and picks up an orange glow that
+            follows the logo's own silhouette on hover. */}
         <div className="animate-rise py-delay-1 mt-10 flex justify-center">
           <div className="animate-float">
-            <div className="py-tilt py-accent-ring relative h-36 w-36 overflow-hidden rounded-full shadow-lg ring-1 ring-py-blue-text/15 md:h-44 md:w-44">
-              <Image
-                src="/images/icon/portfoliyou.png"
-                alt="Portfoli-YOU logo"
-                width={512}
-                height={512}
-                className="h-full w-full object-cover"
-                priority
-              />
-            </div>
+            <Image
+              src="/images/icon/portfoliyou-mark.png"
+              alt="Portfoli-YOU logo"
+              width={512}
+              height={512}
+              className="py-tilt py-accent-glow h-48 w-48 object-contain md:h-60 md:w-60 lg:h-64 lg:w-64"
+              priority
+            />
           </div>
         </div>
 

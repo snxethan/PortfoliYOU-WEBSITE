@@ -58,16 +58,14 @@ export default function Navbar() {
           className="group flex shrink-0 items-center gap-2.5"
           aria-label={`${site.name} home`}
         >
-          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-py-blue-text/15 transition-shadow duration-200 group-hover:ring-py-orange/60 md:h-10 md:w-10">
-            <Image
-              src="/images/icon/portfoliyou.png"
-              alt=""
-              width={80}
-              height={80}
-              className="h-full w-full object-cover"
-              priority
-            />
-          </span>
+          <Image
+            src="/images/icon/portfoliyou-mark.png"
+            alt=""
+            width={80}
+            height={80}
+            className="py-accent-glow h-8 w-8 shrink-0 object-contain md:h-9 md:w-9"
+            priority
+          />
           <span className="text-[15px] font-bold tracking-tight text-white md:text-base">
             Portfoli<span className="text-py-orange-text">-YOU</span>
           </span>
