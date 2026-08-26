@@ -1,8 +1,6 @@
 import type { IconType } from "react-icons";
 import {
   FaCode,
-  FaCodeBranch,
-  FaCubes,
   FaGithub,
   FaHandshake,
   FaHeart,
@@ -22,8 +20,6 @@ import {
  */
 export const iconMap = {
   FaCode,
-  FaCodeBranch,
-  FaCubes,
   FaGithub,
   FaHandshake,
   FaHeart,

@@ -6,9 +6,8 @@
  * prevent — move it, don't copy it.
  *
  *   home     → heroBeats, proof
- *   product  → flow, pillars, targets, codeLevels, deployTargets, included
- *   involved → involve, supportTiers
- *   faq      → faqs, roadmap, security
+ *   product  → flow, targets, deployTargets, included
+ *   faq      → faqs, roadmap, security, team, involve, supportTiers
  *   shared   → site, status, nav, repos, domains, socialLinks
  */
 
@@ -56,7 +55,6 @@ export const primaryCta = authEnabled
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/product", label: "Product" },
-  { href: "/involved", label: "Get involved" },
   { href: "/about", label: "FAQ" },
 ] as const;
 
@@ -224,69 +222,11 @@ export const targets = [
   },
 ] as const;
 
-/** The three depths of editing, rendered on /product. */
-export const codeLevels = [
-  {
-    id: "settings",
-    label: "Settings",
-    body: "A generated form for every widget — text, fonts, colour, spacing, borders, shadows. No code, and it survives every future update.",
-  },
-  {
-    id: "json",
-    label: "JSON",
-    body: "The widget as data. Copy it into another project, hand it to someone else, or save it to your own library as a custom widget.",
-  },
-  {
-    id: "code",
-    label: "Code",
-    body: "The real emitted source for your chosen framework. Read it, edit it, eject the widget to own it outright — and revert whenever you want.",
-  },
-] as const;
-
 export const deployTargets = [
   { label: "Download a zip", detail: "Free, no account", state: "building" as const },
   { label: "GitHub Pages", detail: "Your repo", state: "planned" as const },
   { label: "Vercel / Netlify", detail: "Your account", state: "planned" as const },
   { label: "Portfoli-YOU subdomain", detail: "One site free", state: "planned" as const },
-] as const;
-
-export const pillars = [
-  {
-    id: "no-code",
-    icon: "FaMousePointer",
-    title: "Build without code",
-    body: "Compose pages from typed widgets. Drag to arrange, click to edit, and watch the real page update as you go.",
-  },
-  {
-    id: "code",
-    icon: "FaCode",
-    title: "Then edit the code",
-    body: "Open any widget's generated source and change it. Eject it to own it outright, or revert to the generated version whenever you want.",
-  },
-  {
-    id: "frameworks",
-    icon: "FaCubes",
-    title: "Pick your framework",
-    body: "The same project emits plain HTML and CSS, React and TypeScript, or Next.js — and you can convert between them later.",
-  },
-  {
-    id: "themes",
-    icon: "FaPalette",
-    title: "Themes you can override",
-    body: "Type scale, colour, spacing and layout are all editable. Themes are a starting point, not a cage.",
-  },
-  {
-    id: "ship",
-    icon: "FaRocket",
-    title: "Publish or export",
-    body: "One click to a subdomain, or download clean source and assets. Leaving is a download, never a support ticket.",
-  },
-  {
-    id: "open",
-    icon: "FaCodeBranch",
-    title: "Open source",
-    body: "The builder and this site are both public. Read the code, file an issue, or fork it outright.",
-  },
 ] as const;
 
 /** What the free tier covers. Rendered on /product only. */
@@ -300,7 +240,48 @@ export const included = [
 ] as const;
 
 /* -------------------------------------------------------------------------
-   GET INVOLVED — the /involved page owns every ask.
+   TEAM — rendered on the FAQ. Add a person by adding an entry; the layout
+   switches from one column to two on its own, and no copy anywhere says
+   "one person", so nothing else needs touching.
+   ------------------------------------------------------------------------- */
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  handle: string;
+  role: string;
+  bio: string;
+  avatar: string;
+  /** Personal site, shown as the primary link. */
+  portfolio?: string;
+  links: { label: string; icon: "FaGithub" | "FaLinkedin"; url: string }[];
+  /** Renders GitHub's Sponsors button for this person when set. */
+  sponsorHandle?: string;
+}
+
+export const team: TeamMember[] = [
+  {
+    id: "snxethan",
+    name: "Ethan Townsend",
+    handle: "snxethan",
+    role: "Creator & maintainer",
+    bio: "Started Portfoli-YOU as a semester project at Neumont College of Computer Science, grew it into a capstone, and designs, builds and maintains it today.",
+    avatar: "/images/author/snxethan.png",
+    portfolio: "https://ethantownsend.dev",
+    links: [
+      { label: "GitHub", icon: "FaGithub", url: "https://github.com/snxethan" },
+      {
+        label: "LinkedIn",
+        icon: "FaLinkedin",
+        url: "https://www.linkedin.com/in/snxethan/",
+      },
+    ],
+    sponsorHandle: "snxethan",
+  },
+];
+
+/* -------------------------------------------------------------------------
+   GET INVOLVED — rendered as a section on the FAQ.
    ------------------------------------------------------------------------- */
 
 /**
@@ -339,7 +320,7 @@ export const involve = [
     id: "support",
     icon: "FaHeart",
     title: "Support the work",
-    body: "This is one person building in the open with no funding behind it. Sponsorship pays for domains, storage and the hosted free tier.",
+    body: "Portfoli-YOU is built in the open with no funding behind it. Sponsorship pays for domains, storage and the hosted free tier.",
     cta: "Sponsor the project",
     href: "https://github.com/sponsors/snxethan",
     external: true,
@@ -425,11 +406,6 @@ export const faqs = [
     id: "data",
     q: "What happens to my data?",
     a: "Projects are private to your account until you publish them; a published site is public by definition. Passwords are handled by the identity provider and never touch Portfoli-YOU. Analytics on this marketing site are anonymised, with no tracking cookies. Everything is served over HTTPS.",
-  },
-  {
-    id: "who",
-    q: "Who makes this?",
-    a: "One person. Portfoli-YOU started as a semester project at Neumont College of Computer Science, grew into a capstone, and is designed, built and maintained solely by Ethan Townsend.",
   },
 ] as const;
 

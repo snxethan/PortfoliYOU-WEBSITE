@@ -39,7 +39,7 @@ export default function FlowDemo() {
                     "flex w-full items-start gap-3.5 rounded-xl border p-4 text-left transition-all duration-200",
                     isActive
                       ? "border-py-blue/40 bg-py-blue/[0.08]"
-                      : "border-transparent hover:border-py-blue-text/12 hover:bg-py-blue-text/[0.03]",
+                      : "border-transparent hover:border-py-orange/35 hover:bg-py-orange/[0.05]",
                   ].join(" ")}
                 >
                   <span

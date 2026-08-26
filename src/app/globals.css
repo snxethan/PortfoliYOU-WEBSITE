@@ -37,7 +37,10 @@
   /* Text */
   --color-py-text: #edeef0;
   --color-py-muted: #9aa4b2;
-  --color-py-subtle: #6b7688;
+  /* #6b7688 read better but failed WCAG AA on every surface — 3.57:1 against
+     the card background, where 4.5:1 is required. This clears AA everywhere
+     (5.21:1 worst case) and still reads as the quietest tone in the set. */
+  --color-py-subtle: #8592a8;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -224,20 +227,17 @@ button:disabled,
     box-shadow 200ms ease;
 }
 
+/* Hover is orange, always. Blue marks what is *selected*; orange marks what is
+   reacting to the pointer. Keeping those two jobs separate is what stops the
+   palette turning to soup. */
 .py-card-interactive:hover {
-  border-color: rgba(0, 144, 255, 0.42);
+  border-color: rgba(247, 107, 21, 0.55);
   transform: translateY(-2px);
   box-shadow:
     0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
     0 18px 40px -24px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(0, 144, 255, 0.1);
-}
-
-.py-panel {
-  background: rgba(13, 21, 32, 0.72);
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius-py);
-  backdrop-filter: blur(10px);
+    0 0 0 1px rgba(247, 107, 21, 0.18),
+    0 0 24px -6px rgba(247, 107, 21, 0.35);
 }
 
 .py-eyebrow {
@@ -297,14 +297,42 @@ button:disabled,
   }
 }
 
+/* Entrance. Matches the fade-in-up on the live site: 20px, 600ms, ease-out. */
 @keyframes py-rise {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Gentle idle bob, lifted from the live site's `float`. */
+@keyframes py-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* The live site declares `@keyframes pulse-glow{}` — an empty body, so the
+   effect never actually renders there. This is what it was reaching for. */
+@keyframes py-pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(247, 107, 21, 0.3),
+      0 0 12px -4px rgba(247, 107, 21, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px rgba(247, 107, 21, 0),
+      0 0 26px 2px rgba(247, 107, 21, 0.22);
   }
 }
 
@@ -343,7 +371,51 @@ button:disabled,
   animation: py-fade-in 200ms ease-out forwards;
 }
 .animate-rise {
-  animation: py-rise 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: py-rise 600ms ease-out both;
+}
+.animate-float {
+  animation: py-float 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: py-pulse-glow 2.4s ease-in-out infinite;
+}
+
+/* Scale-and-tilt on hover, the effect the "Coming Soon" box uses on the live
+   site (scale-105 + rotate-1). Pair with .py-accent-hover for the outline. */
+.py-tilt {
+  transition:
+    transform 300ms ease-out,
+    border-color 300ms ease-out,
+    box-shadow 300ms ease-out;
+}
+
+.py-tilt:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.py-tilt:active {
+  transform: scale(0.97) rotate(0deg);
+}
+
+/* Orange outline + glow on hover, for anything that is not a .py-card. */
+.py-accent-hover:hover {
+  border-color: rgba(247, 107, 21, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(247, 107, 21, 0.2),
+    0 0 26px -6px rgba(247, 107, 21, 0.45);
+}
+
+/* Same treatment for a ring rather than a border (used on the round logo). */
+.py-accent-ring {
+  transition:
+    box-shadow 300ms ease-out,
+    transform 300ms ease-out;
+}
+
+.py-accent-ring:hover {
+  box-shadow:
+    0 0 0 2px rgba(247, 107, 21, 0.75),
+    0 0 34px -4px rgba(247, 107, 21, 0.5);
 }
 
 /* Modal enter/exit. The `elastic` names are retained so existing call sites

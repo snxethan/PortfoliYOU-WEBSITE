@@ -2,22 +2,8 @@ import type { Metadata } from "next";
 import { FaCheck } from "react-icons/fa";
 import PageShell from "../components/pages/PageShell";
 import FlowDemo from "../components/product/FlowDemo";
-import { iconMap } from "../lib/icons";
-import {
-  Badge,
-  ButtonLink,
-  Card,
-  Eyebrow,
-  SectionHeading,
-} from "../components/ui";
-import {
-  codeLevels,
-  deployTargets,
-  included,
-  pillars,
-
-  targets,
-} from "../lib/site";
+import { Badge, ButtonLink, Card, Eyebrow } from "../components/ui";
+import { deployTargets, included, targets } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Product",
@@ -37,54 +23,27 @@ const stateLabel = {
   exploring: "Exploring",
 } as const;
 
+/**
+ * Three sections, not six. The old page also carried a "capabilities" grid and
+ * a "three depths of editing" row, but both restated the 01–05 walkthrough
+ * immediately above them — stage 04 already *is* the three editing depths.
+ */
 export default function ProductPage() {
   return (
     <PageShell>
-      {/* Header ------------------------------------------------------------ */}
-      <section className="py-container pb-12 pt-12 md:pt-16">
-        <div className="max-w-2xl">
+      {/* Header + walkthrough --------------------------------------------- */}
+      <section className="py-container pb-20 pt-12 md:pb-28 md:pt-16">
+        <div className="mb-12 max-w-2xl">
           <Eyebrow>The product</Eyebrow>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
             From empty project to live site
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-py-muted md:text-base">
-            Five stages, and you can drop to real code at any of them. Here is
-            what the builder does.
+            Five stages, and you can drop to real code at any of them.
           </p>
         </div>
-      </section>
 
-      {/* Walkthrough ------------------------------------------------------- */}
-      <section className="py-container pb-20 md:pb-28">
         <FlowDemo />
-      </section>
-
-      {/* Three depths ------------------------------------------------------ */}
-      <section className="py-container pb-20 md:pb-28">
-        <SectionHeading
-          eyebrow="No-code, or all the code"
-          title="Every widget opens three ways"
-          lead="Most builders give you a form and stop. This one lets you keep going until you are editing the source it generated."
-          align="center"
-        />
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-6">
-          {codeLevels.map((level, i) => (
-            <Card key={level.id} interactive className="p-6">
-              <div className="flex items-center gap-2.5">
-                <span className="font-mono text-xs tracking-[0.2em] text-py-orange-text">
-                  0{i + 1}
-                </span>
-                <h3 className="text-base font-semibold text-white">
-                  {level.label}
-                </h3>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-py-muted">
-                {level.body}
-              </p>
-            </Card>
-          ))}
-        </div>
       </section>
 
       {/* Framework targets ------------------------------------------------- */}
@@ -130,36 +89,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Capabilities ------------------------------------------------------ */}
-      <section className="py-container pb-20 md:pb-28">
-        <SectionHeading
-          eyebrow="Capabilities"
-          title="Everything in the box"
-          lead="One rule runs through all of it: whatever you build here, you can take with you."
-          align="center"
-        />
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
-          {pillars.map((pillar) => {
-            const Icon = iconMap[pillar.icon];
-            return (
-              <Card key={pillar.id} interactive className="p-6">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-py-blue/25 bg-py-blue/10 text-py-blue-text">
-                  <Icon aria-hidden />
-                </span>
-                <h3 className="mt-4 text-base font-semibold text-white">
-                  {pillar.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-py-muted">
-                  {pillar.body}
-                </p>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Deploy + pricing -------------------------------------------------- */}
+      {/* Shipping + pricing ------------------------------------------------ */}
       <section className="py-container pb-20 md:pb-28">
         <Card className="p-6 md:p-10">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
@@ -210,9 +140,9 @@ export default function ProductPage() {
                 ))}
               </ul>
               <div className="mt-7 flex flex-wrap gap-3">
-                <ButtonLink href="/involved">Get involved</ButtonLink>
-                <ButtonLink href="/involved" variant="secondary">
-                  Help build it
+                <ButtonLink href="/about#involved">Help build it</ButtonLink>
+                <ButtonLink href="/about" variant="secondary">
+                  Read the FAQ
                 </ButtonLink>
               </div>
             </div>

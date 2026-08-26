@@ -26,10 +26,10 @@ const variants: Record<ButtonVariant, string> = {
     "disabled:hover:bg-py-blue disabled:hover:shadow-none",
   secondary:
     "border border-py-blue-text/15 bg-py-blue-text/[0.05] text-py-text " +
-    "hover:border-py-blue-text/35 hover:bg-py-blue-text/[0.1] " +
+    "hover:border-py-orange/50 hover:bg-py-orange/[0.08] " +
     "disabled:hover:border-py-blue-text/15 disabled:hover:bg-py-blue-text/[0.05]",
   ghost:
-    "text-py-muted hover:text-white hover:bg-py-blue-text/[0.08] " +
+    "text-py-muted hover:text-py-orange-text hover:bg-py-orange/[0.09] " +
     "disabled:hover:text-py-muted disabled:hover:bg-transparent",
 };
 

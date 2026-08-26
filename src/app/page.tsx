@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { iconMap } from "./lib/icons";
 import PageShell from "./components/pages/PageShell";
 import Notice from "./components/pages/Notice";
@@ -18,17 +19,34 @@ export default function HomePage() {
           <Notice />
         </div>
 
-        <h1 className="animate-rise py-delay-1 mx-auto mt-8 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+        {/* Brand mark. Idles with a slow float, tilts and picks up an orange
+            ring on hover — the treatment carried over from the live site. */}
+        <div className="animate-rise py-delay-1 mt-10 flex justify-center">
+          <div className="animate-float">
+            <div className="py-tilt py-accent-ring relative h-36 w-36 overflow-hidden rounded-full shadow-lg ring-1 ring-py-blue-text/15 md:h-44 md:w-44">
+              <Image
+                src="/images/icon/portfoliyou.png"
+                alt="Portfoli-YOU logo"
+                width={512}
+                height={512}
+                className="h-full w-full object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        <h1 className="animate-rise py-delay-2 mx-auto mt-8 max-w-3xl text-4xl font-bold tracking-tight text-white md:text-6xl">
           Your portfolio,{" "}
           <span className="py-gradient-text">built in an afternoon</span>
         </h1>
 
-        <p className="animate-rise py-delay-2 mx-auto mt-5 max-w-xl text-base leading-relaxed text-py-muted md:text-lg">
+        <p className="animate-rise py-delay-3 mx-auto mt-5 max-w-xl text-base leading-relaxed text-py-muted md:text-lg">
           {site.name} is a drag-and-drop builder for personal sites. Pick a
           theme, drop in your work, publish. No code, no lock-in, free to start.
         </p>
 
-        <div className="animate-rise py-delay-3 mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="animate-rise py-delay-4 mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <ButtonLink href={primaryCta.href} size="lg">
             {primaryCta.label}
           </ButtonLink>
@@ -38,7 +56,7 @@ export default function HomePage() {
         </div>
 
         {/* Product shot */}
-        <div className="animate-rise py-delay-4 relative mx-auto mt-14 max-w-4xl md:mt-20">
+        <div className="animate-rise py-delay-5 relative mx-auto mt-14 max-w-4xl md:mt-20">
           {/* Bleeds vertically only — horizontal bleed pushes past the
               viewport on narrow screens and causes sideways scroll. */}
           <div
@@ -94,7 +112,7 @@ export default function HomePage() {
       {/* Close ------------------------------------------------------------- */}
       <section className="py-container pb-20 text-center md:pb-28">
         <h2 className="text-2xl font-bold tracking-tight text-white md:text-3xl">
-          Built in the open, by one person
+          Built in the open
         </h2>
         <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-py-muted">
           It isn&apos;t finished yet. If you want to follow along, contribute a
@@ -102,7 +120,7 @@ export default function HomePage() {
           way in.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <ButtonLink href="/involved" size="lg">
+          <ButtonLink href="/about#involved" size="lg">
             Get involved
           </ButtonLink>
           <ButtonLink href="/product" variant="secondary" size="lg">

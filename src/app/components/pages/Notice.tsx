@@ -40,8 +40,12 @@ export default function Notice({ className = "" }: { className?: string }) {
     <div
       role="status"
       className={[
-        "animate-fade-in flex items-center gap-3 rounded-full border border-py-blue-text/12",
-        "bg-py-blue-text/[0.05] py-1.5 pl-4 pr-1.5 text-xs backdrop-blur-sm",
+        // Slow orange glow plus a tilt on hover — the treatment the live site
+        // uses on its "Coming Soon" box, applied to the status pill that
+        // replaced it.
+        "animate-fade-in animate-pulse-glow py-tilt py-accent-hover",
+        "flex items-center gap-3 rounded-full border border-py-orange/30",
+        "bg-py-orange/[0.07] py-1.5 pl-4 pr-1.5 text-xs backdrop-blur-sm",
         className,
       ]
         .filter(Boolean)

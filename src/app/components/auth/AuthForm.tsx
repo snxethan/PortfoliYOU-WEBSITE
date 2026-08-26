@@ -246,25 +246,25 @@ export default function AuthForm({ mode }: { mode: Mode }) {
 
           {/* Early-access panel */}
           {waitlistOpen ? (
-            <div className="animate-fade-in mt-5 rounded-lg border border-amber-400/25 bg-amber-400/[0.06] p-4">
+            <div className="animate-fade-in mt-5 rounded-lg border border-py-orange/30 bg-py-orange/[0.07] p-4">
               {waitlistDone ? (
                 <div className="flex items-start gap-2.5">
-                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/15 text-amber-300">
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-py-orange/15 text-py-orange-text">
                     <Check size={12} aria-hidden />
                   </span>
-                  <p className="text-sm leading-relaxed text-amber-100/85">
+                  <p className="text-sm leading-relaxed text-py-muted">
                     You are on the list. We will email{" "}
-                    <span className="font-medium text-amber-100">{email}</span>{" "}
+                    <span className="font-medium text-white">{email}</span>{" "}
                     as soon as accounts open.
                   </p>
                 </div>
               ) : (
                 <>
                   <div className="flex items-start gap-2.5">
-                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-400/15 text-amber-300">
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-py-orange/15 text-py-orange-text">
                       <Lock size={11} aria-hidden />
                     </span>
-                    <p className="text-sm leading-relaxed text-amber-100/85">
+                    <p className="text-sm leading-relaxed text-py-muted">
                       Accounts are not open yet — Portfoli-YOU is still in
                       development. Add your email and you will be the first to
                       know when sign-in goes live.

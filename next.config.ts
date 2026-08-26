@@ -54,6 +54,7 @@ const nextConfig: NextConfig = {
       { source: "/installer", destination: "/product", permanent: true },
       { source: "/build", destination: "/product", permanent: true },
       { source: "/features", destination: "/product", permanent: true },
+      { source: "/involved", destination: "/about#involved", permanent: true },
     ];
   },
 };

@@ -4,13 +4,17 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import PageShell from "../components/pages/PageShell";
 import ContactFormModal from "../components/ContactFormModal";
-import { Badge, Button, ButtonLink, Card, Eyebrow } from "../components/ui";
+import { Badge, Button, Card, Eyebrow } from "../components/ui";
+import TeamSection from "../components/about/TeamSection";
+import InvolvedSection from "../components/about/InvolvedSection";
 import { faqs, repos, roadmap, security, site } from "../lib/site";
 
-/** Rail entries: every question, then the two long-form blocks. */
+/** Rail entries: every question, then the long-form blocks. */
 const extras = [
   { id: "roadmap", label: "Roadmap" },
   { id: "security", label: "Security & privacy" },
+  { id: "team", label: "Who makes this" },
+  { id: "involved", label: "Get involved" },
 ] as const;
 
 const stateTone = { active: "action", next: "brand", planned: "neutral" } as const;
@@ -122,7 +126,7 @@ export default function AboutPage() {
                           "w-full rounded-r-lg px-3 py-2 text-left text-sm transition-colors duration-200",
                           isActive
                             ? "bg-py-blue-text/[0.06] font-medium text-white"
-                            : "text-py-muted hover:bg-py-blue-text/[0.04] hover:text-white",
+                            : "text-py-muted hover:bg-py-orange/[0.07] hover:text-py-orange-text",
                         ].join(" ")}
                       >
                         {entry.label}
@@ -266,6 +270,36 @@ export default function AboutPage() {
               </div>
             </section>
 
+            {/* Who makes this */}
+            <section
+              id="team"
+              ref={(el) => {
+                refs.current.team = el;
+              }}
+              className="mt-20 max-w-2xl scroll-mt-28"
+            >
+              <h2 className="text-lg font-semibold text-white">
+                Who makes this
+              </h2>
+              <div className="mt-2.5">
+                <TeamSection />
+              </div>
+            </section>
+
+            {/* Get involved */}
+            <section
+              id="involved"
+              ref={(el) => {
+                refs.current.involved = el;
+              }}
+              className="mt-20 max-w-2xl scroll-mt-28"
+            >
+              <h2 className="text-lg font-semibold text-white">Get involved</h2>
+              <div className="mt-2.5">
+                <InvolvedSection />
+              </div>
+            </section>
+
             {/* Close */}
             <Card className="mt-20 max-w-2xl p-6 md:p-8">
               <h2 className="text-lg font-semibold text-white">
@@ -282,9 +316,6 @@ export default function AboutPage() {
                 </a>
                 .
               </p>
-              <div className="mt-6">
-                <ButtonLink href="/involved">Get involved</ButtonLink>
-              </div>
             </Card>
           </div>
         </div>

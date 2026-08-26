@@ -55,7 +55,7 @@ export default function Navbar() {
           className="group flex shrink-0 items-center gap-2.5"
           aria-label={`${site.name} home`}
         >
-          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-py-blue-text/15 transition-shadow duration-200 group-hover:ring-py-blue/50 md:h-10 md:w-10">
+          <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-py-blue-text/15 transition-shadow duration-200 group-hover:ring-py-orange/60 md:h-10 md:w-10">
             <Image
               src="/images/icon/portfoliyou.png"
               alt=""
@@ -83,7 +83,7 @@ export default function Navbar() {
                     "relative inline-flex h-9 items-center rounded-full px-4 text-sm font-medium transition-colors duration-200",
                     active
                       ? "bg-py-blue/18 text-white"
-                      : "text-py-muted hover:text-white",
+                      : "text-py-muted hover:text-py-orange-text hover:bg-py-orange/[0.08]",
                   ].join(" ")}
                 >
                   {item.label}
@@ -130,7 +130,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="py-mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-py-blue-text/10 bg-py-blue-text/[0.04] text-py-muted transition-colors hover:text-white md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-py-blue-text/10 bg-py-blue-text/[0.04] text-py-muted transition-colors hover:border-py-orange/50 hover:text-py-orange-text md:hidden"
         >
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
@@ -149,7 +149,7 @@ export default function Navbar() {
                   "rounded-lg px-3 py-3 text-base font-medium transition-colors",
                   isActive(item.href)
                     ? "bg-py-blue/18 text-white"
-                    : "text-py-muted hover:bg-py-blue-text/[0.06] hover:text-white",
+                    : "text-py-muted hover:bg-py-orange/[0.08] hover:text-py-orange-text",
                 ].join(" ")}
               >
                 {item.label}
