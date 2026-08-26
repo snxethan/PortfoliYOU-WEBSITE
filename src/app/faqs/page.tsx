@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import PageShell from "../components/pages/PageShell";
@@ -32,7 +33,7 @@ function navOffset() {
   return parseFloat(raw) * 16 || 72;
 }
 
-export default function AboutPage() {
+export default function FaqsPage() {
   const [showContact, setShowContact] = useState(false);
 
   const entries = useMemo(
@@ -177,7 +178,15 @@ export default function AboutPage() {
               <h2 className="text-lg font-semibold text-white">Roadmap</h2>
               <p className="mt-2.5 text-sm leading-relaxed text-py-muted">
                 Built in the open. Each phase tracks real milestones in the
-                public repositories, not marketing dates.
+                public repositories, not marketing dates. For what has already
+                landed, see the{" "}
+                <Link
+                  href="/changelog"
+                  className="text-py-blue-text underline underline-offset-2"
+                >
+                  changelog
+                </Link>
+                .
               </p>
 
               <ol className="mt-6 space-y-3">

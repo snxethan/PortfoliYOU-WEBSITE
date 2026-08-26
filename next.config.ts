@@ -48,13 +48,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // `/download` and `/installer` predate the move to a browser-only
-      // builder; `/build` and `/features` were short-lived intermediate names.
-      { source: "/download", destination: "/product", permanent: true },
-      { source: "/installer", destination: "/product", permanent: true },
-      { source: "/build", destination: "/product", permanent: true },
-      { source: "/features", destination: "/product", permanent: true },
-      { source: "/involved", destination: "/about#involved", permanent: true },
+      // Everything that has ever pointed at the builder page. `/download` and
+      // `/installer` predate the move to a browser-only builder; `/build`,
+      // `/features` and `/product` were intermediate names; `/install` came
+      // from the pre-rebuild site.
+      { source: "/download", destination: "/use", permanent: true },
+      { source: "/installer", destination: "/use", permanent: true },
+      { source: "/install", destination: "/use", permanent: true },
+      { source: "/build", destination: "/use", permanent: true },
+      { source: "/features", destination: "/use", permanent: true },
+      { source: "/product", destination: "/use", permanent: true },
+      // The FAQ has been /about and /faq at different points.
+      { source: "/about", destination: "/faqs", permanent: true },
+      { source: "/faq", destination: "/faqs", permanent: true },
+      { source: "/involved", destination: "/faqs#involved", permanent: true },
     ];
   },
 };

@@ -6,7 +6,7 @@ import { Badge, ButtonLink, Card, Eyebrow } from "../components/ui";
 import { deployTargets, included, targets } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Product",
+  title: "Use",
   description:
     "How Portfoli-YOU works: create a project, lay out pages, drop in widgets, edit the generated code, and ship to the host of your choice — in the framework of your choice.",
 };
@@ -140,8 +140,8 @@ export default function ProductPage() {
                 ))}
               </ul>
               <div className="mt-7 flex flex-wrap gap-3">
-                <ButtonLink href="/about#involved">Help build it</ButtonLink>
-                <ButtonLink href="/about" variant="secondary">
+                <ButtonLink href="/faqs#involved">Help build it</ButtonLink>
+                <ButtonLink href="/faqs" variant="secondary">
                   Read the FAQ
                 </ButtonLink>
               </div>

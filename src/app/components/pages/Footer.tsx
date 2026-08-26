@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import TooltipWrapper from "../ToolTipWrapper";
@@ -17,50 +17,9 @@ import { domains, site, socialLinks } from "../../lib/site";
  * policy now lives on the FAQ and in page metadata.
  */
 const Footer = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   const linkClass =
     "inline-flex items-center transition-all duration-200 ease-out hover:text-py-orange-soft hover:scale-105 " +
     "active:scale-100 focus-visible:outline-none focus-visible:text-py-orange-soft focus-visible:scale-105";
-
-  if (loading) {
-    return (
-      <footer className="w-full border-t border-py-blue-text/10 bg-py-surface px-6 py-6 text-py-muted">
-        <div className="mx-auto flex max-w-8xl flex-col items-center gap-6">
-          <div className="flex w-full flex-col items-center justify-between gap-4 text-sm lg:flex-row">
-            {/* Left: social links skeleton */}
-            <div className="order-3 mt-2 lg:order-1 lg:mt-0">
-              <div className="flex items-center gap-4">
-                <div className="py-skeleton h-5 w-5 rounded-full" />
-                <div className="py-skeleton h-5 w-5 rounded-full" />
-              </div>
-            </div>
-
-            {/* Center: logo & name skeleton */}
-            <div className="order-1 flex items-center gap-2 lg:order-2">
-              <div className="py-skeleton h-8 w-8 rounded-full" />
-              <div className="py-skeleton h-5 w-40" />
-            </div>
-
-            {/* Right: domain links skeleton */}
-            <div className="order-2 lg:order-3">
-              <div className="footer-links flex flex-col items-center gap-2 sm:flex-row">
-                <div className="flex gap-4">
-                  <div className="py-skeleton h-5 w-16" />
-                  <div className="py-skeleton h-5 w-24" />
-                  <div className="py-skeleton h-5 w-32" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
-  }
 
   return (
     <footer className="w-full border-t border-py-blue-text/10 bg-py-surface px-6 py-6 text-py-muted">

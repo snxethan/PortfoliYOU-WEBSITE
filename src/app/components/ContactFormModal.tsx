@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import toast from "react-hot-toast";
 import { Loader2, X } from "lucide-react";
 import { Button, Eyebrow } from "./ui";
+import { useIsClient } from "../lib/hooks";
 
 interface Props {
   onClose: () => void;
@@ -18,8 +19,8 @@ const labelClass = "mb-1.5 block text-xs font-medium text-py-muted";
 
 /** Sends a message to the developer through /api/contact. */
 export default function ContactFormModal({ onClose }: Props) {
+  const isClient = useIsClient();
   const [closing, setClosing] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [sending, setSending] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +32,6 @@ export default function ContactFormModal({ onClose }: Props) {
   }, [onClose]);
 
   useEffect(() => {
-    setMounted(true);
     document.body.classList.add("overflow-hidden");
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -68,7 +68,8 @@ export default function ContactFormModal({ onClose }: Props) {
     }
   };
 
-  if (!mounted) return null;
+  // createPortal needs document; useIsClient is false on the server render.
+  if (!isClient) return null;
 
   return createPortal(
     <div

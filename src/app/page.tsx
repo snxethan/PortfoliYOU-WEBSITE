@@ -50,7 +50,7 @@ export default function HomePage() {
           <ButtonLink href={primaryCta.href} size="lg">
             {primaryCta.label}
           </ButtonLink>
-          <ButtonLink href="/about" variant="secondary" size="lg">
+          <ButtonLink href="/faqs" variant="secondary" size="lg">
             Read the FAQ
           </ButtonLink>
         </div>
@@ -120,10 +120,10 @@ export default function HomePage() {
           way in.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <ButtonLink href="/about#involved" size="lg">
+          <ButtonLink href="/faqs#involved" size="lg">
             Get involved
           </ButtonLink>
-          <ButtonLink href="/product" variant="secondary" size="lg">
+          <ButtonLink href="/use" variant="secondary" size="lg">
             See how it works
           </ButtonLink>
         </div>

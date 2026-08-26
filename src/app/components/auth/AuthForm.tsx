@@ -305,7 +305,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
           <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-py-subtle">
             The builder works signed out. An account only adds cloud sync and
             one-click publishing.{" "}
-            <Link href="/about" className="underline underline-offset-2">
+            <Link href="/faqs" className="underline underline-offset-2">
               Read more
             </Link>
             .

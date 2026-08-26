@@ -50,12 +50,46 @@ export const authEnabled = false;
  */
 export const primaryCta = authEnabled
   ? { href: "/signup", label: "Start building — free" }
-  : { href: "/product", label: "See how it works" };
+  : { href: "/use", label: "See how it works" };
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/product", label: "Product" },
-  { href: "/about", label: "FAQ" },
+  { href: "/use", label: "Use" },
+  { href: "/faqs", label: "FAQs" },
+] as const;
+
+/**
+ * Release notes. Newest first — the top entry is what the changelog page
+ * treats as current. `state` drives the badge: "shipped" for anything a
+ * visitor can actually use, "progress" for work underway.
+ */
+export const changelog = [
+  {
+    version: "0.2.0",
+    date: "August 26, 2026",
+    dateISO: "2026-08-26",
+    state: "progress" as const,
+    title: "Site rebuild",
+    changes: [
+      "Rebuilt the site around the web-first direction for the builder.",
+      "New blue and orange palette, replacing red and near-black.",
+      "Added the five-stage product walkthrough.",
+      "Folded Get involved and the security policy into the FAQs.",
+      "Accounts are frozen until the builder is ready to sign in to.",
+    ],
+  },
+  {
+    version: "0.1.0",
+    date: "September 9, 2025",
+    dateISO: "2025-09-09",
+    state: "shipped" as const,
+    title: "First public site",
+    changes: [
+      "Landing page, FAQs and an installer placeholder.",
+      "Security policy and contact form.",
+      "Public repositories for the builder and this site.",
+    ],
+  },
 ] as const;
 
 export const repos = {

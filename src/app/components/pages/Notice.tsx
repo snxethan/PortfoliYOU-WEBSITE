@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { status } from "../../lib/site";
+import { useSessionFlag } from "../../lib/hooks";
 
 const DISMISS_KEY = "py-notice-dismissed";
 
@@ -13,22 +14,15 @@ const DISMISS_KEY = "py-notice-dismissed";
  * just be noise.
  */
 export default function Notice({ className = "" }: { className?: string }) {
-  const [dismissed, setDismissed] = useState(true);
+  // Read once, in a single render. Returns true on the server so a visitor who
+  // already dismissed this never sees it flash back on navigation.
+  const dismissedEarlier = useSessionFlag(DISMISS_KEY, status.updatedISO);
+  const [dismissedNow, setDismissedNow] = useState(false);
 
-  // Start hidden and reveal after checking storage, so a visitor who already
-  // dismissed it never sees the banner flash on navigation.
-  useEffect(() => {
-    try {
-      setDismissed(sessionStorage.getItem(DISMISS_KEY) === status.updatedISO);
-    } catch {
-      setDismissed(false);
-    }
-  }, []);
-
-  if (dismissed) return null;
+  if (dismissedEarlier || dismissedNow) return null;
 
   const dismiss = () => {
-    setDismissed(true);
+    setDismissedNow(true);
     try {
       sessionStorage.setItem(DISMISS_KEY, status.updatedISO);
     } catch {
@@ -61,7 +55,7 @@ export default function Notice({ className = "" }: { className?: string }) {
         <span className="mx-2 text-py-subtle">·</span>
         Not available yet —{" "}
         <Link
-          href="/about"
+          href="/faqs"
           className="text-py-blue-text underline underline-offset-2"
         >
           what that means
@@ -72,7 +66,7 @@ export default function Notice({ className = "" }: { className?: string }) {
         type="button"
         onClick={dismiss}
         aria-label="Dismiss notice"
-        className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-py-subtle transition-colors hover:bg-py-blue-text/10 hover:text-py-text"
+        className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-py-subtle transition-colors hover:bg-py-orange/10 hover:text-py-text"
       >
         <X size={12} />
       </button>

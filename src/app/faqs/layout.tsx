@@ -5,12 +5,12 @@ import type { Metadata } from "next";
  * lives here instead.
  */
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "FAQs",
   description:
     "What Portfoli-YOU is, what it costs, how your data is handled, and where the project is going next.",
 };
 
-export default function AboutLayout({
+export default function FaqsLayout({
   children,
 }: {
   children: React.ReactNode;

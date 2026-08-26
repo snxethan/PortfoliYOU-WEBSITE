@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   // the security policy is advertised in the head rather than in the footer,
   // which mirrors the personal portfolio's layout exactly.
   other: {
-    "security-policy": `${site.url}/about#security`,
+    "security-policy": `${site.url}/faqs#security`,
     "security-contact": security.contact,
   },
 };

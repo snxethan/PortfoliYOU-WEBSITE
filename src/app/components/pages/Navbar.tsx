@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { authEnabled, nav, site } from "../../lib/site";
+import { useScrolledPast } from "../../lib/hooks";
 import { Button, ButtonLink } from "../ui";
 
 const AUTH_SOON = "Accounts open once the builder is ready";
@@ -13,20 +14,22 @@ const AUTH_SOON = "Accounts open once the builder is ready";
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  // Transparent over the hero, gaining a surface once the page moves.
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Transparent over the hero, gaining a surface once the page moves. Read as
+  // an external store rather than state-plus-effect, so a page that loads
+  // already scrolled paints correctly on the first render.
+  const scrolled = useScrolledPast(8);
 
-  useEffect(() => {
+  // Close the mobile sheet when the route changes. Adjusting state during
+  // render is React's documented way to reset on a changing value — an effect
+  // here would render the open sheet once on the new route first.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
+  // Genuine external-system sync: the sheet locks body scroll.
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
     return () => document.body.classList.remove("overflow-hidden");
