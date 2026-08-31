@@ -93,7 +93,7 @@ export const changelog = [
 ] as const;
 
 export const repos = {
-  app: "https://github.com/snxethan/PortfoliYOU-APP",
+  app: "https://github.com/snxethan/py-app",
   website: "https://github.com/snxethan/PortfoliYOU-WEBSITE",
 } as const;
 
