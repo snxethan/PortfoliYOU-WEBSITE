@@ -64,7 +64,7 @@ const Footer = () => {
                 href={site.author.site}
                 className={`text-sm text-py-muted ${linkClass}`}
               >
-                {site.author.name} &copy; {new Date().getFullYear()}
+                snxethan &copy; {new Date().getFullYear()}
               </a>
             </TooltipWrapper>
           </div>
